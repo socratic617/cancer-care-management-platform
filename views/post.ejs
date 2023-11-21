@@ -1,0 +1,57 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="col-6 mt-5">
+    <a class="btn btn-primary" href="/profile">Return to Profile</a>
+    <a class="btn btn-primary" href="/feed">Return to Feed</a>
+  </div>
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <h2>Title: <%= post.title %></h2>
+      <p> Description: <%= post.caption %></p>
+      <img class="img-fluid" src="<%= post.image%>" />
+      <div class="row justify-content-between">
+        <form
+          class="col-1"
+          action="/post/likePost/<%= post.id %>?_method=PUT"
+          method="POST">
+          <button class="btn btn-primary fa fa-heart mt-4" type="submit"></button>
+        </form>
+        <h3 class="col-3 mt-4">Likes: <%= post.likes %></h3>
+        <%if(post.user == user.id){ %>
+        <form
+          action="/post/deletePost/<%= post.id %>?_method=DELETE"
+          method="POST"
+          class="col-3"> 
+          <!-- overides method post to delete just use method overide -->
+          <button class="btn btn-primary fa fa-trash mt-4" type="submit"></button>
+        </form>
+        <%}%>
+      </div>
+    </div>
+    <div class="col-3 mt-5">
+      
+      <form action="/post/createComment/<%= post.id %>/<%= user.id %>?_method=POST" method="POST" >
+
+        <label> Comment:</label>
+        <div class="input-group">
+          <textarea class="form-control mt-2" name="comment"></textarea> <!--adding text area for comment section and adding attribute name  for sending data to server-->
+        </div>
+        <!-- overides method post to delete just use method overide -->
+        <button class="btn btn-primary mt-4" type="submit"> Comment</button>
+
+      </form>
+      <% for(var i=0; i<comments.length; i++) { %>
+        <div class="card mt-4">
+          <div class="card-body ">
+            <p class="card-text ">Comment: <%= comments[i].comment %></p>
+            <p>MadeBy: <%= comments[i].madeBy %> </p>
+            <p>CreatedAt: <%= comments[i].createdAt %> </p>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
