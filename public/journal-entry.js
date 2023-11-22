@@ -14,6 +14,9 @@ document.querySelector('#add-entry').addEventListener('click', addRow)// adding 
 function addRow(){// function that gets triggered as a callback when clicking button "add new row" 
    
 
+     //a unique identifier for each row to be able to add / delete row to update properly in server/backend 
+    row_id++;
+
     let newRow = document.createElement('div')//adds a new div for the row
     newRow.id = 'row-' + row_id// adds a new index for row-id aka row- + index
     newRow.className = "grid grid-cols-6 gap-4" //added style for new row to be broken up as a grid w 6 columns to mirror  og row 
@@ -99,8 +102,6 @@ function displayDynamicInputFields(e){
             row.appendChild(createSleepInputs(index))
             break;
     }
-
-      row_id++;//a unique identifier for each row to be able to add / delete row to update properly in server/backend 
 
 }
 
