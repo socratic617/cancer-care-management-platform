@@ -1,0 +1,329 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Circle Of Warriors</title>
+
+  <!-- Tailwind Styling  -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
+
+  <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+
+  <div>
+
+    <!-- NAV SIDE BAR -->
+    <aside id="separator-sidebar"
+      class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      aria-label="Sidebar">
+      <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <!-- PROFILE PIC -->
+        <div>
+          <img class="w-10 h-10 rounded-full" src="img/profile_pic_one.jpg" alt="Jese image">
+          <div class="ps-3">
+            <div class="text-base font-semibold">
+              <%= user["warrior-name"] %>
+            </div>
+            <div class="font-normal text-gray-500">
+              <%= user["warrior-status"] %>
+            </div>
+          </div>
+        </div>
+
+        <ul class="space-y-2 font-medium">
+          <li>
+            <a href="/community-page"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                <path
+                  d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Community Page</span>
+            </a>
+          </li>
+          <li class="bg-white">
+            <a href="/journal-entry"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
+                <path
+                  d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
+                <path
+                  d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Journal Entry</span>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="/my-journals"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                <path
+                  d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">My Journals</span>
+            </a>
+          </li> -->
+
+          <li>
+            <a href="/visualization"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                <path
+                  d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                <path
+                  d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+              </svg>
+              <span class="ms-3">Visualization</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+          <!-- <li>
+            <a href="/account-settings"
+              class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+              <svg
+                class=" mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                <path
+                  d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
+              </svg>
+              <span class="ms-3">Account Settings</span>
+            </a>
+          </li> -->
+          <li>
+            <a href="/logout"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- CONTENT OF PAGE  -->
+    <div class="p-4 sm:ml-64">
+      <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+
+        <!-- AFFIRMATION QUOTE  -->
+        <!-- flex items-center -->
+        <div class="h-48 mb-4 pl-8 pt-8 rounded bg-gray-50 dark:bg-gray-800">
+          <h2 class="text-2xl text-gray-400 dark:text-gray-500"> Daily Affirmation: </h2>
+          <span class="flex items-center justify-center text-2xl text-gray-400 dark:text-gray-500 mt-4"> “Your journal will stand as a chronicle of your growth, your hopes, your fears, your dreams, your ambitions, your
+          sorrows, your serendipities.”</span>
+          
+          <p class="text-2xl text-gray-400 dark:text-gray-500">
+            <!-- <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 18 18">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 1v16M1 9h16" />
+            </svg>
+             -->
+          </p>
+        </div>
+
+        <form action="/journal-entry" method="POST" >
+          <!-- WELLNESS DATA ENTRY -->
+          <div class="items-center justify-center  pl-8 pt-8  mb-4 rounded bg-gray-50 dark:bg-gray-800">
+          
+            <div class="text-2xl text-gray-400 dark:text-gray-500 ">
+              <h2>Health Biometrics</h2>
+              <!-- BIOMETRIC_INFO ROWS (giving an id to know where to add and delete rows) -->
+              <div id="biometric-rows">
+                <!-- ADD FIRST NEW BIOMETRIC FIELD -->
+
+              </div>
+              
+          
+              <!-- ADD  NEW HEALTH BIOMETRIC ENTRY -->
+              <div class="grid grid-cols-5 gap-4 pb-8">
+
+                <!-- ADD BTN -->
+                <button
+                  id="add-entry" class="m-8 inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                  type="button">
+                  
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+                  </svg>
+                </button>
+              </div>
+            
+            </div>
+          </div>
+          
+          <!-- USERS JOURNAL ENTRY  -->
+          <div class="items-center justify-center pl-8 pt-8 pb-8 mb-4 rounded bg-gray-50 dark:bg-gray-800">
+          
+            <div class="text-2xl text-gray-400 dark:text-gray-500 ">
+          
+              <h2>Self-Care Entry</h2>
+          
+              <!-- DATE FATIGUE MOOD TREATMENT FIELDS -->
+              <div class="grid grid-cols-4 gap-4 pt-8">
+          
+                <!-- ENTRY DATE FIELD -->
+                <div>
+                  <label for="date-entry" class=" text-sm font-medium text-gray-900 dark:text-white">Entry Date</label>
+                  <div class="relative max-w-sm">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none ">
+                      <svg class="w-4 h-4 ml-2 mr-2 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                      </svg>
+                    </div>
+                    <input datepicker type="text" name="entry-date" id="entry-date"
+                      class="pl-8 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Select date">
+                  </div>
+          
+                </div>
+          
+                <!-- FATIGUE DROPDOWN FIELD  -->
+                <div>
+                  <label for="fatigue-entry" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Fatigue Level
+                  </label>
+          
+                  <select id="fatigue-entry" name="fatigue-entry"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
+                    <option value="" selected> Select Fatigue Level </option>
+                    <option value="1">1 being the worst</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10 being you feeling great</option>
+                  </select>
+          
+                </div>
+          
+                <!-- SLECT MOOD FIELD -->
+                <div>
+                  <label for="mood" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select How Your
+                    Feeling</label>
+                  <select name="mood" id="mood"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option>Happy</option>
+                    <option>Creative</option>
+                    <option>Grateful</option>
+                    <option>Excited</option>
+                    <option>Sad</option>
+                    <option>Mad</option>
+                    <option>Tired</option>
+                  </select>
+                </div>
+          
+                <!-- TREATMENT FIELD -->
+                <div>
+                  <label for="treatment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Status
+                    Treatment</label>
+                  <select name="treatment" id="treatment"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option>None</option>
+                    <option>Chemothearpy</option>
+                    <option>Hydration</option>
+                    <option>Radiation</option>
+                    <option>Surgery</option>
+                  </select>
+                </div>
+              </div>
+          
+              <!-- IMAGE  -->
+              <div class="grid grid-cols-2 gap-4 pt-8">
+
+                <!--  IMAGE   -->
+                <div>
+                  <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image URL For
+                    Post</label>
+                  <input type="text" name="image" id="modal-image"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="https://imageURL.com/" required="">
+                </div>
+              </div>
+          
+              <!--  DIARY  -->
+              <div class="grid gap-4 pt-8">
+                <div>
+                  <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Self Care
+                    Reflection</label>
+                  <textarea id="description" name="description" rows="8"
+                    class="w-full block p-2.5  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="Your description here"></textarea>
+                </div>
+              </div>
+          
+              <!-- PRIVATE OR PUBLIC JOURNAL POST -->
+              <div class="pt-8">
+                <label for="private-mode" class="relative inline-flex items-center me-5 cursor-pointer">
+                  <input type="checkbox" name="private-mode" id="private-mode" value="" class="sr-only peer" checked>
+                  <div
+                    class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-600">
+                  </div>
+                  <span class="ms-3 ml-4 text-sm font-medium text-gray-900 dark:text-gray-300">Turn off for Private Journal</span>
+                </label>
+              </div>
+
+              <!-- CREATE BUTTON -->
+              <div class=" gap-4 pt-8">
+                <button type="submit"
+                  class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                  Create Entry 🌱</button>
+              </div>
+            </div>
+          
+          </div>
+
+          <!-- key "name = "id" sent to server  & added type=hidden to hide it in the DOM -->
+          <input type="hidden" id="creatorId" name="creatorId" value="<%= user._id %>" />
+          <input type="hidden" id="warrior-name" name="warrior-name" value="<%= user['warrior-name']%>" />
+          <input type="hidden" id="warrior-status" name="warrior-status" value="<%= user['warrior-status'] %>" />
+          <input type="hidden" id="caregiver-patient-name" name="caregiver-patient-name" value="<%= user['caregiver-patient-name'] %>" />
+          <input type="hidden" id="caregiver-patient-status" name="caregiver-patient-status" value="<%= user['caregiver-patient-status'] %>" />
+          <input type="hidden" id="relationship-type" name="relationship-type" value="<%= user['relationship-type'] %>" />
+          <input type="hidden" id="cancer-type" name="cancer-type" value="<%= user['cancer-type'] %>" />
+          <input type="hidden" id="lang-type" name="lang-type" value="<%= user['lang-type'] %>" />
+
+
+
+        </form>
+
+        
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="/journal-entry.js"></script>
+
+  <!-- Tailwind Styling  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/datepicker.min.js"></script>
+</body>
+
+</html>
