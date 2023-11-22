@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect("/profile");
+    return res.redirect("/community-page");
   }
 
     res.render("login", {
@@ -16,20 +16,22 @@ exports.getLogin = (req, res) => {
 };
 
 exports.postLogin = (req, res, next) => {
-  const validationErrors = [];
-  if (!validator.isEmail(req.body.email))
-    validationErrors.push({ msg: "Please enter a valid email address." });
-  if (validator.isEmpty(req.body.password))
+  const validationErrors = [];// errors thrown for my validation
+  if (!validator.isEmail(req.body.email))//check validation  for email
+    validationErrors.push({ msg: "Please enter a valid email address." });//pushing object into ValidationErrors Array
+  if (validator.isEmpty(req.body.password))//check validation for password 
     validationErrors.push({ msg: "Password cannot be blank." });
 
+  //this condition is checking if there is any errors at all (at a high level)
   if (validationErrors.length) {
-    req.flash("errors", validationErrors);
-    return res.redirect("/login");
+    req.flash("errors", validationErrors);//req.flashmethod will showcase errors in validation error array that was stored 
+    return res.redirect("/login");// it will refresh those errors on log in pg with errors that .flash will show
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
   });
 
+  //Purpose: the local straegy uses email as unique identifier for authenticating. All this logic exists in config (passport file)
   passport.authenticate("local", (err, user, info) => {
     if (err) {
       return next(err);
@@ -43,7 +45,7 @@ exports.postLogin = (req, res, next) => {
         return next(err);
       }
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "/profile");
+      res.redirect(req.session.returnTo || "/community-page");
     });
   })(req, res, next);
 };
@@ -62,7 +64,7 @@ exports.logout = (req, res) => {
 
 exports.getSignup = (req, res) => {
   if (req.user) {
-    return res.redirect("/profile");
+    return res.redirect("/community-page");
   }
   console.log('req.flash: ')
   console.log(req.flash('signupMessage'))
@@ -143,7 +145,7 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          res.redirect("/profile");
+          res.redirect("/community-page");
         });
       });
     }
