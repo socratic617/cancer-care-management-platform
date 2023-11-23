@@ -9,22 +9,81 @@
 </head>
 
 <body>
+
+    <nav class="bg-white dark:bg-gray-900 fixed w-full z-20  top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="/imgs/site-logo.svg" class="h-20" alt="Flowbite Logo">
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <a href="/login"
+                    class=" mr-8 inline-flex justify-center items-center py-2 px-4 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                    <%=translation.LOG_IN_BUTTON%>
+                </a>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                            aria-current="page"><%=translation.HOME%></a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><%=translation.MISSION%></a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><%=translation.SERVICES%></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <section
-        class="bg-center bg-no-repeat bg-[url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/978f7b45162383.585919a5e896a.gif')] bg-gray-700 bg-blend-multiply">
-        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+        class="jumbotron-img bg-center bg-no-repeat bg-gray-700 bg-blend-multiply">
+        <div class="px-4 mx-auto text-center lg:py-56">
+            <div class="grid grid-cols-5 gap-4">
+                <div></div>
+                <div></div>
+                <div>
+                    <!--using ejs for selecting options dynamically , if the variable of lang is 'en' then select this option vice versa when slecting 'es' which is set by the server -->
+                    <label for=id="lang" class="block mb-2 text-base font-medium text-white dark:text-white">Elige tu idioma/ Choose your
+                        language</label>
+                    <select id="lang"
+                        class="block w-full px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="en" <%=lang==='en' ? 'selected' : '' %>>English</option>
+                        <option value="es" <%=lang==='es' ? 'selected' : '' %>>Spanish</option>
+                    </select>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="flex justify-center">
+                <img src="/imgs/site-logo.svg" alt="logo">
+            </div>
+            
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-                <img class="text-center" src="/imgs/site-logo.svg" alt="logo">WELCOME TO: <br> CIRCLE OF WARRIORS</h1>
-            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48"> JOIN A SUPPORT GROUP FOR
-                CANCER WARRIORS</p>
+                <%=translation.WELCOME_MSG_ONE%><br>
+                <%=translation.WELCOME_MSG_TWO%>
+            </h1>
+
+           
+    
+
+
+            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48"> <%=translation.SUB_HEADER%></p>
             <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
                 <a href="/login"
                     class=" mr-8 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                    Login In
+                    <%=translation.LOG_IN_BUTTON%>
 
                 </a>
                 <a href="/signup"
                     class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
-                    Sign Up
+                    <%=translation.SIGN_UP_BUTTON%>
                 </a>
             </div>
         </div>
@@ -34,6 +93,7 @@
 
     <!-- Tailwind Styling  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+    <script src="language.js"></script>
 </body>
 
 </html>
