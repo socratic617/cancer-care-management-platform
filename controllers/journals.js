@@ -2,12 +2,12 @@ const cloudinary = require("../middleware/cloudinary");
 const Journal = require("../models/Journal");
 module.exports = {
 
-    getCommunity: async (req, res) => {
-    try {
+    getCommunity: async (req, res) => {//getCommunity is my method for journalsController 
+    try {// is going to run the code and if error, itll exit my try go to my catch error
       console.log('req.user : ')
       console.log(req.user)
-      // const posts = await Post.find({ user: req.user.id });
-      res.render("community-page.ejs", {  user: req.user, entries: [] });//*****TO DO: Create Request to database and model for journals (add schema for journal aka model)*** *********TO DO*/
+      const journals = await Journal.find();// go and find me the journals (entries that users inputted )
+      res.render("community-page.ejs", {  user: req.user, journals : journals});//"journals : journals" input where your entries[] is .  respond with creating my 'community-page.ejs'
     } catch (err) {
       console.log(err);
     }
@@ -22,7 +22,7 @@ module.exports = {
       console.log(err);
     }
   },
-   postJournal: async (req, res) => {
+  postJournal: async (req, res) => {
     try {
       console.log('req.file: ')
       console.log(req.file)
@@ -125,4 +125,25 @@ module.exports = {
       console.log(err);
     }
   },
+  updateFavorite: async (req, res) => {
+    try {
+      console.log('req.user : ')
+      console.log(req.user)
+      const posts = await Post.find({ user: req.user.id });
+      // res.render("journal-entry.ejs", {  user: req.user });//*****TO DO: Create Request to database and model for journals (add schema for journal aka model)*** *********TO DO*/
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  deleteJournal: async (req, res) => {
+    try {
+      console.log('req.user : ')
+      console.log(req.user)
+      // // const posts = await Post.find({ user: req.user.id });
+      // res.render("journal-entry.ejs", {  user: req.user });//*****TO DO: Create Request to database and model for journals (add schema for journal aka model)*** *********TO DO*/
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
 };
