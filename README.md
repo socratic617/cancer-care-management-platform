@@ -76,4 +76,5 @@ Start the server
 - How to update the sign up information to have the user fill in information about themselves
 - How to move over to a MVC model
 - More complex user authentication
+- How to make two way data binding with drop down menus for dynamic input fields in my Health Biometrics Field
 
