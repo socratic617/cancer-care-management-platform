@@ -10,7 +10,8 @@ const logger = require("morgan");//connecting diff code together
 const connectDB = require("./config/database");//load database
 const mainRoutes = require("./routes/main");//then connect my routes
 const journalsRoutes = require("./routes/journals");
-
+const path = require('path');//
+const i18n=require("i18n-express"); // <-- require the module
 //Use .env file in config folder , so my secrets dont go up w password to gtihub
 require("dotenv").config({ path: "./config/.env" });
 
@@ -46,6 +47,14 @@ app.use(
   })
 );
 
+//Setup for Lang in json i18n
+app.use(i18n({
+  translationsPath: path.join(__dirname, 'i18n'), // <--- use here. Specify translations files path.
+  siteLangs: ["en","es"],
+  textsVarName: 'translation',
+  paramLangName: 'lang',
+})); 
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -62,3 +71,4 @@ app.listen(process.env.PORT, () => {
   console.log("Port number : ",process.env.PORT)
   console.log("Server is running, you better catch it!");
 });
+
