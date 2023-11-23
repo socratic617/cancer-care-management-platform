@@ -105,6 +105,11 @@ module.exports = {
           if(log['sleep'] !== undefined){
           result.visualTotals.totalHoursSlept += parseInt(log.sleep)
         }
+          if(log['hydration'] !== undefined){
+          result.visualTotals.totalHydration += parseInt(log.hydration)
+        }
+        
+        
 
       }
 
