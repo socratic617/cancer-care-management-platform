@@ -9,7 +9,7 @@ const flash = require("express-flash");// sends notifications that a message exi
 const logger = require("morgan");//connecting diff code together
 const connectDB = require("./config/database");//load database
 const mainRoutes = require("./routes/main");//then connect my routes
-const postRoutes = require("./routes/posts");
+const journalsRoutes = require("./routes/journals");
 
 //Use .env file in config folder , so my secrets dont go up w password to gtihub
 require("dotenv").config({ path: "./config/.env" });
@@ -55,7 +55,7 @@ app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes); 
-app.use("/post", postRoutes); 
+app.use("/journals", journalsRoutes); 
 
 //Server Running
 app.listen(process.env.PORT, () => {
