@@ -59,7 +59,8 @@ module.exports = {
         visualTotals: {
           totalHydration: null,
           totalHoursSlept: null,
-          totalProtein: null
+          totalProtein: null,
+          totalActivity: null
         }
       };
 
@@ -96,7 +97,7 @@ module.exports = {
         }
       }
 
-      // Total sleep, Total hydration, totalProtein
+      // Total sleep, Total hydration, totalProtein, totalActivity
       for(let i= 0; i < result.entries.length ; i++){
         let log = result.entries[i]
         if(log['protein'] !== undefined){
@@ -107,6 +108,9 @@ module.exports = {
         }
           if(log['hydration'] !== undefined){
           result.visualTotals.totalHydration += parseInt(log.hydration)
+        }
+          if(log['duration'] !== undefined){
+          result.visualTotals.totalActivity += parseInt(log.duration)
         }
         
         
