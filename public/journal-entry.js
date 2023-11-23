@@ -4,7 +4,7 @@ let inputClass = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounde
 
 let row_id = 0;// creating variable to store row id index. Pro: this row id gives a unique identifier to row so i can add or delete rows
 
-let entryTypeOptions = ['Select Entry','Sleep', 'Food'] // creating an arrayto be able to access easier options / or add options easier 
+let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration'] // creating an arrayto be able to access easier options / or add options easier 
 
  addRow()//calling add row function to create row 0 when page is loaded
 
@@ -92,6 +92,7 @@ function displayDynamicInputFields(e){
         row.removeChild(row.lastChild);//the purpose for this is to remove the "lastChild" from the previous input field (it is wrapped in a div for each entry type to be able to be removed )
     }
 
+    //dynamically rendering input fields 
     switch (selectedOption) {
         case "Food" :
             row.appendChild(createFoodInputs(index))
@@ -101,8 +102,20 @@ function displayDynamicInputFields(e){
             console.log("Sleep Selected in switch case");
             row.appendChild(createSleepInputs(index))
             break;
+        case "Hydration":
+            console.log("Hydration Selected in switch case");
+            row.appendChild(createHydrationInputs(index))
+            break;
     }
 
+}
+
+function createHydrationInputs(index){//helper functions are functions to help assist me with code  
+
+//this is going to let me create an input text field, like types text, number, 
+// function create the inputs faster with my helper input. 
+    let hydration = createInputNumberField("hydration","Fluid Intake (mL)", 0, 10000, index)//index is row number
+    return createInputTemplate("hydration-input", index, [hydration]);
 }
 
 function createSleepInputs(index){//helper functions are functions to help assist me with code  
