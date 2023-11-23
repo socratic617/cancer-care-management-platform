@@ -1,5 +1,5 @@
 body{
-  padding-top:80px;
+  /* padding-top:80px; */
   word-wrap:break-word;
 }
 
@@ -13,4 +13,9 @@ img{
 
 .caregiver-inputs{
   display: none;
+}
+
+.jumbotron-img {
+  background-image: url("/imgs/background-img.jpg");
+  object-fit: cover;
 }
