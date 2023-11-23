@@ -4,7 +4,8 @@ let inputClass = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounde
 
 let row_id = 0;// creating variable to store row id index. Pro: this row id gives a unique identifier to row so i can add or delete rows
 
-let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration'] // creating an arrayto be able to access easier options / or add options easier 
+let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration', 'Activity'] // creating an arrayto be able to access easier options / or add options easier 
+
 
  addRow()//calling add row function to create row 0 when page is loaded
 
@@ -106,6 +107,10 @@ function displayDynamicInputFields(e){
             console.log("Hydration Selected in switch case");
             row.appendChild(createHydrationInputs(index))
             break;
+        case "Activity":
+            console.log("Activity Selected in switch case");
+            row.appendChild(createActivityInputs(index))
+            break;
     }
 
 }
@@ -137,17 +142,31 @@ function createFoodInputs(index){//helper functions are functions to help assist
     return createInputTemplate("food-input", index, [food,protein]);
 }
 
-        
+function createActivityInputs(index){//helper functions are functions to help assist me with code 
+//this is going to let me create an input text field, like types text, number, 
+// function create the inputs faster with my helper input. 
+    
+    let activityTypeOptions = ['Activity Type','Run', 'Walk', 'Bike', 'Yoga', 'Swim', 'Weight Lifting'] // creating an arrayto be able to access easier options / or add options easier 
+    let activity = createSelectInputs("activity-type", "Activity Type",activityTypeOptions, index )
+    let duration = createInputNumberField("duration","Duration (hrs)", 0, 24, index)
+
+    return createInputTemplate("activity-input", index, [activity, duration]);
+
+}
+
+// creates two divs (parent and grand parent )
 function createInputTemplate(id, index, arrElements){
 
     let parentDiv = document.createElement('div')
     parentDiv.className = 'grid grid-cols-3 gap-4'
 
+    // loops through all inputs that need to be added to parentDiv until there is no more inputs
     for( let input of arrElements){
         //input = food
         parentDiv.appendChild(input)
     }
 
+    //then creates grandparent to add parent div inside of it 
     let grandParentDiv = document.createElement('div')
     grandParentDiv.className = "col-span-3"
     grandParentDiv.id = id + "-" + index
@@ -259,39 +278,42 @@ function createTimeInputs(index){//helper functions are functions to help assist
     return timeEntryParentDiv;
 }
 
+//options = ['Select Entry','Sleep', 'Food', 'Hydration'] 
 
-function createSelectInputs(name, labelText, options, index){
+//creating a select inputs with the options
+function createSelectInputs(name, labelText, options, index){// passing 4 params 
 
-    let select = document.createElement('select')
-    select.className = "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    select.id = name + "-" + index 
-    select.name = name + "-" + index
-    select.required = true
+    let select = document.createElement('select')//creating select element
+    select.className = "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"//adding styling to select element 
+    select.id = name + "-" + index//adding index to that option selected
+    select.name = name + "-" + index//adding index to that option selected
+    select.required = true// have to select an option
     console.log('options : inside create select inputs :  ', options)
-    //create a for loop to select an option
+    
+    //purpose: to create options and info get sent to server
     for(let i = 0; i < options.length; i++){
-        let option = document.createElement('option') 
-        option.innerText = options[i]    
+        let option = document.createElement('option') // create options element 
+        option.innerText = options[i]    //what my user sees when they see option 
         
-        if (i === 0 ){ 
+        if (i === 0 ){ // at the first element of array 0 , it will be my first option which is my default 
      
-            option.value = ''
-            option.selected = true
+            option.value = '' //my default has no value bc its a placeholder
+            option.selected = true// when you open pg it selects the default that has no value
             
         }
-        else{
+        else{// when you select option showcase the value
             
-            option.value = options[i]
+            option.value = options[i]//that value will be sent to browser to see if its a valid value
         }
 
-        select.appendChild(option)
+        select.appendChild(option)//create other options the same way
     }
-    let selectLabel = document.createElement('label')
+    let selectLabel = document.createElement('label') // creating label element
     selectLabel.for = name + "-"+ index
-    selectLabel.className = labelClass
-    selectLabel.innerText = labelText
-    let selectParentDiv = document.createElement('div')
-    selectParentDiv.appendChild(selectLabel)
+    selectLabel.className = labelClass //adding styling for className 
+    selectLabel.innerText = labelText // showcase innertext
+    let selectParentDiv = document.createElement('div') // creating div element
+    selectParentDiv.appendChild(selectLabel) //
     selectParentDiv.appendChild(select)
 
     return selectParentDiv;
