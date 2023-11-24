@@ -1,30 +1,47 @@
-//using these two variables for readability and consistency for input and label elements for the Health Biometric fields 
-let labelClass = "mb-2 text-sm font-medium text-gray-900 dark:text-white" //adding styling for label of input
-let inputClass = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"// adding styling for input 
+/* using these two variables(labelClass, inputClass) for readability and consistency for input and label elements for the Health Biometric fields  */
 
-let row_id = 0;// creating variable to store row id index. Pro: this row id gives a unique identifier to row so i can add or delete rows
+//adding styling for label of input
+let labelClass = "mb-2 text-sm font-medium text-gray-900 dark:text-white" 
 
-let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration', 'Activity'] // creating an arrayto be able to access easier options / or add options easier 
+// adding styling for input
+let inputClass = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+
+// creating variable to store row id index. Pro: this row id gives a unique identifier to row so i can add or delete rows
+let row_id = 0;
+
+// creating an arrayto be able to access easier options / or add options easier 
+let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration', 'Activity'] 
 
 
- addRow()//calling add row function to create row 0 when page is loaded
+//calling add row function to create row 0 when page is loaded
+addRow()
 
-document.querySelector('#add-entry').addEventListener('click', addRow)// adding an event listener to "add btn" to be able to trigger a new row with function add row 
+// adding an event listener to "add btn" to be able to trigger a new row with function add row 
+document.querySelector('#add-entry').addEventListener('click', addRow)
 
 
+/* 
+* @param 
+* @return 
+* */
 function addRow(){// function that gets triggered as a callback when clicking button "add new row" 
    
 
      //a unique identifier for each row to be able to add / delete row to update properly in server/backend 
     row_id++;
 
-    let newRow = document.createElement('div')//adds a new div for the row
-    newRow.id = 'row-' + row_id// adds a new index for row-id aka row- + index
-    newRow.className = "grid grid-cols-6 gap-4" //added style for new row to be broken up as a grid w 6 columns to mirror  og row 
+    //adds a new div for the row
+    let newRow = document.createElement('div')
 
-    //in this div you are including the following
-    //these variable stores the output of these functions which are representitive of the templates i created  so i could make reusable code / modularize rather than manually writing it out each time 
-    let deleteBtn = createDeleteButton(row_id); //made a template so i can refrence function rather then building out this 
+    // adds a new index for row-id aka row- + index
+    newRow.id = 'row-' + row_id
+
+    //added style for new row to be broken up as a grid w 6 columns to mirror  og row 
+    newRow.className = "grid grid-cols-6 gap-4" 
+
+    /*in this div you are including the following
+     these variable stores the output of these functions which are representitive of the templates i created  so i could make reusable code / modularize rather than manually writing it out each time. made a template so i can refrence function rather then building out this  */
+    let deleteBtn = createDeleteButton(row_id); 
     let timeEntry = createTimeInputs(row_id)
     let selectEntry = createSelectInputs("entry-type", "Entry Type", entryTypeOptions, row_id) //(name, labelText, options, index)
 
@@ -35,39 +52,46 @@ function addRow(){// function that gets triggered as a callback when clicking bu
   
     selectEntry.addEventListener('change', displayDynamicInputFields)
 
-    newRow.appendChild(deleteBtn)//appending delete btn functionality to this div 
-    newRow.appendChild(timeEntry)//appending delete btn functionality to this div 
-    newRow.appendChild(selectEntry)//appending delete btn functionality to this div 
+    //appending delete btn functionality to this div 
+    newRow.appendChild(deleteBtn)
+
+    //appending timeEntry functionality to this div 
+    newRow.appendChild(timeEntry)
+
+    //appending selectEntry functionality to this div 
+    newRow.appendChild(selectEntry)
 
     
-    
-    document.querySelector('#biometric-rows').appendChild(newRow)// i added this to my div that exists in my ejs for journal entries so that it would show up on my pg ****without this, it would not show up*****
-
-     
-
-    // console.log("All of my entry type input fields with the same prefix for their id")
-    // console.log( document.querySelectorAll('[id^="entry-type-"]'));// allows us to
-
-
+    /* i added this to my div that exists in my ejs for journal entries so that it would show up on my pg ****without this, it would not show up */
+    document.querySelector('#biometric-rows').appendChild(newRow)
 }
 
-// DELETING ROW
+/* 
+* @param 
+* @return 
+* */
 function deleteSelectedRow(e){
     console.log("e.target: ")
     console.log(e.target)
     console.log("e.target.id: ")
-    console.log(e.target.id.split('-') ) //delete-2 -> row-2
-    //   document.getElementById('delete-2' + )
+    console.log(e.target.id.split('-') ) 
     console.log("e.target.id.remove(): ")
-    //   console.log(e.target.id.remove("row_" + rowIndex ))
+
     let rowIndex = e.target.id.split('-')[1];
     let rowToDelete = document.getElementById('row-' + rowIndex);
     rowToDelete.remove();
 }
 
-// credit: https://stackoverflow.com/questions/66780265/need-a-form-field-to-be-shown-depending-on-the-results-of-another-field
 
-//in this function I am listening for an event 'change' instead of 'click'. Where there is a change only when the user selects what value to display for the type of entries
+/* 
+* In this function I am listening for an event 'change' instead 
+* of 'click'. Where there is a change only when the user
+* selects what value to display for the type of entries
+*
+* credit: https://stackoverflow.com/questions/66780265/need-a-form-field-to-be-shown-depending-on-the-results-of-another-field
+* @param 
+* @return 
+* */
 function displayDynamicInputFields(e){
     console.log("e: ")
     console.log(e)
@@ -90,7 +114,9 @@ function displayDynamicInputFields(e){
     // credit: https://stackoverflow.com/questions/34193751/js-remove-last-child
     if(row.lastChild.lastChild.id !== "entry-type-" + index){
         console.log('hi im inside the condition:')
-        row.removeChild(row.lastChild);//the purpose for this is to remove the "lastChild" from the previous input field (it is wrapped in a div for each entry type to be able to be removed )
+
+        /*the purpose for this is to remove the "lastChild" from the previous input field (it is wrapped in a div for each entry type to be able to be removed ) */
+        row.removeChild(row.lastChild)
     }
 
     //dynamically rendering input fields 
@@ -115,38 +141,65 @@ function displayDynamicInputFields(e){
 
 }
 
+/* 
+* function create the inputs faster with my helper input. this
+* is going to let me create an input text field, like types 
+* text, number 
+* @param 
+* @return 
+* */
 function createHydrationInputs(index){//helper functions are functions to help assist me with code  
 
-//this is going to let me create an input text field, like types text, number, 
-// function create the inputs faster with my helper input. 
-    let hydration = createInputNumberField("hydration","Fluid Intake (mL)", 0, 10000, index)//index is row number
+
+    //index is row number
+    let hydration = createInputNumberField("hydration","Fluid Intake (mL)", 0, 10000, index)
+
     return createInputTemplate("hydration-input", index, [hydration]);
 }
 
+/* 
+* function create the inputs faster with my helper input. this
+* is going to let me create an input text field, like types 
+* text, number 
+* @param 
+* @return 
+* */
 function createSleepInputs(index){//helper functions are functions to help assist me with code  
 
-//this is going to let me create an input text field, like types text, number, 
-// function create the inputs faster with my helper input. 
-    let sleep = createInputNumberField("sleep","Hours Slept (hrs)", 0, 24, index)//index is row number
+    //index is row number
+    let sleep = createInputNumberField("sleep","Hours Slept (hrs)", 0, 24, index)
+
     return createInputTemplate("sleep-input", index, [sleep]);
 }
 
 
+/* 
+* function create the inputs faster with my helper input. this
+* is going to let me create an input text field, like types 
+* text, number 
+* @param 
+* @return 
+* */
 function createFoodInputs(index){//helper functions are functions to help assist me with code  
 
-//this is going to let me create an input text field, like types text, number, 
-// function create the inputs faster with my helper input. 
     let food = createInputTextField("food","Food Entry", index);
     let protein = createInputNumberField("protein","Protein Intake (g)", 0, 250, index)
 
     return createInputTemplate("food-input", index, [food,protein]);
 }
 
-function createActivityInputs(index){//helper functions are functions to help assist me with code 
-//this is going to let me create an input text field, like types text, number, 
-// function create the inputs faster with my helper input. 
+/* 
+* function create the inputs faster with my helper input. this
+* is going to let me create an input text field, like types 
+* text, number 
+* @param 
+* @return 
+* */
+function createActivityInputs(index){//helper functions are 
     
-    let activityTypeOptions = ['Activity Type','Run', 'Walk', 'Bike', 'Yoga', 'Swim', 'Weight Lifting'] // creating an arrayto be able to access easier options / or add options easier 
+    // creating an array to be able to access easier options / or add options easier 
+    let activityTypeOptions = ['Activity Type','Run', 'Walk', 'Bike', 'Yoga', 'Swim', 'Weight Lifting'] 
+
     let activity = createSelectInputs("activity-type", "Activity Type",activityTypeOptions, index )
     let duration = createInputNumberField("duration","Duration (hrs)", 0, 24, index)
 
@@ -154,13 +207,16 @@ function createActivityInputs(index){//helper functions are functions to help as
 
 }
 
-// creates two divs (parent and grand parent )
-function createInputTemplate(id, index, arrElements){
+/* 
+* @param 
+* @return 
+* */
+function createInputTemplate(id, index, arrElements){ // creates two divs (parent and grand parent )
 
     let parentDiv = document.createElement('div')
     parentDiv.className = 'grid grid-cols-3 gap-4'
 
-    // loops through all inputs that need to be added to parentDiv until there is no more inputs
+    // loops through all inputs that need to be added to parentDiv until there is no more inputs to add
     for( let input of arrElements){
         //input = food
         parentDiv.appendChild(input)
@@ -177,12 +233,12 @@ function createInputTemplate(id, index, arrElements){
 }
 
 
-  /* This function is being used to create a Input Text Field template for label, input, and parent div elements for entry types. Pros: readiability and clarity, writing out less lines of code
-   * @param string name: target element attributes:   for, id, and name (corresponding to each entry type)
-   * @param string  labelText: targets the innerText of these elements
-   * @param integer index: targets which entry type row to edit/remove
-   * @return  Object parentDiv: is an html element we nest a label and input element into (grouped all together)
-   * */
+/* This function is being used to create a Input Text Field template for label, input, and parent div elements for entry types. Pros: readiability and clarity, writing out less lines of code
+* @param string name: target element attributes:   for, id, and name (corresponding to each entry type)
+* @param string  labelText: targets the innerText of these elements
+* @param integer index: targets which entry type row to edit/remove
+* @return  Object parentDiv: is an html element we nest a label and input element into (grouped all together)
+* */
 function createInputTextField(name,labelText, index){
 
 
@@ -208,14 +264,14 @@ function createInputTextField(name,labelText, index){
     return parentDiv;
 }
 
-  /* This function is being used to create a Input Number Field template for label, input, min attribute, max attribute and parent div elements for entry types. Pros: readiability and clarity, writing out less lines of code
-   * @param string name: target element attributes:   for, id, and name (corresponding to each entry type)
-   * @param string  labelText: targets the innerText of these elements
-   * @param integer min: sets the value for min attribute
-   * @param integer max: sets the value for max attribute
-   * @param integer index: targets which entry type row to edit/remove
-   * @return  Object parentDiv: is an html element we nest a label and input element into (grouped all together)
-   * */
+/* This function is being used to create a Input Number Field template for label, input, min attribute, max attribute and parent div elements for entry types. Pros: readiability and clarity, writing out less lines of code
+* @param string name: target element attributes:   for, id, and name (corresponding to each entry type)
+* @param string  labelText: targets the innerText of these elements
+* @param integer min: sets the value for min attribute
+* @param integer max: sets the value for max attribute
+* @param integer index: targets which entry type row to edit/remove
+* @return  Object parentDiv: is an html element we nest a label and input element into (grouped all together)
+* */
 function createInputNumberField(name,labelText, min, max, index){
 
     let entryLabel = document.createElement('label')
@@ -230,6 +286,7 @@ function createInputNumberField(name,labelText, min, max, index){
     entryInput.name = name + "-" + index
     entryInput.min = min 
     entryInput.max = max
+    entryInput.required = true
 
     let parentDiv = document.createElement('div')
     parentDiv.appendChild(entryLabel)
@@ -239,13 +296,22 @@ function createInputNumberField(name,labelText, min, max, index){
 
 }
 
+
+/* 
+* @param 
+* @return 
+* */
 function createDeleteButton(index){
 
+    let icon = document.createElement('i')
+    icon.className = "fas fa-minus"
+    icon.style.color = "#c67171"
+    icon.id = "delete-" + index
 
     let removeBtn = document.createElement('button')
     removeBtn.className = "mr-4 inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
     removeBtn.type = 'button'
-    removeBtn.id = "delete-" + index
+    removeBtn.appendChild(icon)
 
     let removeBtnDiv = document.createElement('div')
     removeBtnDiv.className = "mt-8 ml-6 pl-10 items-center justify-center"
@@ -255,7 +321,10 @@ function createDeleteButton(index){
     return removeBtnDiv;
 }
 
-
+/* 
+* @param 
+* @return 
+* */
 function createTimeInputs(index){//helper functions are functions to help assist me with code  
     let timeEntryLabel = document.createElement('label')
     timeEntryLabel.className = labelClass
@@ -267,6 +336,7 @@ function createTimeInputs(index){//helper functions are functions to help assist
     timeEntryInput.type = 'time'
     timeEntryInput.id = "time-" + index 
     timeEntryInput.name = "time-" + index 
+    timeEntryInput.required = true
 
     let timeEntryParentDiv = document.createElement('div')
     timeEntryParentDiv.className = "mb-6"
@@ -278,32 +348,51 @@ function createTimeInputs(index){//helper functions are functions to help assist
     return timeEntryParentDiv;
 }
 
-//options = ['Select Entry','Sleep', 'Food', 'Hydration'] 
+/* 
+* @param 
+* @return 
+* */
+function createSelectInputs(name, labelText, options, index){// passing 4 params, //creating a select inputs with the options 
 
-//creating a select inputs with the options
-function createSelectInputs(name, labelText, options, index){// passing 4 params 
+    //creating select element
+    let select = document.createElement('select')
 
-    let select = document.createElement('select')//creating select element
-    select.className = "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"//adding styling to select element 
-    select.id = name + "-" + index//adding index to that option selected
-    select.name = name + "-" + index//adding index to that option selected
-    select.required = true// have to select an option
+    //adding styling to select element 
+    select.className = "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+
+    //adding index to that option selected
+    select.id = name + "-" + index
+
+    //adding index to that option selected
+    select.name = name + "-" + index
+
+    // have to select an option
+    select.required = true
     console.log('options : inside create select inputs :  ', options)
     
     //purpose: to create options and info get sent to server
     for(let i = 0; i < options.length; i++){
-        let option = document.createElement('option') // create options element 
-        option.innerText = options[i]    //what my user sees when they see option 
+
+        // create options element 
+        let option = document.createElement('option')
         
-        if (i === 0 ){ // at the first element of array 0 , it will be my first option which is my default 
+        //what my user sees when they see option 
+        option.innerText = options[i]    
+        
+         /* at the first element of array 0 , it will be my first option which is my default */
+        if (i === 0 ){
      
-            option.value = '' //my default has no value bc its a placeholder
-            option.selected = true// when you open pg it selects the default that has no value
+            //my default has no value bc its a placeholder
+            option.value = '' 
+
+            // when you open pg it selects the default that has no value
+            option.selected = true
             
         }
         else{// when you select option showcase the value
             
-            option.value = options[i]//that value will be sent to browser to see if its a valid value
+            /*that value will be sent to browser to see if its a valid value */
+            option.value = options[i]
         }
 
         select.appendChild(option)//create other options the same way
