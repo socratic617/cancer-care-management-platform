@@ -6,7 +6,7 @@ module.exports = {
     try {// is going to run the code and if error, itll exit my try go to my catch error
       console.log('req.user : ')
       console.log(req.user)
-      const journals = await Journal.find();// go and find me the journals (entries that users inputted )
+      const journals = await Journal.find().sort({ entryDate: "desc" }).lean();// go and find me the journals (entries that users inputted )
       res.render("community-page.ejs", {  user: req.user, journals : journals});//"journals : journals" input where your entries[] is .  respond with creating my 'community-page.ejs'
     } catch (err) {
       console.log(err);
@@ -15,9 +15,25 @@ module.exports = {
    getJournal: async (req, res) => {
     try {
       console.log('req.user : ')
-      console.log(req.user)
-      // const posts = await Post.find({ user: req.user.id });
-      res.render("journal-entry.ejs", {  user: req.user });//*****TO DO: Create Request to database and model for journals (add schema for journal aka model)*** *********TO DO*/
+      console.log(req.user);
+      res.render("journal-entry.ejs", {  user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  getVisualization: async (req, res) => {
+    try {
+      console.log('req.user : ')
+      console.log(req.user)//safety net to know that it isnt an issue with my server it would be an issue how i requested 
+
+      const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" }).lean();
+      console.log('journals :  ')
+      console.log(journals)
+      // res.json(journals)//data gets sent back to client side to refresh
+      //TO CALL TO MY DATA BASE AND PASS IT TO RENDER 
+     
+      res.render("visualization.ejs", {  user: req.user, journals : journals});
+      // USING req. is always giving me something from client 
     } catch (err) {
       console.log(err);
     }
