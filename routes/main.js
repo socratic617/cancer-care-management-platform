@@ -10,8 +10,7 @@ router.get("/", homeController.getIndex); // (endpoint, callback function)
 // router.get("/profile", ensureAuth, journalsController.getProfile);
 router.get("/community-page", ensureAuth, journalsController.getCommunity);//added commmunity pg 
 router.get("/journal-entry", ensureAuth, journalsController.getJournal);
-// router.get("/feed", ensureAuth, journalsController.getFeed);
-// router.get("/feed", ensureAuth, journalsController.getFeed);
+router.get("/visualization", ensureAuth, journalsController.getVisualization);
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
