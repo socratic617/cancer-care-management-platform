@@ -10,7 +10,7 @@ let inputClass = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounde
 let row_id = 0;
 
 // creating an arrayto be able to access easier options / or add options easier 
-let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration', 'Activity'] 
+let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration', 'Activity', 'Medicine', 'Bowel Movements', 'Note'] 
 
 
 //calling add row function to create row 0 when page is loaded
@@ -137,8 +137,62 @@ function displayDynamicInputFields(e){
             console.log("Activity Selected in switch case");
             row.appendChild(createActivityInputs(index))
             break;
+        case "Medicine":
+            console.log("Activity Selected in switch case");
+            row.appendChild(createMedicineInputs(index))
+            break;
+        case "Bowel Movements":
+            console.log("Activity Selected in switch case");
+            row.appendChild(createBathroomInputs(index))
+            break;
+        case "Note":
+            console.log("Activity Selected in switch case");
+            row.appendChild(createNoteInputs(index))
+            break;
+
     }
 
+}
+
+/* 
+* @param 
+* @return 
+* */
+function createNoteInputs(index){//helper functions are functions to help assist me with code  
+
+    let note = createInputTextField("note","Note Entry", index);
+
+    return createInputTemplate("note-input", index, [note]);
+}
+
+/* 
+* @param 
+* @return 
+* */
+function createMedicineInputs(index){
+
+    let medicineTypeOptions = ['Select Medicine Type','Gavilax','Compazine', 'Senna', 'CBN', 'Antibiotics','Zotran', 'Benadryl', 'Decadron', 'Omaprazole', 'Tylenol', 'Claritin', 'Lidocaine', 'Letrozole', 'Amlodipine', 'Simvastatin', 'Omeprazole', 'Verzenio'] 
+    let medicine = createSelectInputs("medicine-type", "Medicine Type",medicineTypeOptions, index )
+
+
+    let unitTypeOptions = ['select Unit','mg','g', 'mL', 'drop/s'] 
+    let dosage = createSelectInputs("medicine-dosage", "Dosage Type",unitTypeOptions, index )
+
+    let amount = createInputNumberField("medicine-amount","Amount", 0, 2000, index)
+
+    return createInputTemplate("medicine-input", index, [medicine, dosage, amount]);
+}
+
+/* 
+* @param 
+* @return 
+* */
+function createBathroomInputs(index){
+
+    let bathroomTypeOptions = ['Select Bowel Type','Normal','Diarrhea', 'Constipated'] 
+    let bathroom = createSelectInputs("bathroom-type", "Bowel Movement", bathroomTypeOptions, index)
+
+    return createInputTemplate("bathroom-input", index, [bathroom]);
 }
 
 /* 
@@ -152,7 +206,7 @@ function createHydrationInputs(index){//helper functions are functions to help a
 
 
     //index is row number
-    let hydration = createInputNumberField("hydration","Fluid Intake (mL)", 0, 10000, index)
+    let hydration = createInputNumberField("hydration","Fluid Intake (fl oz)", 0, 250, index)
 
     return createInputTemplate("hydration-input", index, [hydration]);
 }
@@ -286,6 +340,7 @@ function createInputNumberField(name,labelText, min, max, index){
     entryInput.name = name + "-" + index
     entryInput.min = min 
     entryInput.max = max
+    entryInput.step= ".5"
     entryInput.required = true
 
     let parentDiv = document.createElement('div')
