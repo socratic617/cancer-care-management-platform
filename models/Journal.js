@@ -29,6 +29,18 @@ const JournalSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  "health-notes":{
+    type: String,
+    required: true,
+  },
+  "journal-lang":{
+    type: String,
+    required: true,
+  },
+  "journal-user":{
+    type: String,
+    required: true,
+  },
   description: {
     type: String,
     required: true,
