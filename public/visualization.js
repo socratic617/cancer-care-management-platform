@@ -1,11 +1,11 @@
 /* Source: Chatgpt  &#34; are quotes that were replaced.  
-Use replace all to add back quote and JSON.parse to make string back to an object 
-in the process of getting the data from my visualization ejs file into the javascript
- all of the quptes were replace with '&#34;' so what i am doing is replacing it back
- to quotes
- SIDE NOTE: if the user inserts quptes in the journall entry or a new line this line 
- of data will not be able to be used for parsing the JSON aka it will break this line of code
- 'serverData' comes form my vsiualization ejs file */
+  Use replace all to add back quote and JSON.parse to make string back to an object 
+  in the process of getting the data from my visualization ejs file into the javascript
+  all of the quptes were replace with '&#34;' so what i am doing is replacing it back
+  to quotes
+  SIDE NOTE: if the user inserts quptes in the journall entry or a new line this line 
+  of data will not be able to be used for parsing the JSON aka it will break this line of code
+  'serverData' comes form my vsiualization ejs file */
 const serverJournalData = JSON.parse(serverData.replaceAll("&#34;", "\""));
 console.log(serverJournalData);
 
@@ -35,7 +35,8 @@ function getPastXDatesAsArray(numberOfDays) {
 }
 
 // Example usage: [ '11/23/2023', '11/22/2023', '11/21/2023', ...,  '11/18/2023']
-const pastSevenDaysLabels = getPastXDatesAsArray(7);
+// reversing the order for data displayed in line chart for dates and data
+const pastSevenDaysLabels = getPastXDatesAsArray(7).reverse();
 console.log(pastSevenDaysLabels);
 
 //each variable below holds data for visualization such as mood, hydration,fatigue, protein 
@@ -113,32 +114,46 @@ for(let i = 0; i < pastSevenDaysLabels.length; i++){
 
 
 // =============================================================================
-// CREATE MOOD VISUALIZATION ==================================================
+// GLOBAL VARIABLES FOR VISUALIZATION ==========================================
 // =============================================================================
-console.log("___________________________________")
-console.log(" resultSevenDaysMood :")
-console.log(resultSevenDaysMood)
-const keysArray = Object.keys(resultSevenDaysMood);
-console.log(keysArray);
 
-const valuesArray = Object.values(resultSevenDaysMood);
-console.log(valuesArray);  
+let sharedBackgroundColorsWithOpacity = [
+      'rgb(86,44,128,.2)',
+      'rgb(221,160,221,.2)',
+      'rgb(69,44,99,.2)',
+      'rgb(216,191,216,.2)',
+      'rgb(230,230,250,.2)',
+      'rgb(186,88,168,.2)',
+      'rgb(123,98,216,.2)'
+    ]
 
-//CREATING DONOUGHT PIE CHART FOR MOOD USING CHART.JS CDN 
-const data = {
-  labels: keysArray,//key arrays has all my data for mood
-  datasets: [{
-    label: 'mood',
-    data: valuesArray,// valueArray holds my value for keyArrays
-    backgroundColor: [
+let sharedBackgroundColors = [
       'rgb(86,44,128)',
       'rgb(221,160,221)',
       'rgb(69,44,99)',
       'rgb(216,191,216)',
       'rgb(230,230,250)',
       'rgb(186,88,168)',
-      'rgb(186,88,168)'
-    ],
+      'rgb(123,98,216)'
+    ]
+
+// =============================================================================
+// CREATE MOOD VISUALIZATION ==================================================
+// =============================================================================
+
+const keysArray = Object.keys(resultSevenDaysMood);
+console.log(keysArray);
+
+const valuesArray = Object.values(resultSevenDaysMood);
+console.log(valuesArray);  
+
+//CREATING DONUT PIE CHART FOR MOOD USING CHART.JS CDN 
+const data = {
+  labels: keysArray,//key arrays has all my data for mood
+  datasets: [{
+    label: 'mood',
+    data: valuesArray,// valueArray holds my value for keyArrays
+    backgroundColor: sharedBackgroundColors,
     hoverOffset: 35
   }]
 };
@@ -154,22 +169,18 @@ const config = {
         }
    }
 };
+
 new Chart(
     document.getElementById('visual-mood'),
     config
 );
 
-
 // =============================================================================
 // CREATE PROTEIN VISUALIZATION ==================================================
 // =============================================================================
-console.log("resultSevenDaysProtein (outside for loop): ")
-console.log(resultSevenDaysProtein)
-let keysArrayProtein = Object.keys(resultSevenDaysProtein);
-console.log(keysArrayProtein);
 
-let valuesArrayProtein = Object.values(resultSevenDaysProtein);
-console.log(valuesArrayProtein); 
+
+let keysArrayProtein = Object.keys(resultSevenDaysProtein);
 
 // Remove the year from each date string and credit: chatGPT
 keysArrayProtein = keysArrayProtein.map(function(dateString) {
@@ -177,11 +188,10 @@ keysArrayProtein = keysArrayProtein.map(function(dateString) {
   return parts[0] + '/' + parts[1];
 });
 
-//reversing the order for data displayed in line chart for dates and data
-keysArrayProtein = keysArrayProtein.reverse()
-valuesArrayProtein = valuesArrayProtein.reverse()
-
 console.log(keysArrayProtein);
+
+let valuesArrayProtein = Object.values(resultSevenDaysProtein);
+console.log(valuesArrayProtein); 
 
 //CREATING LINE CHART FOR PROTEIN USING CHART.JS CDN 
 const dataProtein = {
@@ -190,19 +200,20 @@ const dataProtein = {
     label: 'Protein Intake for Week',
     data: valuesArrayProtein,
     fill: true,//made the shade for line graph
-    backgroundColor: 'rgb(186,88,168,.2)',//added shade of pink with opacity .2
+    backgroundColor: sharedBackgroundColorsWithOpacity[3],//added shade of pink with opacity .2
     pointRadius: 8,//made the dots of data bigger by 8
-    borderColor: 'rgb(221,160,221)',
+    borderColor: sharedBackgroundColors[1],
     tension: 0.2// added curvitur to lines connected w/ data
   },
   {
     type: 'line',
     label: 'Protein Goal',
-    data: [50, 50, 50, 50, 50, 50, 50, 50],//protein intake goal for 7 days 
+    data: [75, 75, 75, 75, 75, 75, 75, 75],//protein intake goal for 7 days 
     fill: false,
-    borderColor: 'rgb(86,44,128)'
+    borderColor: sharedBackgroundColors[2]
   }]
 };
+
 const configProtein = {
   type: 'line',
   data: dataProtein,
@@ -210,6 +221,9 @@ const configProtein = {
       scales: {
         x: {
           display: true,
+          grid: {
+            display: false // This removes the x-axis grid lines
+          },
           title: {
             display: true,
             text: 'Past 7 Days'
@@ -232,31 +246,19 @@ const configProtein = {
       }
     }
 };
+
 new Chart(
     document.getElementById('visual-protein'),
     configProtein
 );
-
-// backgroundColor: [
-//       'rgb(86,44,128)',
-//       'rgb(221,160,221)',
-//       'rgb(69,44,99)',
-//       'rgb(216,191,216)',
-//       'rgb(230,230,250)',
-//       'rgb(186,88,168)',
-//       'rgb(186,88,168)'
-//     ],
 
 
 // =============================================================================
 // CREATE HYDRATION VISUALIZATION ==================================================
 // =============================================================================
 
-let keysArrayHydration = Object.keys(resultSevenDaysHydration);
-console.log(keysArrayHydration);
 
-let valuesArrayHydration = Object.values(resultSevenDaysHydration);
-console.log(valuesArrayHydration); 
+let keysArrayHydration = Object.keys(resultSevenDaysHydration);
 
 // Remove the year from each date string and credit: chatGPT
 keysArrayHydration = keysArrayHydration.map(function(dateString) {
@@ -264,9 +266,8 @@ keysArrayHydration = keysArrayHydration.map(function(dateString) {
   return parts[0] + '/' + parts[1];
 });
 
-//reversing the order for data displayed in line chart for dates and data
-keysArrayHydration = keysArrayHydration.reverse()
-valuesArrayHydration = valuesArrayHydration.reverse()
+let valuesArrayHydration = Object.values(resultSevenDaysHydration);
+
 
 console.log('keysArrayHydration');
 console.log(keysArrayHydration);
@@ -278,38 +279,55 @@ const dataHydration = {
   datasets: [{
     label: 'Weekly Hydration',
     data: valuesArrayHydration,
-    backgroundColor: [
-      'rgba(255, 99, 132, 0.2)',
-      'rgba(255, 159, 64, 0.2)',
-      'rgba(255, 205, 86, 0.2)',
-      'rgba(75, 192, 192, 0.2)',
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(153, 102, 255, 0.2)',
-      'rgba(201, 203, 207, 0.2)'
-    ],
-    borderColor: [
-      'rgb(255, 99, 132)',
-      'rgb(255, 159, 64)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(54, 162, 235)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)'
-    ],
+    backgroundColor: sharedBackgroundColorsWithOpacity,
+    borderColor: sharedBackgroundColors,
     borderWidth: 1
+  },
+  {
+    type: 'line',
+    label: 'Hydration Goal',
+    data: [70, 70, 70, 70, 70, 70, 70, 70],//fluid intake goal for 7 days 
+    fill: false,
+    borderColor: sharedBackgroundColors[2]
   }]
 };
+
 const configHydration = {
   type: 'bar',
   data: dataHydration,
   options: {
     scales: {
-      y: {
-        beginAtZero: true
-      }
+      x: {
+          display: true,
+          grid: {
+            display: false // This removes the x-axis grid lines
+          },
+          title: {
+            display: true,
+            text: 'Weekly Fluid Intake'
+          }
+        },
+        y: {
+          beginAtZero: true,
+          display: true,
+          grid: {
+            display: false // This removes the x-axis grid lines
+          },
+          title: {
+            display: true,
+            text: 'Fluid Intake (fl. oz)'
+          }
+        }
+    },
+     plugins: {
+            title: {
+                display: true,
+                text: 'Weekly Hydration'// of name title of visual
+            }
     }
   },
 };
+
 new Chart(
     document.getElementById('visual-hydration'),
     configHydration
