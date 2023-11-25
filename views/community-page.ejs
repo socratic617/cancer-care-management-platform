@@ -362,10 +362,10 @@
 
                     <% if( journals[i].description.length <=150){ %>
                       <%=journals[i].description %>
-                        <% } else{ %>
+                    <% } else{ %>
                           <%= journals[i].description.substring(0, 150); %><a class="dots" id="dots-<%= i %>">... see more</a><span class="hidden" id="more-<%= i %>"><%=journals[i].description.substring(150, journals[i].description.length-1);%>
                             </span>
-                            <% } %>
+                    <% } %>
                   </p>
                   <!-- If you are comparing mongoDB objectId, then use toString(). -->
                   <!-- credit : https://stackoverflow.com/questions/57661892/ejs-comparison-between-two-same-strings -->
