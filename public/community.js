@@ -48,3 +48,18 @@ Array.from(trash).forEach(function(element) {
 
 
 
+// var communityCard = document.getElementsByClassName("see-more")
+
+// function toggleText(e) {
+//   var content = document.getElementById("content");
+
+  // if (content.style.maxHeight) {
+  //   content.style.maxHeight = null;
+  // } else {
+  //   content.style.maxHeight = content.scrollHeight + "px";
+  // }
+// }
+
+
+
+
