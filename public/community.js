@@ -1,6 +1,6 @@
 var trash = document.getElementsByClassName("trash");
 var favorite = document.getElementsByClassName("favorite")
-var seeMore = document.querySelectorAll('[id^="dots-"]');
+var seeMore = document.querySelectorAll('[id^="dots-"]');//Credit ChatGPT
 
 Array.from(favorite).forEach(function(element) {
   console.log("adding favorite listener too : ", element);
@@ -48,12 +48,13 @@ Array.from(trash).forEach(function(element) {
 });
 
 
+
+// Credit: ChatGPT and https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_list ; https://stackoverflow.com/questions/69288281/javascript-card-search-filter-card-overview-page
 document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('simple-search');
     input.addEventListener('input', search);
 })
 
-// Credit: ChatGPT and https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_list
 function search(e){
   const inputValue = e.target.value.toUpperCase();
 
