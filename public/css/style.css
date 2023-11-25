@@ -19,3 +19,7 @@ img{
   background-image: url("/imgs/background-img.jpg");
   object-fit: cover;
 }
+
+.entry-add-btn{
+  text-align: right;
+}
