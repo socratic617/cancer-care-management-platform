@@ -29,3 +29,21 @@ img{
     height: 15rem;
     object-fit: cover;
 }
+
+.hidden {
+  display:none;
+}
+
+.dots{
+  color: gray;
+}
+
+.dots:hover{
+  color: palevioletred;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
