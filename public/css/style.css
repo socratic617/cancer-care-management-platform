@@ -18,6 +18,12 @@ img{
 .jumbotron-img {
   background-image: url("/imgs/background-img.jpg");
   object-fit: cover;
+  /* margin-top: 5rem; */
+}
+
+.jumbotron-img div{
+  margin-top: 14rem;
+  padding-bottom: 4rem;
 }
 
 .entry-add-btn{
@@ -46,4 +52,10 @@ img{
 
 .pointer {
   cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 62.5%; /* 10px */
+  }
 }
