@@ -23,3 +23,9 @@ img{
 .entry-add-btn{
   text-align: right;
 }
+
+.community-card-img {
+    width:  100%;
+    height: 15rem;
+    object-fit: cover;
+}
