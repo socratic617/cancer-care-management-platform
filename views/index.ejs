@@ -13,290 +13,264 @@
 
 <body>
 
-    <nav
-        class="bg-white dark:bg-gray-900 fixed w-full z-20  top-0 start-0 border-b border-gray-200 dark:border-gray-600 mb-2">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto pl-4 pr-4">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="/imgs/site-logo.svg" class="h-20" alt="Warrior Logo">
-            </a>
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <a href="/login"
-                    class=" mr-8 inline-flex justify-center items-center py-2 px-4 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                    <%=translation.LOG_IN_BUTTON%>
+    <div class="nav-bar">
+        <nav
+            class="bg-white dark:bg-gray-900 fixed w-full z-20  top-0 start-0 border-b border-gray-200 dark:border-gray-600 mb-2">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto pl-4 pr-4">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="/imgs/site-logo.svg" class="h-20" alt="Warrior Logo">
                 </a>
-            </div>
-
-        </div>
-    </nav>
-
-    <section class="jumbotron-img bg-center bg-no-repeat bg-gray-700 bg-blend-multiply">
-        <div class=" px-4 mx-auto text-center lg:py-56">
-            <div class="">
- 
-                <div>
-                    <!--using ejs for selecting options dynamically , if the variable of lang is 'en' then select this option vice versa when slecting 'es' which is set by the server -->
-                    <label for=id="lang" class="block mb-2 text-base font-medium text-white dark:text-white">Elige tu
-                        idioma/ Choose your
-                        language</label>
-                    <select id="lang"
-                        class="block w-full px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="en" <%=lang==='en' ? 'selected' : '' %>>English</option>
-                        <option value="es" <%=lang==='es' ? 'selected' : '' %>>Spanish</option>
-                    </select>
-                </div>
- 
-            </div>
-            <div class="flex justify-center">
-                <img src="/imgs/site-logo.svg" alt="logo">
-            </div>
-
-            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-                <%=translation.WELCOME_MSG_ONE%><br>
-                    <%=translation.WELCOME_MSG_TWO%>
-            </h1>
-
-
-
-
-
-            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-                <%=translation.SUB_HEADER%>
-            </p>
-            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-                <a href="/login"
-                    class=" mr-8 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                    <%=translation.LOG_IN_BUTTON%>
-
-                </a>
-                <a href="/signup"
-                    class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
-                    <%=translation.SIGN_UP_BUTTON%>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white dark:bg-gray-900">
-        <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-            <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                    <%=translation.MISSION%>
-                </h2>
-                <p class="mb-4">
-                    <%=translation.MISSION_DESCRIPTION%>
-                </p>
-                <p>
-                    <%=translation.MISSION_DESCRIPTION_TWO%>
-                </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4 mt-8">
-                <img class="w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
-                    alt="office content 1">
-                <img class="mt-4 w-full lg:mt-10 rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
-                    alt="office content 2">
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-            <div class="max-w-screen-md mb-8 lg:mb-16">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                    <%=translation.FEATURE_TITLE%>
-                </h2>
-                <p class="text-gray-500 sm:text-xl dark:text-gray-400">Here at Flowbite we focus on markets where
-                    technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-            </div>
-            <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-                <div>
-
-                    <div
-                        class="flex justify-center items-center mb-4 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl ">
-                        <i class="fas fa-chart-area" style="color: #562c80;"></i>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">
-                        <%=translation.FEATURE_VISUALIZATION%>
-                    </h3>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        <%=translation.FEATURE_VISUALIZATION_DESCRIPTION%>
-                    </p>
-                </div>
-                <div>
-                    <div
-                        class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
-                        <i class="fas fa-bullseye" style="color: #562c80;"></i>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">
-                        <%=translation.FEATURE_PERSONALIZED%>
-                    </h3>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        <%=translation.FEATURE_PERSONALIZED_DESCRIPTION%>
-                    </p>
-                </div>
-                <div>
-                    <div
-                        class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
-                        <i class="fas fa-heartbeat" style="color: #552c80;"></i>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">
-                        <%=translation.FEATURE_HEALTH%>
-                    </h3>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        <%=translation.FEATURE_HEALTH_DESCRIPTION%>
-                    </p>
-                </div>
-                <div>
-                    <div
-                        class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
-                        <i class="fas fa-people-carry" style="color: #552c80;"></i>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">
-                        <%=translation.FEATURE_COMMUNITY%>
-                    </h3>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        <%=translation.FEATURE_COMMUNITY_DESCRIPTION%>
-                    </p>
-                </div>
-                <div>
-                    <div
-                        class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
-                        <i class="fas fa-globe-africa" style="color: #552c80;"></i>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">
-                        <%=translation.FEATURE_BILINGUAL%>
-                    </h3>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        <%=translation.FEATURE_BILINGUAL_DESCRIPTION%>
-                    </p>
-                </div>
-                <div>
-                    <div
-                        class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
-                        <i class="fas fa-fingerprint" style="color: #552c80;"></i>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">
-                        <%=translation.FEATURE_PRIVACY%>
-                    </h3>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        <%=translation.FEATURE_PRIVACY_DESCRIPTION%>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
-            <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                    <%=translation.TEAM%>
-                </h2>
-                <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection
-                    of
-                    open-source web components and elements built with the utility classes from Tailwind</p>
-            </div>
-            <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
-                <div class="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="h-full rounded-lg sm:rounded-none sm:rounded-l-lg"
-                            src="https://media.licdn.com/dms/image/C4D03AQGl5jZKxyfQQw/profile-displayphoto-shrink_400_400/0/1591502525928?e=1706140800&v=beta&t=2Xb9sAhR_rymgIpJMU6ZlxREAvqkMfNWD6N77kpafJ4"
-                            alt="Bonnie Avatar">
+                <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                    <a href="/login"
+                        class="inline-flex justify-center items-center py-3 px-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm ">
+                        <%=translation.LOG_IN_BUTTON%>
                     </a>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            <a href="#">Erik Solis</a>
-                        </h3>
-                        <span class="text-gray-500 dark:text-gray-400">
-                            <%=translation.ENGINEER%>
-                        </span>
-                        <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">Bonnie drives the technical
-                            strategy of the flowbite platform and brand.</p>
-                        <ul class="flex space-x-4 sm:mt-0">
-                            <li>
-                                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path
-                                            d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
 
             </div>
-        </div>
-    </section>
+        </nav>
+    </div>
 
-    <section>
-        <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
-            <div class="mx-auto max-w-screen-xl text-center">
-                <a href="#"
-                    class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white ">
-                    <img src="/imgs/site-logo.svg" class="h-20 mr-4" alt="Warrior Logo">
+    <div class="landing-page">
+        <section class="jumbotron-img bg-center bg-no-repeat bg-gray-700 bg-blend-multiply">
+            <div class=" px-4 mx-auto text-center">
+                <div class="">
 
-                    <%=translation.TITLE%>
-                </a>
-                <p class="my-6 text-gray-500 dark:text-gray-400">
-                    <%=translation.FOOTER_DESCRIPTION%>
+                    <div class="text-center">
+                        <!--using ejs for selecting options dynamically , if the variable of lang is 'en' then select this option vice versa when slecting 'es' which is set by the server -->
+                        <label for=id="lang" class="block mb-8 text-base font-medium text-white dark:text-white">Elige
+                            tu
+                            idioma/ Choose your
+                            language</label>
+                        <select id="lang"
+                            class="block w-52 mx-auto px-4 py-3 text-base text-gray-700 border border-gray-300 rounded-lg bg-gray-50 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500">
+                            <option value="en" <%=lang==='en' ? 'selected' : '' %>>English</option>
+                            <option value="es" <%=lang==='es' ? 'selected' : '' %>>Spanish</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="flex justify-center">
+                    <img src="/imgs/site-logo.svg" alt="logo">
+                </div>
+
+                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+                    <%=translation.WELCOME_MSG_ONE%><br>
+                        <%=translation.WELCOME_MSG_TWO%>
+                </h1>
+
+
+
+
+
+                <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+                    <%=translation.SUB_HEADER%>
                 </p>
-                <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6">Premium</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6 ">Campaigns</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6">Blog</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6">Affiliate Program</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6">FAQs</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6">Contact</a>
-                    </li>
-                </ul>
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023-2024 <a href="#"
-                        class="hover:underline">Circle of Warriors™</a>. <%=translation.RIGHTS%>.</span>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+                    <a href="/login"
+                        class=" mr-8 inline-flex justify-center items-center py-3 px-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm ">
+                        <%=translation.LOG_IN_BUTTON%>
+
+                    </a>
+                    <a href="/signup"
+                        class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+                        <%=translation.SIGN_UP_BUTTON%>
+                    </a>
+                </div>
             </div>
-        </footer>
-    </section>
+        </section>
+    </div>
+
+    <div class="mission">
+        <section class="bg-white dark:bg-gray-900 p-4">
+            <div class="gap-16 items-center py-8 px-8 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+                <div class="font-light text-gray-700 sm:text-lg dark:text-gray-400">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-purple-900 dark:text-white">
+                        <%=translation.MISSION%>
+                    </h2>
+                    <p class="mb-4">
+                        <%=translation.MISSION_DESCRIPTION%>
+                    </p>
+                    <p>
+                        <%=translation.MISSION_DESCRIPTION_TWO%>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-8">
+                    <img class="w-full rounded-lg" src="imgs/main-pic-three.png" alt="group survivors">
+                    <img class="mt-4 w-full lg:mt-10 rounded-lg" src="imgs/main-pic-two.png" alt="survivor">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="features p-8 mt-8 bg-purple-50">
+        <section class="bg-purple-50  dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto text-gray-600 max-w-screen-xl sm:py-16 lg:px-6">
+                <div class="max-w-screen-md mb-8 lg:mb-16">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-700 dark:text-white">
+                        <%=translation.FEATURE_TITLE%>
+                    </h2>
+                    <p class="text-gray-500 sm:text-xl dark:text-gray-400"> <%=translation.FEATURE_SUBTITLE%></p>
+                </div>
+                <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+                    <div>
+
+                        <div
+                            class="flex justify-center items-center mb-4 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl ">
+                            <i class="fas fa-chart-area" style="color: #562c80;"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">
+                            <%=translation.FEATURE_VISUALIZATION%>
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">
+                            <%=translation.FEATURE_VISUALIZATION_DESCRIPTION%>
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
+                            <i class="fas fa-bullseye" style="color: #562c80;"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">
+                            <%=translation.FEATURE_PERSONALIZED%>
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">
+                            <%=translation.FEATURE_PERSONALIZED_DESCRIPTION%>
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
+                            <i class="fas fa-heartbeat" style="color: #552c80;"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">
+                            <%=translation.FEATURE_HEALTH%>
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">
+                            <%=translation.FEATURE_HEALTH_DESCRIPTION%>
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
+                            <i class="fas fa-people-carry" style="color: #552c80;"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">
+                            <%=translation.FEATURE_COMMUNITY%>
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">
+                            <%=translation.FEATURE_COMMUNITY_DESCRIPTION%>
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
+                            <i class="fas fa-globe-africa" style="color: #552c80;"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">
+                            <%=translation.FEATURE_BILINGUAL%>
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">
+                            <%=translation.FEATURE_BILINGUAL_DESCRIPTION%>
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-2xl">
+                            <i class="fas fa-fingerprint" style="color: #552c80;"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">
+                            <%=translation.FEATURE_PRIVACY%>
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">
+                            <%=translation.FEATURE_PRIVACY_DESCRIPTION%>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="team px-8">
+        <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
+                <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-700 dark:text-white">
+                        <%=translation.TEAM%>
+                    </h2>
+                    <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400"><%=translation.TEAM_DESCRIPTION%></p>
+                </div>
+                <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
+                    <div class="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700 ">
+                        <a href="#">
+                            <img class="h-full rounded-lg sm:rounded-none sm:rounded-l-lg"
+                                src="https://media.licdn.com/dms/image/C4D03AQGl5jZKxyfQQw/profile-displayphoto-shrink_400_400/0/1591502525928?e=1706140800&v=beta&t=2Xb9sAhR_rymgIpJMU6ZlxREAvqkMfNWD6N77kpafJ4"
+                                alt="team member">
+                        </a>
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold tracking-tight text-gray-700 dark:text-white">
+                                <a href="#">Erik Solis</a>
+                            </h3>
+                            <span class="text-gray-500 dark:text-gray-400">
+                                <%=translation.ENGINEER%>
+                            </span> 
+                            <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400"><%=translation.TEAM_MEMBER_ONE%></p>
+                            <ul class="flex space-x-4 sm:mt-0">
+                                <li>
+                                    <a href="https://github.com/socratic617" class="text-gray-500 hover:text-gray-900 dark:hover:text-white text-2xl ">
+                                        <i class="fab fa-github" style="color: #562c80;"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/erik-solis/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white text-2xl">
+                                        <i class="fab fa-linkedin" style="color: #562c94;"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://portfolio-erik-solis.netlify.app/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white text-2xl">
+                                        <i class="fas fa-globe" style="color: #582c94;"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://calendly.com/erik-solis02135" class="text-gray-500 hover:text-gray-900 dark:hover:text-white text-2xl">
+                                        <i class="far fa-calendar-alt" style="color: #582c94;"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer p-4">
+        <section>
+            <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
+                <div class="mx-auto max-w-screen-xl text-center">
+                    <a href="#" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white ">
+                        <img src="/imgs/site-logo.svg" class="h-20 mr-4" alt="Warrior Logo">
+        
+                        <%=translation.TITLE%>
+                    </a>
+                    <p class="my-6 text-gray-500 dark:text-gray-400">
+                        <%=translation.FOOTER_DESCRIPTION%>
+                    </p>
+                    <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+                        <li>
+                            <a href="https://portfolio-erik-solis.netlify.app/" class="mr-4 hover:underline md:mr-6 ">About</a>
+                        </li>
+                        <li>
+                            <a href="https://calendly.com/erik-solis02135" class="mr-4 hover:underline md:mr-6">Contact Us</a>
+                        </li>
+                    </ul>
+                    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023-2024 <a href="#"
+                            class="hover:underline">Circle of Warriors™</a>. <%=translation.RIGHTS%>.</span>
+                </div>
+            </footer>
+        </section>
+    </div>
 
 
     <!-- Tailwind Styling  -->
