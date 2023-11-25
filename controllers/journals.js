@@ -208,5 +208,20 @@ module.exports = {
       console.log(err);
     }
   },
+  getUserJournals: async (req, res) => {
+    try {
+
+      const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" }).lean();
+      console.log('journals :  ')
+      console.log(journals)
+      // res.json(journals)//data gets sent back to client side to refresh
+      //TO CALL TO MY DATA BASE AND PASS IT TO RENDER 
+     
+      res.render("my-journals.ejs", {  user: req.user, journals : journals});
+
+    } catch (err) {
+      console.log(err);
+    }
+  },
 
 };
