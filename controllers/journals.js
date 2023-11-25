@@ -59,6 +59,9 @@ module.exports = {
         // image: req.body['image'],
         image: imageResult.secure_url,// coemes cloudinary 
         cloudinaryId: imageResult.public_id,// comes cloudinary and need id from cloudinary to know what to delete
+        'health-notes': req.body['health-notes'],
+        'journal-lang': req.body['journal-lang'],
+        'journal-user': req.body['journal-user'],
         description: req.body['description'],
         privateMode: req.body['private-mode'] === '' ? false : true,
         creatorId: req.user._id,
