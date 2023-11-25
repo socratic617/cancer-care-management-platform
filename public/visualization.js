@@ -1,4 +1,5 @@
 // Source: Chatgpt  &#34; are quotes that were replaced.  Use replace all to add back quote and JSON.parse to make string back to an object
+
 const serverJournalData = JSON.parse(serverData.replaceAll("&#34;", "\""));
 console.log(serverJournalData);
 
@@ -9,7 +10,7 @@ function getPastSevenDays() {
   const dateStrings = [];
 
   //This allows me to loop through my 7 most recent days to create an array of dates with my data
-  for (let i = 0; i < 14; i++) {
+  for (let i = 0; i < 7; i++) {
 
     const pastDate = new Date(today);
     pastDate.setDate(today.getDate() - i);
@@ -89,7 +90,7 @@ for(let i = 0; i < pastSevenDaysLabels.length; i++){
   }
 
   if(!found){
-    
+
     // if this label doesnt exist, create it 
     if(resultSevenDaysMood['none'] == undefined ){
       resultSevenDaysMood['none'] = 1 
