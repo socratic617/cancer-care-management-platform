@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 
-  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -21,10 +21,14 @@
       class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar">
       <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+
         <!-- PROFILE PIC -->
-        <div>
-          <img class="w-10 h-10 rounded-full" src="img/profile_pic_one.jpg" alt="Jese image">
-          <div class="ps-3">
+        <div class="grid grid-cols-3 pb-4 pt-8">
+          <div class="pt-2">
+            <img class="w-10 h-10 rounded-full" src="https://avatar.iran.liara.run/public/18" alt="Jese image">
+          </div>
+          
+          <div class="ps-3 col-span-2">
             <div class="text-base font-semibold">
               <%= user["warrior-name"] %>
             </div>
@@ -140,24 +144,31 @@
             <div class="text-2xl text-gray-400 dark:text-gray-500 ">
               <h2>Health Biometrics</h2>
               <!-- BIOMETRIC_INFO ROWS (giving an id to know where to add and delete rows) -->
-              <div id="biometric-rows">
+              <div id="biometric-rows" class="mr-8">
                 <!-- ADD FIRST NEW BIOMETRIC FIELD -->
 
               </div>
               
           
               <!-- ADD  NEW HEALTH BIOMETRIC ENTRY -->
-              <div class="grid grid-cols-5 gap-4 pb-8">
+              <div class="entry-add-btn pb-8 pt-8 mr-8">
 
                 <!-- ADD BTN -->
-                <button
+                <button id="add-entry" type="button"
+                  class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                  Add </button>
+                <!-- <button
                   id="add-entry" class="m-8 inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                   type="button">
                   
-                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </button>
+                </button> -->
+              </div>
+              
+              <div class="pb-8">
+                <label for="health-notes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Health Notes</label>
+                <textarea id="health-notes" name="health-notes" rows="4"
+                  class="w-full block p-2.5  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Enter patient health notes"></textarea>
               </div>
             
             </div>
@@ -175,7 +186,7 @@
           
                 <!-- ENTRY DATE FIELD -->
                 <div>
-                  <label for="date-entry" class=" text-sm font-medium text-gray-900 dark:text-white">Entry Date</label>
+                  <label for="entry-date" class=" text-sm font-medium text-gray-900 dark:text-white">Entry Date</label>
                   <div class="relative max-w-sm">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none ">
                       <svg class="w-4 h-4 ml-2 mr-2 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -186,7 +197,7 @@
                     </div>
                     <input datepicker type="text" name="entry-date" id="entry-date"
                       class="pl-8 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Select date">
+                      placeholder="Select date" required>
                   </div>
           
                 </div>
@@ -194,13 +205,13 @@
                 <!-- FATIGUE DROPDOWN FIELD  -->
                 <div>
                   <label for="fatigue-entry" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    Fatigue Level
+                    Fatigue Level (1 My Worst - 10 My Best)
                   </label>
           
                   <select id="fatigue-entry" name="fatigue-entry"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required>
-                    <option value="" selected> Select Fatigue Level (1 Feeling Worse - 10 Feeling Great)</option>
+                    <option value="" selected> Select Fatigue Level</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -220,34 +231,37 @@
                   <label for="mood" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select How Your
                     Feeling</label>
                   <select name="mood" id="mood"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option>Happy</option>
-                    <option>Creative</option>
-                    <option>Grateful</option>
-                    <option>Excited</option>
-                    <option>Sad</option>
-                    <option>Mad</option>
-                    <option>Tired</option>
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                    <option value="" selected>Select Feeling</option>
+                    <option value="Happy">Happy</option>
+                    <option value="Creative">Creative</option>
+                    <option value="Grateful">Grateful</option>
+                    <option value="Excited">Excited</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Mad">Mad</option>
+                    <option value="Tired">Tired</option>
                   </select>
                 </div>
           
                 <!-- TREATMENT FIELD -->
                 <div>
-                  <label for="treatment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Status
+                  <label for="treatment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select 
                     Treatment</label>
                   <select name="treatment" id="treatment"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option>None</option>
-                    <option>Chemothearpy</option>
-                    <option>Hydration</option>
-                    <option>Radiation</option>
-                    <option>Surgery</option>
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                    <option value="" selected>Select Treatment Type</option>
+                    <option value="None" >None</option>
+                    <option value="Chemothearpy" >Chemothearpy</option>
+                    <option value="Hydration" >Hydration</option>
+                    <option value="Radiation" >Radiation</option>
+                    <option value="Surgery" > Surgery</option>
+                    <option value="Steroids"> Steroids</option>
                   </select>
                 </div>
               </div>
           
               <!-- IMAGE  -->
-              <div class="grid grid-cols-2 gap-4 pt-8">
+              <div class="grid grid-cols-3 gap-4 pt-8">
 
                 <!--  IMAGE   -->
                 <div>
@@ -257,18 +271,29 @@
                     aria-describedby="file_input_help" name="file" id="file" type="file">
                   <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG or JPG </p>
                 </div>
+
+                <div>
+                  <label for="journal-user" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Whose Journal is this?</label>
+                  <select name="journal-user" id="journal-user"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                    <option value="" selected>Select User</option>
+                    <option value="Caregiver">Caregiver</option>
+                    <option value="Patient">Patient</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="journal-lang" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">What language is this written in?</label>
+                  <select name="journal-lang" id="journal-lang"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
+                    <option value="" selected>Select Language</option>
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                  </select>
+                </div>
+               
                 
-
-
-
-
-                <!-- <div>
-                  <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image URL For
-                    Post</label>
-                  <input type="text" name="image" id="modal-image"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="https://imageURL.com/" required="">
-                </div> -->
               </div>
           
               <!--  DIARY  -->
@@ -278,7 +303,8 @@
                     Reflection</label>
                   <textarea id="description" name="description" rows="8"
                     class="w-full block p-2.5  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="Your description here"></textarea>
+                    placeholder="Your description here" maxlength="550"></textarea>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Max character length: 550</p>
                 </div>
               </div>
           
