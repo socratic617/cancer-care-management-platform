@@ -1,5 +1,4 @@
 body{
-  /* padding-top:80px; */
   word-wrap:break-word;
 }
 
@@ -18,12 +17,11 @@ img{
 .jumbotron-img {
   background-image: url("/imgs/background-img.jpg");
   object-fit: cover;
-  /* margin-top: 5rem; */
 }
 
 .jumbotron-img div{
-  margin-top: 14rem;
-  padding-bottom: 4rem;
+
+  padding: 1.4rem;
 }
 
 .entry-add-btn{
@@ -56,6 +54,13 @@ img{
 
 @media screen and (max-width: 800px) {
   html {
-    font-size: 62.5%; /* 10px */
+    font-size: 62.5%; 
   }
 }
+
+.nav-bar {
+  height: 5rem;
+}
+
+
+
