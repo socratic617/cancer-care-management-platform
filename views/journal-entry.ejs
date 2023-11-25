@@ -24,16 +24,21 @@
 
         <!-- PROFILE PIC -->
         <div class="grid grid-cols-3 pb-4 pt-8">
-          <div class="pt-2">
-            <img class="w-10 h-10 rounded-full" src="https://avatar.iran.liara.run/public/18" alt="Jese image">
+          <div class="pt-1 pl-3">
+            <img class="w-10 h-10 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa8pgIzxGc3bOC1BG4YVcFoFZe_i2uIyid3LB9IaSKkEZMoP11MoaAVpP3e1r0vIhFhQA&usqp=CAU" alt="Jese image">
           </div>
-          
+        
           <div class="ps-3 col-span-2">
             <div class="text-base font-semibold">
               <%= user["warrior-name"] %>
             </div>
             <div class="font-normal text-gray-500">
-              <%= user["warrior-status"] %>
+              <% if(user["warrior-status"]=='Currently In Treatment' ){ %>
+                In Treatment
+                <% } else{ %>
+                  <%= user["warrior-status"] %>
+                    <% } %>
+        
             </div>
           </div>
         </div>
@@ -55,7 +60,7 @@
             <a href="/journal-entry"
               class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
               <svg
-                class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                class="mr-4 flex-shrink-0 w-5 h-5 text-pink-400 transition duration-75 dark:text-pink-400 group-hover:text-gray-900 dark:group-hover:text-white"
                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
                 <path
@@ -66,7 +71,7 @@
               <span class="flex-1 ms-3 whitespace-nowrap">Journal Entry</span>
             </a>
           </li>
-          <!-- <li>
+          <li>
             <a href="/my-journals"
               class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
               <svg
@@ -77,7 +82,7 @@
               </svg>
               <span class="flex-1 ms-3 whitespace-nowrap">My Journals</span>
             </a>
-          </li> -->
+          </li>
 
           <li>
             <a href="/visualization"
