@@ -7,6 +7,9 @@
   <!-- Tailwind Styling  -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
 
+  <link rel="icon" type="image/png"
+    href="https://cdn2.iconfinder.com/data/icons/medicine-22/64/medical_breast_cancer-512.png">
+
   <link rel="stylesheet" href="css/style.css">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
@@ -24,20 +27,22 @@
         <!-- PROFILE PIC -->
         <div class="grid grid-cols-3 pb-4 pt-8">
           <div class="pt-1 pl-3">
-            <img class="w-10 h-10 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa8pgIzxGc3bOC1BG4YVcFoFZe_i2uIyid3LB9IaSKkEZMoP11MoaAVpP3e1r0vIhFhQA&usqp=CAU" alt="Jese image">
+            <img class="w-10 h-10 rounded-full"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa8pgIzxGc3bOC1BG4YVcFoFZe_i2uIyid3LB9IaSKkEZMoP11MoaAVpP3e1r0vIhFhQA&usqp=CAU"
+              alt="Jese image">
           </div>
-        
+
           <div class="ps-3 col-span-2">
             <div class="text-base font-semibold">
               <%= user["warrior-name"] %>
             </div>
             <div class="font-normal text-gray-500">
-                <% if(user["warrior-status"] =='Currently In Treatment' ){ %>
-                   In Treatment
+              <% if(user["warrior-status"]=='Currently In Treatment' ){ %>
+                In Treatment
                 <% } else{ %>
                   <%= user["warrior-status"] %>
-                <% } %>
-              
+                    <% } %>
+
             </div>
           </div>
         </div>
@@ -71,17 +76,17 @@
             </a>
           </li>
           <li>
-              <a href='/my-journals'
-                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <svg
-                  class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                  <path
-                    d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                </svg>
-                <span class="flex-1 ms-3 whitespace-nowrap">My Journals</span>
-              </a>
-            </li>
+            <a href='/my-journals'
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                <path
+                  d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">My Journals</span>
+            </a>
+          </li>
 
           <li>
             <a href="/visualization"
@@ -126,7 +131,7 @@
             </a>
           </li>
         </ul>
-        
+
       </div>
       <div display="hidden" id="loggedInUserId">
         <%= user._id %>
@@ -144,6 +149,126 @@
           </p>
         </div>
 
+        <section class="bg-gray-50 dark:bg-gray-900 flex items-center pb-4">
+          <div class="max-w-screen-xl w-full">
+            <!-- Start coding here -->
+            <div class="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
+              <div
+                class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
+                <div class="w-full md:w-1/2">
+                  <form class="flex items-center">
+                    <label for="simple-search" class="sr-only">Search</label>
+                    <div class="relative w-full">
+                      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                          viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <input type="text" id="simple-search"
+                        class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Search" required="">
+                    </div>
+                  </form>
+                </div>
+                <div
+                  class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
+                  <button type="button"
+                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                    <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                    </svg>
+                    Add product
+                  </button>
+                  <div class="flex items-center w-full space-x-3 md:w-auto">
+                    <button id="actionsDropdownButton" data-dropdown-toggle="actionsDropdown"
+                      class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      type="button">
+                      <svg class="-ml-1 mr-1.5 w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path clip-rule="evenodd" fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                      </svg>
+                      Actions
+                    </button>
+                    <div id="actionsDropdown"
+                      class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                      <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="actionsDropdownButton">
+                        <li>
+                          <a href="#"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mass
+                            Edit</a>
+                        </li>
+                      </ul>
+                      <div class="py-1">
+                        <a href="#"
+                          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete
+                          all</a>
+                      </div>
+                    </div>
+                    <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown"
+                      class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 mr-2 text-gray-400"
+                        viewbox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      Filter
+                      <svg class="-mr-1 ml-1.5 w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path clip-rule="evenodd" fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                      </svg>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
+                      <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
+                        Category
+                      </h6>
+                      <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
+                        <li class="flex items-center">
+                          <input id="apple" type="checkbox" value=""
+                            class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                          <label for="apple" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                            Apple (56)
+                          </label>
+                        </li>
+                        <li class="flex items-center">
+                          <input id="fitbit" type="checkbox" value=""
+                            class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                          <label for="fitbit" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                            Fitbit (56)
+                          </label>
+                        </li>
+                        <li class="flex items-center">
+                          <input id="dell" type="checkbox" value=""
+                            class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                          <label for="dell" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                            Dell (56)
+                          </label>
+                        </li>
+                        <li class="flex items-center">
+                          <input id="asus" type="checkbox" value="" checked
+                            class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                          <label for="asus" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                            Asus (97)
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
 
         <div class="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
 
@@ -151,93 +276,107 @@
           <div class="grid grid-cols-2 md:grid-cols-3 gap-4 bg-purple-100">
             <% for(var i=0; i<journals.length; i++) {%>
               <div
-                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                class="card-<%= i %> max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 
                 <a href="#">
                   <% if(journals[i].image !==undefined || journals[i].image !='' ){ %>
                     <img class="community-card-img rounded-t-lg" src="<%= journals[i].image %>" alt="" />
                     <% } else{ %>
-                      <img class="community-card-img rounded-t-lg" src="https://wallpapers.com/images/featured/nature-2ygv7ssy2k0lxlzu.jpg"
-                        alt="" />
+                      <img class="community-card-img rounded-t-lg"
+                        src="https://wallpapers.com/images/featured/nature-2ygv7ssy2k0lxlzu.jpg" alt="" />
                       <% } %>
                 </a>
 
 
-              
+
                 <div class="flex items-center p-4">
                   <div class="flex-shrink-0 mr-2">
-                    <img class="w-8 h-8 rounded-full" src="data:image/png;base64,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" alt="User image">
+                    <img class="w-8 h-8 rounded-full"
+                      src="data:image/png;base64,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"
+                      alt="User image">
                   </div>
                   <div class="flex-1 min-w-0 ms-4">
-                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                      <% if( journals[i]['journal-user'] == 'Caregiver' || journals[i].user['caregiver-patient-name'] == ''){ %>
+                    <p class=" text-sm font-medium text-gray-900 truncate dark:text-white">
+                      <% if( journals[i]['journal-user']=='Caregiver' || journals[i].user['caregiver-patient-name']==''
+                        ){ %>
                         <%=journals[i].user['warrior-name'] %>
-                      <% }
-                       else{ %>
-                          <%=journals[i].user['caregiver-patient-name'] %>
-                      <% } %>
+                          <% } else{ %>
+                            <%=journals[i].user['caregiver-patient-name'] %>
+                              <% } %>
                     </p>
                     <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                      <% if( journals[i]['journal-user']=='Caregiver' || journals[i].user['caregiver-patient-name']=='' ){ %>
+                      <% if( journals[i]['journal-user']=='Caregiver' || journals[i].user['caregiver-patient-name']==''
+                        ){ %>
                         <%=journals[i].user['warrior-status'] %>
-                      <% } else{ %>
+                          <% } else{ %>
                             <%=journals[i].user['caregiver-patient-status'] %>
-                      <% } %>
+                              <% } %>
                     </p>
                   </div>
 
                   <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                     <div class="ml-4 flex items-center">
-                    
+
                       <!-- THIS IS WHERE I HAVE STARRED FAVORITES AND UNSTARRED FAVORITES -->
                       <% if(journals[i].reactions[user._id] !==undefined){ %>
-                        <i class="pointer favorite fas fa-heart" style="color: #db0000;" id="<%= journals[i]._id %>"></i>
+                        <i class="pointer favorite fas fa-heart" style="color: #db0000;"
+                          id="<%= journals[i]._id %>"></i>
                         <% } else{ %>
-                          <i class="pointer favorite fas fa-heart" style="color:#585555;" id="<%= journals[i]._id %>"></i>
+                          <i class="pointer favorite fas fa-heart" style="color:#585555;"
+                            id="<%= journals[i]._id %>"></i>
                           <% } %>
-                    
+
                             <!-- turning user ids to an array using recipes[i] and using .length method to get all user ids -->
                             <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white">
                               <%= Object.keys(journals[i].reactions).length %>
                             </p>
-                    
+
                     </div>
                   </div>
                 </div>
 
                 <!-- TAG ADDED FOR DIFF TYPES OF CANCER FOR EACH POST -->
                 <!-- credit: https://stackoverflow.com/questions/63633427/switch-condition-statement-semicolon-error-inside-ejs-template -->
-                  <div class="pl-4 pr-2">
-                    <span
-                      class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
-                      <%=journals[i]['entryDate'] %>
-                    </span>
+                <div class="pl-4 pr-2">
+                  <span
+                    class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                    <%=journals[i]['entryDate'] %>
+                  </span>
 
-                    <span
-                      class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300"><%=journals[i].user['cancer-type'] %>
-                    </span>
+                  <span
+                    class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300"><%=journals[i].user['cancer-type']
+                      %>
+                  </span>
 
-                    <span
-                      class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"><%=journals[i]['journal-lang']
-                        %>
-                    </span>
-                  </div>
+                  <span
+                    class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"><%=journals[i]['journal-lang']
+                      %>
+                  </span>
+                </div>
 
-                  <div class="p-5">
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      <%= journals[i].description %>
-                    </p>
-                    <!-- If you are comparing mongoDB objectId, then use toString(). -->
-                    <!-- credit : https://stackoverflow.com/questions/57661892/ejs-comparison-between-two-same-strings -->
-                    <% if(journals[i].creatorId.toString()==user._id.toString()) { %>
-                      <button type="button"
-                        class="trash text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                        id="<%= journals[i]._id %>">
-                        Delete</button>
-                      <% } %>
+                <div class="p-5">
+                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" id="journal-description-<%= i %> ">
 
-                  </div>
+
+
+                    <% if( journals[i].description.length <=150){ %>
+                      <%=journals[i].description %>
+                        <% } else{ %>
+                          <%= journals[i].description.substring(0, 150); %><a class="dots" id="dots-<%= i %>">... see more</a><span class="hidden" id="more-<%= i %>"><%=journals[i].description.substring(150, journals[i].description.length-1);%>
+                            </span>
+                            <% } %>
+                  </p>
+                  <!-- If you are comparing mongoDB objectId, then use toString(). -->
+                  <!-- credit : https://stackoverflow.com/questions/57661892/ejs-comparison-between-two-same-strings -->
+                  <% if(journals[i].creatorId.toString()==user._id.toString()) { %>
+                    <button type="button"
+                      class="trash text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                      id="<%= journals[i]._id %>">
+                      Delete</button>
+                    <% } %>
+
+                </div>
 
               </div>
               <% } %>
