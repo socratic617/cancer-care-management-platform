@@ -1,5 +1,6 @@
 const cloudinary = require("../middleware/cloudinary");
 const Journal = require("../models/Journal");
+const {ObjectId} = require('mongodb');
 module.exports = {
 
     getCommunity: async (req, res) => {//getCommunity is my method for journalsController 
@@ -155,20 +156,54 @@ module.exports = {
   },
   updateFavorite: async (req, res) => {
     try {
-      console.log('req.user : ')
+      console.log('update favorite: req.user : ')
       console.log(req.user)
-      const posts = await Post.find({ user: req.user.id });
-      // res.render("journal-entry.ejs", {  user: req.user });//*****TO DO: Create Request to database and model for journals (add schema for journal aka model)*** *********TO DO*/
+
+      Journal.find({_id: ObjectId(req.body.id)})
+      .exec((err, result) => {
+          if (err) return console.log(err)
+          console.log("result : ", result)
+
+          console.log(result[0].reactions[req.body.loggedInUserId])
+
+          if(result[0].reactions[req.body.loggedInUserId] !== undefined){
+            console.log('i need to remove the user id  ')
+            delete result[0].reactions[req.body.loggedInUserId]; //credit: https://stackoverflow.com/questions/3455405/how-do-i-remove-a-key-from-a-javascript-object
+            //im removing the star if I dont want to star it 
+
+          }
+          else{
+            console.log('i need to add user id  ')
+            result[0].reactions[req.body.loggedInUserId] = true; //this is how im adding star fav to post 
+            console.log(result[0].reactions)
+          }
+
+          Journal.findOneAndUpdate({_id: ObjectId(req.body.id)}, {
+            $set: {
+              reactions: result[0].reactions,
+            }
+          }, {
+            sort: {_id: -1},
+            upsert: true
+          }, (err, result) => {
+            if (err) return res.send(err)
+            res.send(result)
+          })
+        })
+
     } catch (err) {
       console.log(err);
     }
   },
   deleteJournal: async (req, res) => {
     try {
-      console.log('req.user : ')
+      console.log('deleteJournal req.user : ')
       console.log(req.user)
-      // // const posts = await Post.find({ user: req.user.id });
-      // res.render("journal-entry.ejs", {  user: req.user });//*****TO DO: Create Request to database and model for journals (add schema for journal aka model)*** *********TO DO*/
+
+      Journal.findOneAndDelete({_id: ObjectId(req.body.id)}, (err, result) => {
+        if (err) return res.send(500, err)
+        res.send('Recipe deleted!')
+      })
     } catch (err) {
       console.log(err);
     }
