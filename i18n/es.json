@@ -5,12 +5,36 @@
 "LOG_IN_BUTTON": "Iniciar Sesión",
 "SIGN_UP_BUTTON": "Inscribirse",
 "HOME": "Inicio",
-"MISSION": "Misión",
 "SERVICES": "Funcionalidades",
 "TITLE": "Circulo de Guerreros",
 "SIGN_IN_TO_YOUR_ACCOUNT":"Inicia sesión en tu cuenta",
 "YOUR_EMAIL": "Tu correo electrónico",
 "PASSWORD": "Contraseña",
 "REMEMBER_ME": "Recuérdame",
-"DONT_HAVE_AN_ACCOUNT_YET_SIGN_UP": "¿Todavía no tienes una cuenta? Regístrate"
+"DONT_HAVE_AN_ACCOUNT_YET_SIGN_UP": "¿Todavía no tienes una cuenta? Regístrate",
+
+"ENGINEER": "Ingeniero de Sistemas",
+"TEAM": "Nuestro Equipo",
+
+"MISSION": "Misión",
+"MISSION_DESCRIPTION": "Impulsado por mi experiencia como cuidador, creé esta aplicación web para unir a hablantes de inglés y español en una comunidad solidaria para cuidadores y pacientes. Nuestra plataforma no solo fomenta conexiones, sino que también simplifica la atención médica al permitir el fácil intercambio de datos de salud para cuidados informados y personalizados.",
+"MISSION_DESCRIPTION_TWO": "¡Embárcate en un viaje transformador con nosotros mientras abrimos camino hacia una nueva era en el cuidado, redefiniendo el apoyo para pacientes con cáncer a través de soluciones innovadoras y una comunidad en línea llena de comprensión y apoyo!",
+
+"FEATURE_TITLE":"Diseñado para personas como tú",
+"FEATURE_PERSONALIZED":"Cotizaciones personalizadas",
+"FEATURE_HEALTH": "Seguimiento biométrico",
+"FEATURE_VISUALIZATION": "Visualización de datos",
+"FEATURE_COMMUNITY": "Comunidad",
+"FEATURE_BILINGUAL": "Multilingüe",
+"FEATURE_PRIVACY": "Privacidad",
+
+"FEATURE_PERSONALIZED_DESCRIPTION": "Utiliza inteligencia artificial para crear citas motivacionales únicas y personalizadas a partir de entradas pasadas en el diario",
+"FEATURE_HEALTH_DESCRIPTION": "Almacena datos de salud para compartir con proveedores de atención médica y ajustar recetas y planes según el bienestar del paciente de manera eficiente",
+"FEATURE_VISUALIZATION_DESCRIPTION": "Analiza datos mediante visualización para comprender tendencias y cómo diferentes factores pueden afectar al paciente",
+"FEATURE_COMMUNITY_DESCRIPTION": "Comparte tu historia y descubre las historias de otras personas en su viaje con el cáncer dentro de una comunidad solidaria",
+"FEATURE_BILINGUAL_DESCRIPTION": "Utiliza esta aplicación web en tu idioma preferido y filtra diarios según tu idioma hablado de manera sencilla",
+"FEATURE_PRIVACY_DESCRIPTION": "Protege tus diarios e información con configuraciones de privacidad, permitiéndote utilizar la plataforma de manera discreta sin compartir con la comunidad.",
+
+"FOOTER_DESCRIPTION": "Plataforma dedicada a fomentar la participación comunitaria y brindar apoyo tanto a hablantes de inglés como de español.",
+"RIGHTS" : "Todos los derechos reservados"
 }

@@ -5,7 +5,6 @@
 "LOG_IN_BUTTON": "Log In",
 "SIGN_UP_BUTTON": "Sign Up",
 "HOME": "Home",
-"MISSION": "Mission",
 "SERVICES": "Features",
 "TITLE": "Circle of Warriors",  
 
@@ -14,5 +13,28 @@
 "YOUR_EMAIL": "Your email",
 "PASSWORD": "Password",
 "REMEMBER_ME": "Remember me",
-"DONT_HAVE_AN_ACCOUNT_YET_SIGN_UP": "Don't have an account yet? Sign up"
+"DONT_HAVE_AN_ACCOUNT_YET_SIGN_UP": "Don't have an account yet? Sign up",
+
+"MISSION": "Mission",
+"MISSION_DESCRIPTION": "Driven by my own caregiving experience, I created this web application to unite English and Spanish speakers in a supportive community for caregivers and patients. Our platform not only fosters connections but also streamlines healthcare by allowing easy sharing of health data for informed and personalized care.",
+"MISSION_DESCRIPTION_TWO": "Embark on a transformative journey with us as we pioneer a new era in caregiving, redefining support for cancer patients through innovative solutions and a nurturing online community.",
+
+"ENGINEER": "software Engineer",
+"TEAM": "Our Team",
+
+"FEATURE_TITLE":"Designed for People like you",
+"FEATURE_PERSONALIZED":"Personalized Quotes",
+"FEATURE_HEALTH": "Biometric Tracking",
+"FEATURE_VISUALIZATION": "Data Visualization",
+"FEATURE_COMMUNITY": "Community",
+"FEATURE_BILINGUAL": "Multilingual",
+"FEATURE_PRIVACY": "Privacy",
+"FEATURE_PERSONALIZED_DESCRIPTION": "Harnesses AI to craft distinctive and personalized motivational quotes by drawing insights from past journal entries",
+"FEATURE_HEALTH_DESCRIPTION": "Effortlessly store health data for seamless sharing with healthcare providers, enabling tailored prescriptions and plans based on the patient's well-being",
+"FEATURE_VISUALIZATION_DESCRIPTION": "Employ advanced data visualization techniques to discern trends and understand the impact of various factors on the patient's journey",
+"FEATURE_COMMUNITY_DESCRIPTION": "Connect by sharing your narrative and exploring others' stories on their cancer journey within a supportive community",
+"FEATURE_BILINGUAL_DESCRIPTION": "Immerse yourself in this web application in your preferred language, and effortlessly filter journals based on your spoken language",
+"FEATURE_PRIVACY_DESCRIPTION": "Safeguard your journals and information with privacy settings, allowing you to use the platform discreetly without sharing with the community.",
+"FOOTER_DESCRIPTION": "Enhancing community engagement and providing support for speakers of both English and Spanish.",
+"RIGHTS" : "All rights reserved"
 }
