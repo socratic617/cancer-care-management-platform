@@ -20,9 +20,13 @@
       aria-label="Sidebar">
       <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <!-- PROFILE PIC -->
-        <div>
-          <img class="w-10 h-10 rounded-full" src="img/profile_pic_one.jpg" alt="Jese image">
-          <div class="ps-3">
+        <!-- PROFILE PIC -->
+        <div class="grid grid-cols-3 pb-4 pt-8">
+          <div class="pt-2">
+            <img class="w-10 h-10 rounded-full" src="https://avatar.iran.liara.run/public/18" alt="Jese image">
+          </div>
+        
+          <div class="ps-3 col-span-2">
             <div class="text-base font-semibold">
               <%= user["warrior-name"] %>
             </div>
