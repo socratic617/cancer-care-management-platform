@@ -12,6 +12,8 @@ const mainRoutes = require("./routes/main");//then connect my routes
 const journalsRoutes = require("./routes/journals");
 const path = require('path');//
 const i18n=require("i18n-express"); // <-- require the module
+
+
 //Use .env file in config folder , so my secrets dont go up w password to gtihub
 require("dotenv").config({ path: "./config/.env" });
 
