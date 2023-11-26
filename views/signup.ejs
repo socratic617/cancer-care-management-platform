@@ -13,12 +13,12 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container mx-auto">
 
 
     <section class="bg-gray-50 dark:bg-gray-900">
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="/" class="flex items-center mt-8 mb-6 text-2xl font-semibold text-gray-700 dark:text-white">
+        <a href="/" class="flex items-center mt-2 mb-2 text-2xl font-semibold text-gray-700 dark:text-white">
           <img class="w-20 h-20 mr-2" src="imgs/site-logo.svg" alt="logo">
           <div class="ml-2">
             <%=translation.TITLE%>
@@ -151,8 +151,7 @@
 
                       <div>
                         <label for="relationship-type"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Relationship To
-                          Warrior</label>
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> <%=translation.SIGN_UP.RELATIONSHIP%></label>
 
                         <!-- PART 1 OF 2 FORM VALIDATION DEFAULT  "REQUIRED" ATTRIBUTE -->
                         <select id="relationship-type" name="relationship-type"
@@ -160,14 +159,14 @@
                           >
 
                           <!-- PART 2 OF 2 FORM VALIDATION DEFAULT "VALUE EMPTY STRING"  -->
-                          <option value="" selected>Choose Relationship Type</option>
-                          <option value="Spouse/Partner">Spouse/Partner</option>
-                          <option value="Parent">Parent</option>
-                          <option value="Sibling">Sibling</option>
-                          <option value="Child">Child</option>
-                          <option value="Grandparent">Grandparent</option>
-                          <option value="Friend">Friend</option>
-                          <option value="Healthcare Professional">Healthcare Professional</option>
+                          <option value="" selected><%=translation.SIGN_UP.RELATIONSHIP_OPTIONS.RELATIONSHIP_DEFAULT%></option>
+                          <option value="Spouse/Partner"><%=translation.SIGN_UP.RELATIONSHIP_OPTIONS.RELATIONSHIP_SPOUSE_PARTNER%></option>
+                          <option value="Parent"><%=translation.SIGN_UP.RELATIONSHIP_OPTIONS.RELATIONSHIP_PARENT%></option>
+                          <option value="Sibling"><%=translation.SIGN_UP.RELATIONSHIP_OPTIONS.RELATIONSHIP_SIBLING%></option>
+                          <option value="Child"><%=translation.SIGN_UP.RELATIONSHIP_OPTIONS.RELATIONSHIP_CHILD%></option>
+                          <option value="Grandparent"><%=translation.SIGN_UP.RELATIONSHIP_OPTIONS.RELATIONSHIP_GRANDPARENT%></option>
+                          <option value="Friend"><%=translation.SIGN_UP.RELATIONSHIP_OPTIONS.RELATIONSHIP_FRIEND%></option>
+                          <option value="Healthcare Professional"><%=translation.SIGN_UP.RELATIONSHIP_OPTIONS.RELATIONSHIP_HEALTHCARE_PROFESSIONAL%></option>
                         </select>
 
                       </div>
