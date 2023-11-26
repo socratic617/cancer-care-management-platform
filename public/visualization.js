@@ -39,7 +39,7 @@ function getPastXDatesAsArray(numberOfDays) {
 const pastSevenDaysLabels = getPastXDatesAsArray(7).reverse();
 console.log(pastSevenDaysLabels);
 
-//each variable below holds data for visualization such as mood, hydration,fatigue, protein 
+//hash tables each variable below holds data for visualization such as mood, hydration,fatigue, protein 
 let resultSevenDaysMood = {}
 let resultSevenDaysHydration = {}
 let resultSevenDaysFatigue = {}
@@ -210,6 +210,7 @@ const dataProtein = {
     label: 'Protein Goal',
     data: [75, 75, 75, 75, 75, 75, 75, 75],//protein intake goal for 7 days 
     fill: false,
+    pointRadius: 0,
     borderColor: sharedBackgroundColors[2]
   }]
 };
@@ -288,7 +289,16 @@ const dataHydration = {
     label: 'Hydration Goal',
     data: [70, 70, 70, 70, 70, 70, 70, 70],//fluid intake goal for 7 days 
     fill: false,
-    borderColor: sharedBackgroundColors[2]
+    pointRadius: 0,
+    borderColor: sharedBackgroundColors[2],
+    layout: {
+      padding: {
+          // left: 20, // Adjust the left padding
+          // right: 20, // Adjust the right padding
+          top: 50, // Adjust the top padding
+          // bottom: 10 // Adjust the bottom padding
+      }
+    }
   }]
 };
 
