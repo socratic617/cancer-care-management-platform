@@ -2,6 +2,7 @@ const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
 
+
 exports.getLogin = (req, res) => {
   if (req.user) {
     return res.redirect("/community-page");
@@ -45,7 +46,9 @@ exports.postLogin = (req, res, next) => {
         return next(err);
       }
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "/community-page");
+
+      //added a param as a user['lang-type'] property into url from what user selected for perfered lang
+      res.redirect(req.session.returnTo || `/community-page?lang=${user['lang-type']}`);
     });
   })(req, res, next);
 };
