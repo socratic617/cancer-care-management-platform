@@ -161,12 +161,14 @@ const config = {
   type: 'doughnut',// type of visual to display
   data: data, //refers to the variable 
    options: {
-        plugins: {
-            title: {
-                display: true,
-                text: 'Weekly Mood'// of name title of visual
-            }
+    responsive: true, //credit: ChatGPT
+    maintainAspectRatio: false,
+    plugins: {
+        title: {
+            display: true,
+            text: 'Weekly Mood'// of name title of visual
         }
+    }
    }
 };
 
@@ -219,6 +221,8 @@ const configProtein = {
   type: 'line',
   data: dataProtein,
   options:{
+    responsive: true, //credit: ChatGPT
+    maintainAspectRatio: false,
       scales: {
         x: {
           display: true,
@@ -306,6 +310,8 @@ const configHydration = {
   type: 'bar',
   data: dataHydration,
   options: {
+    responsive: true, //credit: ChatGPT
+    maintainAspectRatio: false,
     scales: {
       x: {
           display: true,
