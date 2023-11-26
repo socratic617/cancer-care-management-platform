@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
   <div class="bg-gray-100">
 
     <!-- NAV BAR -->
@@ -27,6 +28,221 @@
       <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <!-- PROFILE PIC -->
         <!-- PROFILE PIC -->
+        <div class="grid grid-cols-3 pb-4 pt-8">
+          <div class="pt-1 pl-3">
+            <img class="w-10 h-10 rounded-full"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa8pgIzxGc3bOC1BG4YVcFoFZe_i2uIyid3LB9IaSKkEZMoP11MoaAVpP3e1r0vIhFhQA&usqp=CAU"
+              alt="Jese image">
+          </div>
+
+          <div class="ps-3 col-span-2">
+            <div class="text-base font-semibold">
+              <%= user["warrior-name"] %>
+            </div>
+            <div class="font-normal text-gray-500">
+              <% if(user["warrior-status"]=='Currently In Treatment' ){ %>
+                In Treatment
+                <% } else{ %>
+                  <%= user["warrior-status"] %>
+                    <% } %>
+
+            </div>
+          </div>
+        </div>
+
+        <ul class="space-y-2 font-medium">
+          <li>
+            <a href="/community-page"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-500 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                <path
+                  d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Community Page</span>
+            </a>
+          </li>
+          <li>
+            <a href="/journal-entry"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
+                <path
+                  d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
+                <path
+                  d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Journal Entry</span>
+            </a>
+          </li>
+          <li class="bg-white">
+            <a href='#'
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 flex-shrink-0 w-5 h-5 text-pink-400 transition duration-75 dark:text-pink-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                <path
+                  d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">My Journals</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/visualization"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                <path
+                  d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                <path
+                  d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+              </svg>
+              <span class="ms-3">Visualization</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+          <!-- <li>
+                  <a href="/account-settings"
+                    class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+                    <svg
+                      class=" mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                      aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                      <path
+                        d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
+                    </svg>
+                    <span class="ms-3">Account Settings</span>
+                  </a>
+                </li> -->
+          <li>
+            <a href="/logout"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <svg
+                class="mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <div display="hidden" id="loggedInUserId">
+        <%= user._id %>
+      </div>
+    </aside>
+
+    <!-- COMMUNITY PAGE POSTS -->
+    <div class="p-4 sm:ml-64 ">
+      <div class="bg-purple-100 p-4 border-2 border-gray-200  rounded-lg dark:border-gray-700">
+        <h2 class="mb-8 text-center text-2xl text-gray-400 dark:text-gray-500">
+          My Journals
+        </h2>
+
+        <!-- HIGHLIGHTED POST  -->
+        <div class="journal-table relative overflow-x-auto shadow-md sm:rounded-lg w-full">
+
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-6 py-3">
+                  General Info
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Journal
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Metrics
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody class="">
+
+              <% for(var i=0; i<journals.length; i++) {%>
+                <tr
+                  class="py-24 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <ul>
+                      <li class="pb-2 ">
+                        <%= journals[i].entryDate %>
+                      </li>
+                      <li>Fatigue Level: <%= journals[i].fatigueEntry %>
+                      </li>
+                      <li>Mood: <%= journals[i].mood %>
+                      </li>
+                      <li>Private: <%= journals[i].privateMode %>
+                      </li>
+                      <li>Treatment: <%= journals[i].treatment %>
+                      </li>
+
+                    </ul>
+
+                  </td>
+                  <td class="px-6 py-4">
+                    <%= journals[i].description %>
+                  </td>
+                  <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <ul>
+                      <li>Hydration(oz.): <%= journals[i].visualTotals.totalHydration %>
+                      </li>
+                      <li>Sleep(hrs): <%= journals[i].visualTotals.totalHoursSlept %>
+                      </li>
+                      <li>Protein(g): <%= journals[i].visualTotals.totalProtein %>
+                      </li>
+                      <li>Activity(hrs): <%= journals[i].visualTotals.totalActivity %>
+                      </li>
+
+                    </ul>
+                  </td>
+                  <td class="px-6 py-4">
+                    <button type="button"
+                      class="trash text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                      id="<%= journals[i]._id %>">
+                      Delete</button>
+                  </td>
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
+        </div>
+
+
+
+
+        <div class="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
+
+          <!-- INSERT TABLE HERE -->
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- <div class=" flex bg-gray-100">
+
+    
+    <aside id="separator-sidebar"
+      class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      aria-label="Sidebar">
+      <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+     
         <div class="grid grid-cols-3 pb-4 pt-8">
           <div class="pt-1 pl-3">
             <img class="w-10 h-10 rounded-full"
@@ -108,18 +324,7 @@
         </ul>
 
         <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
-          <!-- <li>
-              <a href="/account-settings"
-                class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
-                <svg
-                  class=" mr-4 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                  <path
-                    d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
-                </svg>
-                <span class="ms-3">Account Settings</span>
-              </a>
-            </li> -->
+         
           <li>
             <a href="/logout"
               class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -143,175 +348,95 @@
 
 
 
-
-    <div>
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" class="px-6 py-3">
-      
-              </th>
-              <th scope="col" class="px-6 py-3">
-                General Info
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Entries
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Journal
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for(var i=0; i<journals.length; i++) {%>
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="p-4 text-gray-900 ">
-                  journals.EntryDate
-                </td>
-      
-                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                  test 3
-                </td>
-                <td class="px-6 py-4">
-                  test 4
-                </td>
-                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                  test 5
-                </td>
+    <div class="">
+      <div class="border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+        <div class="text-2xl text-gray-400 dark:text-gray-500 text-center pb-8">
+          <h1> My Weekly Report </h1>
+        </div>
+        <div class="journal-table relative overflow-x-auto shadow-md sm:rounded-lg w-full">
+        
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-16 py-3">
+                  General Info
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Journal
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Entries
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Action
+                </th>
               </tr>
-              <% } %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    
-
-
-
-
-    <!-- COMMUNITY PAGE POSTS -->
-    <div class="p-4 sm:ml-64 ">
-      <div class="bg-purple-100 p-4 border-2 border-gray-200  rounded-lg dark:border-gray-700">
-
-
-        <div class="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
-
-          <!-- LIST OF JOURNAL ENTRIES APPEAR HERE -->
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 bg-purple-100">
-            <% for(var i=0; i<journals.length; i++) {%>
-              <div
-                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-
-                <a href="#">
-                  <% if(journals[i].image !==undefined || journals[i].image !='' ){ %>
-                    <img class="community-card-img rounded-t-lg" src="<%= journals[i].image %>" alt="" />
-                    <% } else{ %>
-                      <img class="community-card-img rounded-t-lg"
-                        src="https://wallpapers.com/images/featured/nature-2ygv7ssy2k0lxlzu.jpg" alt="" />
-                      <% } %>
-                </a>
-
-
-
-                <div class="flex items-center p-4">
-                  <div class="flex-shrink-0 mr-2">
-                    <img class="w-8 h-8 rounded-full"
-                      src="data:image/png;base64,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"
-                      alt="User image">
-                  </div>
-                  <div class="flex-1 min-w-0 ms-4">
-                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                      <% if( journals[i]['journal-user']=='Caregiver' || journals[i].user['caregiver-patient-name']==''
-                        ){ %>
-                        <%=journals[i].user['warrior-name'] %>
-                          <% } else{ %>
-                            <%=journals[i].user['caregiver-patient-name'] %>
-                              <% } %>
-                    </p>
-                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                      <% if( journals[i]['journal-user']=='Caregiver' || journals[i].user['caregiver-patient-name']==''
-                        ){ %>
-                        <%=journals[i].user['warrior-status'] %>
-                          <% } else{ %>
-                            <%=journals[i].user['caregiver-patient-status'] %>
-                              <% } %>
-                    </p>
-                  </div>
-
-                  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    <div class="ml-4 flex items-center">
-
-                      <!-- THIS IS WHERE I HAVE STARRED FAVORITES AND UNSTARRED FAVORITES -->
-                      <% if(journals[i].reactions[user._id] !==undefined){ %>
-                        <i class="pointer favorite fas fa-heart" style="color: #db0000;"
-                          id="<%= journals[i]._id %>"></i>
-                        <% } else{ %>
-                          <i class="pointer favorite fas fa-heart" style="color:#585555;"
-                            id="<%= journals[i]._id %>"></i>
-                          <% } %>
-
-                            <!-- turning user ids to an array using recipes[i] and using .length method to get all user ids -->
-                            <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white">
-                              <%= Object.keys(journals[i].reactions).length %>
-                            </p>
-
-                    </div>
-                  </div>
-                </div>
-
-                <!-- TAG ADDED FOR DIFF TYPES OF CANCER FOR EACH POST -->
-                <!-- credit: https://stackoverflow.com/questions/63633427/switch-condition-statement-semicolon-error-inside-ejs-template -->
-                <div class="pl-4 pr-2">
-                  <span
-                    class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
-                    <%=journals[i]['entryDate'] %>
-                  </span>
-
-                  <span
-                    class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300"><%=journals[i].user['cancer-type']
-                      %>
-                  </span>
-
-                  <span
-                    class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"><%=journals[i]['journal-lang']
-                      %>
-                  </span>
-                </div>
-
-                <div class="p-5">
-                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            </thead>
+            <tbody class="">
+        
+              <% for(var i=0; i<journals.length; i++) {%>
+                <tr
+                  class=" py-24 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <td class="px-6 font-semibold text-gray-900 dark:text-white">
+                    <ul>
+                      <li>Date: <%= journals[i].entryDate %>
+                      </li>
+                      <li>Fatigue Level: <%= journals[i].fatigueEntry %>
+                      </li>
+                      <li>Mood: <%= journals[i].mood %>
+                      </li>
+                      <li>Private: <%= journals[i].privateMode %>
+                      </li>
+                      <li>Treatment: <%= journals[i].treatment %>
+                      </li>
+                      
+                    </ul>
+        
+                  </td>
+                  <td class="px-6 py-4">
                     <%= journals[i].description %>
-                  </p>
-                  <!-- If you are comparing mongoDB objectId, then use toString(). -->
-                  <!-- credit : https://stackoverflow.com/questions/57661892/ejs-comparison-between-two-same-strings -->
-                  <% if(journals[i].creatorId.toString()==user._id.toString()) { %>
+                  </td>
+                  <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <ul>
+                      <li>Hydration: <%= journals[i].visualTotals.totalHydration %>
+                      </li>
+                      <li>Sleep: <%= journals[i].visualTotals.totalHoursSlept %>
+                      </li>
+                      <li>Protein: <%= journals[i].visualTotals.totalProtein %>
+                      </li>
+                      <li>Activity: <%= journals[i].visualTotals.totalActivity %>
+                      </li>
+                     
+                    </ul>
+                  </td>
+                  <td class="px-6 py-4">
                     <button type="button"
                       class="trash text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                       id="<%= journals[i]._id %>">
                       Delete</button>
-                    <% } %>
-
-                </div>
-
-              </div>
-              <% } %>
-          </div>
-
+                  </td>
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
-  </div>
 
 
 
-  <script src="community.js"></script>
 
+
+
+
+
+
+
+  </div> -->
+
+
+  <script src="my-journals.js"></script>
   <!-- Tailwind Styling  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 </body>
