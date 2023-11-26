@@ -4,6 +4,8 @@
 <head>
   <title>Circle Of Warriors</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Tailwind Styling  -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
 
@@ -273,7 +275,7 @@
         <div class="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
 
           <!-- LIST OF JOURNAL ENTRIES APPEAR HERE -->
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 bg-purple-100">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-purple-100">
             <% for(var i=0; i<journals.length; i++) {%>
               <div
                 class="card-<%= i %> max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

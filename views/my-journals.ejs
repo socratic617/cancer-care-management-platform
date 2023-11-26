@@ -4,6 +4,8 @@
 <head>
   <title>Circle Of Warriors</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Tailwind Styling  -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
 
@@ -48,7 +50,7 @@
         </div>
 
         <ul class="space-y-2 font-medium">
-          <li >
+          <li>
             <a href="/community-page"
               class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
               <svg
@@ -137,6 +139,59 @@
         <%= user._id %>
       </div>
     </aside>
+
+
+
+
+
+    <div>
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+      
+              </th>
+              <th scope="col" class="px-6 py-3">
+                General Info
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Entries
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Journal
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0; i<journals.length; i++) {%>
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="p-4 text-gray-900 ">
+                  journals.EntryDate
+                </td>
+      
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                  test 3
+                </td>
+                <td class="px-6 py-4">
+                  test 4
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                  test 5
+                </td>
+              </tr>
+              <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+
+
+
 
     <!-- COMMUNITY PAGE POSTS -->
     <div class="p-4 sm:ml-64 ">
