@@ -7,6 +7,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css">
+
+  <link rel="icon" type="image/png"
+    href="https://cdn2.iconfinder.com/data/icons/medicine-22/64/medical_breast_cancer-512.png">
 </head>
 
 <body>
@@ -15,11 +18,12 @@
 
     <section class="bg-gray-50 dark:bg-gray-900">
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="/login" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-          <img class="w-8 h-8 mr-2"
-            src="https://img.freepik.com/premium-vector/pink-ribbon-breast-cancer-awareness-grunge-style-vector-design-breast-cancer-awareness-month_690789-121.jpg"
-            alt="logo">
-          Circle of Warriors 🎗️
+        <a href="/" class="flex items-center mt-8 mb-6 text-2xl font-semibold text-gray-700 dark:text-white">
+          <img class="w-20 h-20 mr-2" src="imgs/site-logo.svg" alt="logo">
+          <div class="ml-2">
+            <%=translation.TITLE%>
+          </div>
+        
         </a>
 
         <div
@@ -28,7 +32,7 @@
 
             <!-- FORM TITLE -->
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Create and account
+              <%=translation.SIGN_UP.TITLE%>
             </h1>
 
             <!-- ERROR ALERT MESSAGE -->
@@ -47,31 +51,30 @@
 
                   <!-- NAME  -->
                   <div>
-                    <label for="userName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Name</label>
+                    <label for="userName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><%=translation.SIGN_UP.USER_NAME_LABEL%></label>
                     <input type="text"  id="userName" name="userName"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="BumbleBeeReady1" required="">
+                      placeholder="<%=translation.SIGN_UP.USER_NAME_PLACEHOLDER%>" required="">
                   </div>
 
                   <!-- EMAIL -->
                   <div>
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                      email</label>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><%=translation.SIGN_UP.EMAIL_LABEL%></label>
                     <input type="email" name="email" id="email"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="name@company.com" required="">
+                      placeholder="<%=translation.SIGN_UP.EMAIL_PLACEHOLDER%>" required="">
                   </div>
 
                   <!-- PASSWORD -->
                   <div>
                     <label for="password"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><%=translation.SIGN_UP.PASSWORD_LABEL%></label>
                     <input type="password" name="password" id="password" placeholder="••••••••"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required="">
                   </div>
                   <div>
-                    <label for="confirmPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
+                    <label for="confirmPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><%=translation.SIGN_UP.CONFIRM_PASSWORD_LABEL%></label>
                     <input type="password" name="confirmPassword" id="confirmPassword" placeholder="••••••••"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required="">
@@ -83,8 +86,8 @@
                     <!-- WARRIOR NAME -->
                     <div>
                       <label for="warrior-name"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                      <input type="warrior-name" name="warrior-name" id="warrior-name" placeholder="Jane Doe"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><%=translation.SIGN_UP.NAME_LABEL%></label>
+                      <input type="warrior-name" name="warrior-name" id="warrior-name" placeholder="<%=translation.SIGN_UP.NAME_PLACEHOLDER%>"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required="">
                     </div>
@@ -177,7 +180,7 @@
                     <!-- LIST OF CANCER TYPES TO SELECT -->
                     <div>
                       <label for="cancer-type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Cancer Type
+                       <%=translation.SIGN_UP.CANCER_TYPE%>
                       </label>
 
                       <!-- PART 1 OF 2 FORM VALIDATION DEFAULT  "REQUIRED" ATTRIBUTE -->
@@ -186,25 +189,24 @@
                         required>
 
                         <!-- PART 2 OF 2 FORM VALIDATION DEFAULT "VALUE EMPTY STRING"  -->
-                        <option value="" selected>Choose Cancer Type</option>
-                        <option value="Breast Cancer">Breast Cancer</option>
-                        <option value="Lung Cancer">Lung Cancer</option>
-                        <option value="Colon/Rectal Cancer">Colon/Rectal Cancer</option>
-                        <option value="Prostate Cancer">Prostate Cancer</option>
-                        <option value="Ovarian Cancer"> Ovarian Cancer</option>
-                        <option value="Pancreatic Cancer"></option>
-                        <option value="Skin Cancer">Skin Cancer</option>
-                        <option value="Leukemia">Leukemia</option>
-                        <option value="Lymphoma">Lymphoma</option>
-                        <option value="Bladder Cancer">Bladder Cancer</option>
-                        <option value="Liver Cancer">Liver Cancer</option>
-                        <option value="Kidney Cancer">Kidney Cancer</option>
-                        <option value="Stomach Cancer">Stomach Cancer</option>
-                        <option value="Esophageal Cancer">Esophageal Cancer</option>
-                        <option value="Cervical Cancer">Cervical Cancer</option>
-                        <option value="Thyroid Cancer">Thyroid Cancer</option>
-                        <option value="Brain Cancer">Brain Cancer</option>
-                        <option value="Bone Cancer">Bone Cancer</option>
+                        <option value="" selected><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_DEFAULT%></option>
+                        <option value="Breast Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_BREAST%></option>
+                        <option value="Lung Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_LUNG%></option>
+                        <option value="Colon/Rectal Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_COLON%></option>
+                        <option value="Prostate Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_PROSTATE%></option>
+                        <option value="Ovarian Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_OVARIAN%></option>
+                        <option value="Pancreatic Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_PANCREATIC%></option>
+                        <option value="Skin Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_SKIN%></option>
+                        <option value="Leukemia"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_LEUKEMIA%></option>
+                        <option value="Bladder Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_BLADDER%></option>
+                        <option value="Liver Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_LIVER%></option>
+                        <option value="Kidney Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_KIDNEY%></option>
+                        <option value="Stomach Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_STOMACH%></option>
+                        <option value="Esophageal Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_ESOPHAGEAL%></option>
+                        <option value="Cervical Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_CERVICAL%></option>
+                        <option value="Thyroid Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_THYROID%></option>
+                        <option value="Brain Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_BRAIN%></option>
+                        <option value="Bone Cancer"><%=translation.SIGN_UP.CANCER_TYPE_OPTIONS.CANCER_TYPE_BONE%></option>
                       </select>
 
                     </div>
