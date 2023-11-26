@@ -52,14 +52,16 @@ img{
   cursor: pointer;
 }
 
+.nav-bar {
+  height: 5rem;
+}
+
+
+
 @media screen and (max-width: 800px) {
   html {
     font-size: 62.5%; 
   }
-}
-
-.nav-bar {
-  height: 5rem;
 }
 
 
