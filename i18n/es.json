@@ -52,7 +52,7 @@
     "CONFIRM_PASSWORD_LABEL":"Confirmar contraseña",
     "NAME_LABEL": "Nombre",
     "NAME_PLACEHOLDER": "Maria Gomez",
-    
+
     "CANCER_TYPE": "Tipo de cáncer",
     "CANCER_TYPE_OPTIONS": {
       "CANCER_TYPE_DEFAULT":"Selecciona el tipo de cáncer",
@@ -93,5 +93,9 @@
       "RELATIONSHIP_FRIEND": "Amigo",
       "RELATIONSHIP_HEALTHCARE_PROFESSIONAL": "Profesional de la salud"
     }
+
+
+
+    
   }
 }
