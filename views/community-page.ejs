@@ -151,7 +151,7 @@
           </p>
         </div>
 
-        <section class="bg-gray-50 dark:bg-gray-900 flex items-center pb-4">
+        <section class="bg-gray-50 dark:bg-gray-900 flex items-center pb-4 bg-purple-100">
           <div class="max-w-screen-xl w-full">
             <!-- Start coding here -->
             <div class="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
@@ -175,7 +175,7 @@
                     </div>
                   </form>
                 </div>
-                <div
+                <!-- <div
                   class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
                   <button type="button"
                     class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
@@ -228,7 +228,7 @@
                           d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                       </svg>
                     </button>
-                    <!-- Dropdown menu -->
+                   
                     <div id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
                       <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
                         Category
@@ -265,7 +265,7 @@
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -365,7 +365,7 @@
                     <% if( journals[i].description.length <=150){ %>
                       <%=journals[i].description %>
                     <% } else{ %>
-                          <%= journals[i].description.substring(0, 150); %><a class="dots" id="dots-<%= i %>">... see more</a><span class="hidden" id="more-<%= i %>"><%=journals[i].description.substring(150, journals[i].description.length-1);%>
+                          <%= journals[i].description.substring(0, 150); %><a class="dots" id="dots-<%= i %>"> ...see more</a><span class="hidden" id="more-<%= i %>"><%=journals[i].description.substring(150, journals[i].description.length-1);%>
                             </span>
                     <% } %>
                   </p>
