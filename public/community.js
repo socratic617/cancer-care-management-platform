@@ -3,13 +3,9 @@ var favorite = document.getElementsByClassName("favorite")
 var seeMore = document.querySelectorAll('[id^="dots-"]');//Credit ChatGPT
 
 Array.from(favorite).forEach(function(element) {
-  console.log("adding favorite listener too : ", element);
 
     element.addEventListener('click', function(){
-      console.log('FAVORITE UPDATE : ')
-      console.log("this.id : " , this.id )
-      console.log("before my fetch loggedInUserId :")
-      console.log( document.querySelector('#loggedInUserId'))
+
       fetch('/journals/updateFavorite', {
         method: 'put',
         headers: {
@@ -29,7 +25,6 @@ Array.from(favorite).forEach(function(element) {
 console.log("trash elements : ", trash)
 
 Array.from(trash).forEach(function(element) {
-  console.log("adding delete listner too : ", element);
 
     element.addEventListener('click', function(){
 
@@ -85,13 +80,14 @@ function search(e){
 }
 
 Array.from(seeMore).forEach(function(element) {
-  console.log("adding delete listner too : ", element);
+  console.log("adding seeMore too : ", element);
 
     element.addEventListener('click', expandText);
 });
 
 //credit: https://www.w3schools.com/howto/howto_js_read_more.asp
 function expandText(e) {
+  console.log('HERE I AMMM!!! IN EXPAND TEXT')
 
   let seeMoreSpan = document.querySelector('#more-'+ e.target.id.replace('dots-', ''));
   e.target.style.display = "none";
