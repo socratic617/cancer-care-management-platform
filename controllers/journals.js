@@ -225,6 +225,7 @@ module.exports = {
       console.log(result)
 
       //EDGE CASE: USER CAN GO BACK AND UPDATE EXISTING POST 
+      //this is to create the journal, if it finds a journal for the specified date it will replace it with this journal 
       await Journal.findOneAndUpdate(
         { creatorId: req.user._id, entryDate: req.body['entry-date'] },
         result,

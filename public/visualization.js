@@ -37,10 +37,10 @@ function getPastXDatesAsArray(numberOfDays) {
 // reversing the order for data displayed in line chart for dates and data
 const pastSevenDaysLabels = getPastXDatesAsArray(7).reverse();
 
-//hash tables each variable below holds data for visualization such as mood, hydration,fatigue, protein 
+//hash tables each variable below holds data for visualization such as mood, hydration, protein 
 let resultSevenDaysMood = {}
 let resultSevenDaysHydration = {}
-let resultSevenDaysFatigue = {}
+// let resultSevenDaysFatigue = {}
 let resultSevenDaysProtein = {}
 
 //this is to loop through my recent 7 days for mood/fluidIntake/ProteinIntake
