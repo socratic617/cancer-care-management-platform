@@ -2,9 +2,8 @@ document.querySelector('#lang').addEventListener('change', changeLanguage)//addi
 
 function changeLanguage(e){//once selected it takes current url 
   console.log(e.target.value)
-   var url = window.location.href;// getting url im on 
+
   
-   
     // Get the current URL
     var url = new URL(window.location.href);// creates a url object out of url string  
 
