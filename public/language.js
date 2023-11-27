@@ -1,8 +1,6 @@
 document.querySelector('#lang').addEventListener('change', changeLanguage)//adding event listener once i change from en to es from slect option
 
 function changeLanguage(e){//once selected it takes current url 
-  console.log(e.target.value)
-
   
     // Get the current URL
     var url = new URL(window.location.href);// creates a url object out of url string  
