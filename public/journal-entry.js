@@ -50,8 +50,6 @@ function addRow(){// function that gets triggered as a callback when clicking bu
 
     let entryLabel = lang == 'es' ? 'Tipo de Entrada': 'Entry Type';
 
-    console.log('entry types: ' + entryTypes)
-
     /*in this div you are including the following
      these variable stores the output of these functions which are representitive of the templates i created  so i could make reusable code / modularize rather than manually writing it out each time. made a template so i can refrence function rather then building out this  */
     let deleteBtn = createDeleteButton(row_id); 
@@ -60,8 +58,6 @@ function addRow(){// function that gets triggered as a callback when clicking bu
 
     //Purpose: delete selected row when you click the delete btn on that row
     deleteBtn.addEventListener('click', deleteSelectedRow)
-
-
   
     selectEntry.addEventListener('change', displayDynamicInputFields)
 
@@ -73,7 +69,6 @@ function addRow(){// function that gets triggered as a callback when clicking bu
 
     //appending selectEntry functionality to this div 
     newRow.appendChild(selectEntry)
-
     
     /* i added this to my div that exists in my ejs for journal entries so that it would show up on my pg ****without this, it would not show up */
     document.querySelector('#biometric-rows').appendChild(newRow)
@@ -84,11 +79,6 @@ function addRow(){// function that gets triggered as a callback when clicking bu
 * @return 
 * */
 function deleteSelectedRow(e){
-    console.log("e.target: ")
-    console.log(e.target)
-    console.log("e.target.id: ")
-    console.log(e.target.id.split('-') ) 
-    console.log("e.target.id.remove(): ")
 
     let rowIndex = e.target.id.split('-')[1];
     let rowToDelete = document.getElementById('row-' + rowIndex);
