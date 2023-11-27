@@ -75,6 +75,36 @@
       "CANCER_TYPE_BONE":"Cáncer de hueso"
     },
 
+    "RELATIONSHIP": "Relación con el Guerrero",
+    "RELATIONSHIP_OPTIONS": {    
+      "RELATIONSHIP_DEFAULT": "Elegir tipo de relación",
+      "RELATIONSHIP_SPOUSE_PARTNER": "Esposa/Compañero",
+      "RELATIONSHIP_PARENT": "Padre/Madre",
+      "RELATIONSHIP_SIBLING": "Hermano/Hermana",
+      "RELATIONSHIP_CHILD": "Hijo/Hija",
+      "RELATIONSHIP_GRANDPARENT": "Abuelo/Abuela",
+      "RELATIONSHIP_FRIEND": "Amigo/Amiga",
+      "RELATIONSHIP_HEALTHCARE_PROFESSIONAL": "Profesional de la salud"
+    },
+
+    "WARRIOR_TYPE": "¿Qué te describe mejor?",
+    "WARRIOR_OPTIONS": {
+      "WARRIOR_TYPE_DEFAULT": "Elegir tipo de guerrero",
+      "WARRIOR_TYPE_CURRENTLY_IN_TREATMENT": "En tratamiento",
+      "WARRIOR_TYPE_SURVIVOR": "Sobreviviente",
+      "WARRIOR_TYPE_CAREGIVER": "Cuidador"
+    },
+
+    "CAREGIVER_PATIENT_NAME": "Nombre del Paciente",
+    "CAREGIVER_PATIENT_NAME_PLACEHOLDER": "Paula Resiliente",
+
+    "PATIENT_STATUS": "¿Qué te describe mejor?",
+    "PATIENT_STATUS_OPTIONS": {
+      "PATIENT_STATUS_DEFAULT": "Elegir tipo de guerrero",
+      "PATIENT_STATUS_CURRENTLY_IN_TREATMENT": "Actualmente en tratamiento",
+      "PATIENT_STATUS_SURVIVOR": "Sobreviviente"
+    },
+
     "LANGUAGE": "Idioma preferido",
     "LANGUAGE_OPTIONS": {
       "LANGUAGE_DEFAULT": "Elegir idioma",
@@ -82,20 +112,11 @@
       "LANGUAGE_SPANISH": "Español"
     },
 
-    "RELATIONSHIP": "Relación con el Guerrero",
-    "RELATIONSHIP_OPTIONS": {    
-      "RELATIONSHIP_DEFAULT": "Elegir tipo de relación",
-      "RELATIONSHIP_SPOUSE_PARTNER": "Esposa/Compañero",
-      "RELATIONSHIP_PARENT": "Padre",
-      "RELATIONSHIP_SIBLING": "Hermano",
-      "RELATIONSHIP_CHILD": "Hijo",
-      "RELATIONSHIP_GRANDPARENT": "Abuelo",
-      "RELATIONSHIP_FRIEND": "Amigo",
-      "RELATIONSHIP_HEALTHCARE_PROFESSIONAL": "Profesional de la salud"
-    }
+    "TERMS_ONE": "Acepto los",
+    "TERMS_TWO": "Términos y Condiciones",
 
-
-
-    
+    "SIGN_UP": "Registrarse",
+    "ACCOUNT_EXISTS": "¿Ya tienes una cuenta?",
+    "LOGIN": "Inicia sesión aquí"
   }
 }

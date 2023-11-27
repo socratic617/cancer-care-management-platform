@@ -96,7 +96,7 @@
 
                     <div>
                       <label for="warrior-status"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">What Best Describes You?</label>
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> <%=translation.SIGN_UP.WARRIOR_TYPE%></label>
 
                       <!-- PART 1 OF 2 FORM VALIDATION DEFAULT  "REQUIRED" ATTRIBUTE -->
                       <select id="warrior-status" name="warrior-status"
@@ -104,10 +104,10 @@
                         required>
 
                         <!-- PART 2 OF 2 FORM VALIDATION DEFAULT "VALUE EMPTY STRING"  -->
-                        <option value="" selected>Choose Warrior Type</option>
-                        <option value="Currently In Treatment">Currently In Treatment</option>
-                        <option value="Survivor">Survivor</option>
-                        <option value="Caregiver">Caregiver</option>
+                        <option value="" selected><%=translation.SIGN_UP.WARRIOR_OPTIONS.WARRIOR_TYPE_DEFAULT%> </option>
+                        <option value="Currently In Treatment"><%=translation.SIGN_UP.WARRIOR_OPTIONS.WARRIOR_TYPE_CURRENTLY_IN_TREATMENT%></option>
+                        <option value="Survivor"><%=translation.SIGN_UP.WARRIOR_OPTIONS.WARRIOR_TYPE_SURVIVOR%></option>
+                        <option value="Caregiver"><%=translation.SIGN_UP.WARRIOR_OPTIONS.WARRIOR_TYPE_CAREGIVER%></option>
                       </select>
 
                     </div>
@@ -121,10 +121,9 @@
                       <!--CAREGIVER PATIENT WARRIOR NAME -->
                       <div>
                         <label for="caregiver-patient-name"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Patient
-                          Name</label>
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><%=translation.SIGN_UP.CAREGIVER_PATIENT_NAME%></label>
                         <input type="caregiver-patient-name" name="caregiver-patient-name" id="caregiver-patient-name"
-                          placeholder="Resilient Jane"
+                          placeholder="<%=translation.SIGN_UP.CAREGIVER_PATIENT_NAME_PLACEHOLDER%>"
                           class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           >
                       </div>
@@ -132,7 +131,7 @@
                       <!-- CAREGIVER'S PATIENT CANCER STATUS -->
                       <div>
                         <label for="caregiver-patient-status"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Patient Cancer Status
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><%=translation.SIGN_UP.PATIENT_STATUS%>
                         </label>
 
                         <!-- PART 1 OF 2 FORM VALIDATION DEFAULT  "REQUIRED" ATTRIBUTE -->
@@ -141,9 +140,9 @@
                           >
 
                           <!-- PART 2 OF 2 FORM VALIDATION DEFAULT "VALUE EMPTY STRING"  -->
-                          <option value="" selected>Choose Warrior Type</option>
-                          <option value="Currently In Treatment">Currently In Treatment</option>
-                          <option value="Survivor">Survivor</option>
+                          <option value="" selected><%=translation.SIGN_UP.PATIENT_STATUS_OPTIONS.PATIENT_STATUS_DEFAULT%></option>
+                          <option value="Currently In Treatment"><%=translation.SIGN_UP.PATIENT_STATUS_OPTIONS.PATIENT_STATUS_CURRENTLY_IN_TREATMENT%></option>
+                          <option value="Survivor"><%=translation.SIGN_UP.PATIENT_STATUS_OPTIONS.PATIENT_STATUS_SURVIVOR%></option>
                         </select>
 
                       </div>
@@ -215,7 +214,8 @@
                     <!-- PREFERRED LANG FOR SITE -->
                     <div>
                       <label for="lang-type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Preferred Language
+                        <%=translation.SIGN_UP.LANGUAGE%>
+                        
                       </label>
 
                       <!-- PART 1 OF 2 FORM VALIDATION DEFAULT  "REQUIRED" ATTRIBUTE -->
@@ -224,9 +224,9 @@
                         required>
 
                         <!-- PART 2 OF 2 FORM VALIDATION DEFAULT "VALUE EMPTY STRING"  -->
-                        <option value="" selected> Choose Language </option>
-                        <option value="en">English</option>
-                        <option value="es">Spanish</option>
+                        <option value="" selected> <%=translation.SIGN_UP.LANGUAGE_OPTIONS.LANGUAGE_DEFAULT%> </option>
+                        <option value="en"><%=translation.SIGN_UP.LANGUAGE_OPTIONS.LANGUAGE_ENGLISH%></option>
+                        <option value="es"><%=translation.SIGN_UP.LANGUAGE_OPTIONS.LANGUAGE_SPANISH%></option>
                       </select>
 
                     </div>
@@ -242,20 +242,18 @@
                         required="">
                     </div>
                     <div class="ml-3 text-sm">
-                      <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a
-                          class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and
-                          Conditions</a></label>
+                      <label for="terms" class="font-light text-gray-500 dark:text-gray-300"><%=translation.SIGN_UP.TERMS_ONE%> <a
+                          class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#"><%=translation.SIGN_UP.TERMS_TWO%></a></label>
                     </div>
                   </div>
 
 
                   <button type="submit"
-                    class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Sign
-                    Up
+                    class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><%=translation.SIGN_UP.SIGN_UP%>
                   </button>
                   <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                    Already have an account? <a href="/login"
-                      class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
+                    <%=translation.SIGN_UP.ACCOUNT_EXISTS%> <a href="/login"
+                      class="font-medium text-primary-600 hover:underline dark:text-primary-500"><%=translation.SIGN_UP.LOGIN%></a>
                   </p>
 
                 </form>
@@ -264,13 +262,6 @@
         </div>
       </div>
     </section>
-
-
-
-
-
-
-
 
   </div>
 

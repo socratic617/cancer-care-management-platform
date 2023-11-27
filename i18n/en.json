@@ -45,14 +45,19 @@
 
   "SIGN_UP": {
     "TITLE": "Create an Account",
+
     "USER_NAME_LABEL": "User Name",
     "USER_NAME_PLACEHOLDER": "BumbleBeeReady1",
+
     "EMAIL_LABEL": "Your email",
     "EMAIL_PLACEHOLDER": "name@company.com",
+
     "PASSWORD_LABEL": "Password",
     "CONFIRM_PASSWORD_LABEL":"Confirm Password",
+
     "NAME_LABEL": "Name",
     "NAME_PLACEHOLDER": "Jane Doe",
+
     "CANCER_TYPE": "Cancer Type",
     "CANCER_TYPE_OPTIONS": {
       "CANCER_TYPE_DEFAULT":"Choose Cancer Type",
@@ -74,12 +79,7 @@
       "CANCER_TYPE_BRAIN":"Brain Cancer",
       "CANCER_TYPE_BONE":"Bone Cancer"
     },
-    "LANGUAGE": "Preferred Language",
-    "LANGUAGE_OPTIONS": {
-      "LANGUAGE_DEFAULT": "Choose Language",
-      "LANGUAGE_ENGLISH": "English",
-      "LANGUAGE_SPANISH": "Spanish"
-    },
+
     "RELATIONSHIP": "Relationship To Warrior",
     "RELATIONSHIP_OPTIONS": {    
       "RELATIONSHIP_DEFAULT": "Choose Relationship Type",
@@ -90,6 +90,40 @@
       "RELATIONSHIP_GRANDPARENT": "Grandparent",
       "RELATIONSHIP_FRIEND": "Friend",
       "RELATIONSHIP_HEALTHCARE_PROFESSIONAL": "Healthcare Professional"
-    }
+    },
+
+    "WARRIOR_TYPE": "What Best Describes You?",
+    "WARRIOR_OPTIONS": {
+      "WARRIOR_TYPE_DEFAULT": "Choose Warrior Type",
+      "WARRIOR_TYPE_CURRENTLY_IN_TREATMENT": "Currently In Treatment",
+      "WARRIOR_TYPE_SURVIVOR": "Survivor",
+      "WARRIOR_TYPE_CAREGIVER": "Caregiver"
+    },
+  
+    "CAREGIVER_PATIENT_NAME": "Patient Name",
+    "CAREGIVER_PATIENT_NAME_PLACEHOLDER": "Resilient Jane",
+
+    "PATIENT_STATUS": "What Best Describes You?",
+    "PATIENT_STATUS_OPTIONS": {
+      "PATIENT_STATUS_DEFAULT": "Choose Warrior Type",
+      "PATIENT_STATUS_CURRENTLY_IN_TREATMENT": "Currently In Treatment",
+      "PATIENT_STATUS_SURVIVOR": "Survivor"
+    },
+
+    "LANGUAGE": "Preferred Language",
+    "LANGUAGE_OPTIONS": {
+      "LANGUAGE_DEFAULT": "Choose Language",
+      "LANGUAGE_ENGLISH": "English",
+      "LANGUAGE_SPANISH": "Spanish"
+    },
+
+    "TERMS_ONE": "I accept the",
+    "TERMS_TWO": "Terms and Conditions",
+
+    "SIGN_UP" : "Sign Up",
+    "ACCOUNT_EXISTS": "Already have an account?",
+    "LOGIN": "Login here"
+
+
   }
 }
