@@ -56,9 +56,6 @@ function search(e){
   //Get all <p></p> elements with journal description information
   const descriptions = document.querySelectorAll('[id^="journal-description-"]');
 
-  console.log('descriptions')
-  console.log(descriptions)
-
   //go through all of the elements
   for(let description of descriptions){
 
@@ -68,11 +65,10 @@ function search(e){
     //check if the searched input exists, if not hide it
     if (description.innerText.toUpperCase().indexOf(inputValue) < 0) {
         card.style.display = "none"
-        console.log("found a match")
-        console.log(card)
+
       } else {
         card.style.display = ""
-        console.log("does not match")
+
       }
 
   }
@@ -80,14 +76,11 @@ function search(e){
 }
 
 Array.from(seeMore).forEach(function(element) {
-  console.log("adding seeMore too : ", element);
-
-    element.addEventListener('click', expandText);
+  element.addEventListener('click', expandText);
 });
 
 //credit: https://www.w3schools.com/howto/howto_js_read_more.asp
 function expandText(e) {
-  console.log('HERE I AMMM!!! IN EXPAND TEXT')
 
   let seeMoreSpan = document.querySelector('#more-'+ e.target.id.replace('dots-', ''));
   e.target.style.display = "none";
