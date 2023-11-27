@@ -9,8 +9,15 @@ let inputClass = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounde
 // creating variable to store row id index. Pro: this row id gives a unique identifier to row so i can add or delete rows
 let row_id = 0;
 
+//Logged in Users language
+let lang = document.querySelector("#user-lang").innerText
+
+
 // creating an arrayto be able to access easier options / or add options easier 
 let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration', 'Activity', 'Medicine', 'Bowel Movements', 'Note'] 
+
+let entryTypeOptionsSpanish = ['Seleccionar Entrada', 'Sueño', 'Comida', 'Hidratación', 'Actividad', 'Medicina', 'Movimientos Intestinales', 'Nota']
+
 
 
 //calling add row function to create row 0 when page is loaded
@@ -39,11 +46,17 @@ function addRow(){// function that gets triggered as a callback when clicking bu
     //added style for new row to be broken up as a grid w 6 columns to mirror  og row 
     newRow.className = "grid grid-cols-6 gap-4" 
 
+    let entryTypes = lang =='es'? entryTypeOptionsSpanish : entryTypeOptions;
+
+    let entryLabel = lang == 'es' ? 'Tipo de Entrada': 'Entry Type';
+
+    console.log('entry types: ' + entryTypes)
+
     /*in this div you are including the following
      these variable stores the output of these functions which are representitive of the templates i created  so i could make reusable code / modularize rather than manually writing it out each time. made a template so i can refrence function rather then building out this  */
     let deleteBtn = createDeleteButton(row_id); 
     let timeEntry = createTimeInputs(row_id)
-    let selectEntry = createSelectInputs("entry-type", "Entry Type", entryTypeOptions, row_id) //(name, labelText, options, index)
+    let selectEntry = createSelectInputs("entry-type", entryLabel, entryTypeOptions, entryTypes, row_id) //(name, labelText, options, index)
 
     //Purpose: delete selected row when you click the delete btn on that row
     deleteBtn.addEventListener('click', deleteSelectedRow)
@@ -113,12 +126,12 @@ function displayDynamicInputFields(e){
 
     // credit: https://stackoverflow.com/questions/34193751/js-remove-last-child
     if(row.lastChild.lastChild.id !== "entry-type-" + index){
-        console.log('hi im inside the condition:')
 
         /*the purpose for this is to remove the "lastChild" from the previous input field (it is wrapped in a div for each entry type to be able to be removed ) */
         row.removeChild(row.lastChild)
     }
 
+    console.log("option: " + selectedOption)
     //dynamically rendering input fields 
     switch (selectedOption) {
         case "Food" :
@@ -160,7 +173,8 @@ function displayDynamicInputFields(e){
 * */
 function createNoteInputs(index){//helper functions are functions to help assist me with code  
 
-    let note = createInputTextField("note","Note Entry", index);
+    let noteLabel = lang == 'es' ? 'Entrada de Nota' : 'Note Entry';
+    let note = createInputTextField("note", noteLabel, index);
 
     return createInputTemplate("note-input", index, [note]);
 }
@@ -171,14 +185,33 @@ function createNoteInputs(index){//helper functions are functions to help assist
 * */
 function createMedicineInputs(index){
 
-    let medicineTypeOptions = ['Select Medicine Type','Gavilax','Compazine', 'Senna', 'CBN', 'Antibiotics','Zotran', 'Benadryl', 'Decadron', 'Omaprazole', 'Tylenol', 'Claritin', 'Lidocaine', 'Letrozole', 'Amlodipine', 'Simvastatin', 'Omeprazole', 'Verzenio'] 
-    let medicine = createSelectInputs("medicine-type", "Medicine Type",medicineTypeOptions, index )
+    let medicineTypeOptions = ['Select Medicine Type','Gavilax','Compazine', 'Senna', 'CBN', 'Antibiotics','Zotran', 'Benadryl', 'Decadron', 'Omaprazole', 'Tylenol', 'Claritin', 'Lidocaine', 'Letrozole', 'Amlodipine', 'Simvastatin', 'Omeprazole', 'Verzenio']
+    
+    let medicineTypeOptionsSpanish = ['Seleccionar Tipo de Medicamento', 'Gavilax', 'Compazine', 'Senna', 'CBN', 'Antibióticos', 'Zotran', 'Benadryl', 'Decadron', 'Omeprazol', 'Tylenol', 'Claritin', 'Lidocaína', 'Letrozol', 'Amlodipino', 'Simvastatina', 'Omeprazol', 'Verzenio']
+
+    let medicineType = lang == 'es' ? medicineTypeOptionsSpanish : medicineTypeOptions;
+
+    let medicineTypeLabel = lang == 'es' ? "Tipo de Medicamento" : "Medicine Type";
+
+    
+    let medicine = createSelectInputs("medicine-type", medicineTypeLabel, medicineTypeOptions, medicineType, index )
 
 
     let unitTypeOptions = ['select Unit','mg','g', 'mL', 'drop/s'] 
-    let dosage = createSelectInputs("medicine-dosage", "Dosage Type",unitTypeOptions, index )
 
-    let amount = createInputNumberField("medicine-amount","Amount", 0, 2000, index)
+    let unitTypeOptionsSpanish = ['Seleccionar Unidad', 'mg', 'g', 'mL', 'gota/s']
+
+    let unitType = lang == 'es' ? unitTypeOptionsSpanish : unitTypeOptions;
+
+    let dosageLabel = lang == 'es' ? "Tipo de Dosis" : "Dosage Type";
+    
+    let dosage = createSelectInputs("medicine-dosage", dosageLabel, unitTypeOptions, unitType, index )
+
+    let amountLabel = lang == 'es' ? "Cantidad" : "Amount";
+
+    let amount = createInputNumberField("medicine-amount", amountLabel, 0, 2000, index)
+
+    console.log([medicine, dosage, amount])
 
     return createInputTemplate("medicine-input", index, [medicine, dosage, amount]);
 }
@@ -236,8 +269,12 @@ function createSleepInputs(index){//helper functions are functions to help assis
 * */
 function createFoodInputs(index){//helper functions are functions to help assist me with code  
 
-    let food = createInputTextField("food","Food Entry", index);
-    let protein = createInputNumberField("protein","Protein Intake (g)", 0, 250, index)
+    let foodLabel = lang == 'es' ? "" : "Food Entry";
+
+    let food = createInputTextField("food", foodLabel, index);
+
+    let proteinLabel = lang == 'es' ? "" : "Protein Intake (g)";
+    let protein = createInputNumberField("protein", proteinLabel, 0, 250, index)
 
     return createInputTemplate("food-input", index, [food,protein]);
 }
@@ -407,7 +444,7 @@ function createTimeInputs(index){//helper functions are functions to help assist
 * @param 
 * @return 
 * */
-function createSelectInputs(name, labelText, options, index){// passing 4 params, //creating a select inputs with the options 
+function createSelectInputs(name, labelText, optionsValue, options, index){// passing 4 params, //creating a select inputs with the options 
 
     //creating select element
     let select = document.createElement('select')
@@ -447,7 +484,7 @@ function createSelectInputs(name, labelText, options, index){// passing 4 params
         else{// when you select option showcase the value
             
             /*that value will be sent to browser to see if its a valid value */
-            option.value = options[i]
+            option.value = optionsValue[i]
         }
 
         select.appendChild(option)//create other options the same way

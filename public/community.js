@@ -2,7 +2,7 @@ var trash = document.getElementsByClassName("trash");
 var favorite = document.getElementsByClassName("favorite")
 var seeMore = document.querySelectorAll('[id^="dots-"]');//Credit ChatGPT
 
-Array.from(favorite).forEach(function(element) {
+Array.from(favorite).forEach(function(element) {//arrray.from is a method that takes in something that looks like an array
 
     element.addEventListener('click', function(){
 
@@ -12,8 +12,8 @@ Array.from(favorite).forEach(function(element) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          id: this.id, //this(button) is what got triggered
-          loggedInUserId: document.querySelector('#loggedInUserId').innerText
+          id: this.id, //this.id is the mongo db id for the journal 
+          loggedInUserId: document.querySelector('#loggedInUserId').innerText//to get my mongo DB id for that user and this loggedInUserId is on the div
         })
       }).then(function (response) {
         window.location.reload()
