@@ -7,7 +7,8 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Main Routes - simplified for now
 router.get("/", homeController.getIndex); // (endpoint, callback function)
-// router.get("/profile", ensureAuth, journalsController.getProfile);
+
+//ensureauth ensures that you are a user logged in who authorized to be here
 router.get("/community-page", ensureAuth, journalsController.getCommunity);//added commmunity pg 
 router.get("/journal-entry", ensureAuth, journalsController.getJournal);
 router.get("/my-journals", ensureAuth, journalsController.getUserJournals);
