@@ -51,10 +51,10 @@ app.use(
 
 //Setup for Lang in json i18n
 app.use(i18n({
-  translationsPath: path.join(__dirname, 'i18n'), // <--- use here. Specify translations files path.
-  siteLangs: ["en","es"],
-  textsVarName: 'translation',
-  paramLangName: 'lang',
+  translationsPath: path.join(__dirname, 'i18n'), // finds the directory name folder for i18n that stores es , en json
+  siteLangs: ["en","es"],//i18n tells me to define the lang this way
+  textsVarName: 'translation',//this variable represents what u see in the ejs file
+  paramLangName: 'lang',//parameter lang in url
 })); 
 
 // Passport middleware

@@ -11,9 +11,7 @@ exports.getLogin = (req, res) => {
     res.render("login", {
     message: req.flash('loginMessage')
   });
-  // res.render("login", {
-  //   title: "Login",
-  // });
+
 };
 
 exports.postLogin = (req, res, next) => {
@@ -65,8 +63,8 @@ exports.logout = (req, res) => {
   });
 };
 
-exports.getSignup = (req, res) => {
-  if (req.user) {
+exports.getSignup = (req, res) => {//request from browser and res from server
+  if (req.user) {//checking to see if user logged in, redriect them to log in pg and dont let them fill out another sign up form
     return res.redirect("/community-page");
   }
   console.log('req.flash: ')
@@ -95,9 +93,11 @@ exports.postSignup = (req, res, next) => {
     validationErrors.push({ msg: "Passwords do not match" });
 
   // EDGE CASE: IF THE USER IS A CAREGIVER NEEDS TO FILL OUT ALL CAREGIVER FIELDS
+  ///i have this when i select my caregiver user and i want to make sure they fill out caregiver input fields
+  //a validation checker to fill out these fields 
   if(req.body['warrior-status'] === 'Caregiver' && (req.body['caregiver-patient-name'] === '' || req.body['caregiver-patient-status'] === '' || req.body['relationship-type'] === '' )){
     validationErrors.push({ msg: "Fill out all fields" })
-  }
+  }//validation errors hold all msgs for validation checks
 
   console.log('req.body')
   console.log(req.body)
@@ -128,7 +128,7 @@ exports.postSignup = (req, res, next) => {
   });
 
 
-  User.findOne(
+  User.findOne(//check to see if user exists 
     { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
     (err, existingUser) => {
       if (err) {
