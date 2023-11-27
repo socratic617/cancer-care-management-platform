@@ -17,8 +17,12 @@ module.exports = {
     try {// is going to run the code and if error, itll exit my try go to my catch error
       console.log('req.user : ')
       console.log(req.user)
-      const journals = await Journal.find().sort({ entryDate: "desc" }).lean();// go and find me the journals (entries that users inputted )
+
+      //sort journal entries and hide ones where private mode is on
+      const journals = await Journal.find({ privateMode: false }).sort({ entryDate: "desc" }).lean();// go and find me the journals (entries that users inputted )
+
       res.render("community-page.ejs", { user: req.user, journals: journals });//"journals : journals" input where your entries[] is .  respond with creating my 'community-page.ejs'
+
     } catch (err) {
       console.log(err);
     }
