@@ -118,5 +118,80 @@
     "SIGN_UP": "Registrarse",
     "ACCOUNT_EXISTS": "¿Ya tienes una cuenta?",
     "LOGIN": "Inicia sesión aquí"
+  },
+
+
+  "NAVBAR": {
+    "COMMUNITY": "Comunidad",
+    "JOURNAL_ENTRY": "Entrada de Diario",
+    "MY_JOURNALS": "Mis Diarios",
+    "VISUALIZATION": "Visualización",
+    "SIGN_OUT": "Cerrar Sesión"
+  },
+
+  "JOURNAL_ENTRY": {
+    "AFFIRMATION": "Afirmación Diaria",
+
+    "HEALTH_TITLE": "Biometría de Salud",
+    "ADD": "Añadir",
+    "NOTES": "Notas de Salud",
+
+    "ENTRY_TITLE": "Entrada de Autocuidado",
+    "ENTRY_INPUTS": {
+      "ENTRY_DATE_LABEL": "Fecha de Entrada",
+      "FATIGUE_LABEL": "Nivel de Fatiga (1 Mi Peor - 10 Mi Mejor)",
+      "FATIGUE_DEFAULT": "Seleccionar Nivel de Fatiga",
+      "FATIGUE_MAX": "10 Sintiéndome Genial",
+      "MOOD_LABEL": "Seleccionar Cómo te Sientes",
+      "MOOD_OPTIONS": {
+        "DEFAULT": "Seleccionar Sentimiento",
+        "HAPPY": "Feliz",
+        "CREATIVE": "Creativo",
+        "GRATEFUL": "Agradecido",
+        "EXCITED": "Emocionado",
+        "SAD": "Triste",
+        "MAD": "Enojado",
+        "TIRED": "Cansado"
+      },
+
+      "TREATMENT_LABEL": "Seleccionar Tratamiento",
+      "TREATMENT_OPTIONS": {
+        "DEFAULT": "Seleccionar Tipo de Tratamiento",
+        "NONE": "Ninguno",
+        "CHEMOTHERAPY": "Quimioterapia",
+        "HYDRATION": "Hidratación",
+        "RADIATION": "Radiación",
+        "SURGERY": "Cirugía",
+        "STEROIDS": "Esteroides"
+      },
+
+      "UPLOAD_LABEL": "Elegir Archivo",
+      "UPLOAD_PLACEHOLDER": "Ningún archivo seleccionado",
+      "UPLOAD_SUBTEXT": "PNG o JPG",
+
+      "USER": "¿De quién es este diario?",
+      "USER_OPTIONS": {
+        "DEFAULT": "Seleccionar Usuario",
+        "CAREGIVER": "Cuidador",
+        "PATIENT": "Paciente"
+      },
+
+      "LANGUAGE": "¿En qué idioma está escrito esto?",
+      "LANGUAGE_OPTIONS": {
+        "LANGUAGE_DEFAULT": "Seleccionar Idioma",
+        "LANGUAGE_ENGLISH": "Inglés",
+        "LANGUAGE_SPANISH": "Español"
+      },
+
+      "REFLECTION": "Reflexión de Autocuidado",
+      "REFLECTION_PLACEHOLDER": "Tu descripción aquí",
+      "REFLECTION_SUBTEXT": "Longitud máxima de caracteres: 550",
+
+      "PRIVATE": "Apagar para Diario Privado",
+
+      "CREATE_ENTRY": "Crear Entrada"
+    }
   }
+
+
 }

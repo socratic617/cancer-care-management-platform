@@ -125,5 +125,77 @@
     "LOGIN": "Login here"
 
 
+  },
+
+  "NAVBAR":{
+    "COMMUNITY":"Community Page",
+    "JOURNAL_ENTRY":"Journal Entry",
+    "MY_JOURNALS": "My Journals",
+    "VISUALIZATION": "Visualization",
+    "SIGN_OUT": "Sign Out"
+  },
+
+   "JOURNAL_ENTRY": {
+    "AFFIRMATION": "Daily Affirmation",
+
+    "HEALTH_TITLE":"Health Biometrics",
+    "ADD": "Add",
+    "NOTES": "Health Notes",
+
+    "ENTRY_TITLE": "Self-Care Entry",
+    "ENTRY_INPUTS": {
+      "ENTRY_DATE_LABEL": "Entry Date",
+      "FATIGUE_LABEL":"Fatigue Level (1 My Worst - 10 My Best)",
+      "FATIGUE_DEFAULT": "Select Fatigue Level",
+      "FATIGUE_MAX": "10 Feeling Great",
+      "MOOD_LABEL": "Select How Your Feeling",
+      "MOOD_OPTIONS": {
+        "DEFAULT" : "Select Feeling",
+        "HAPPY" : "Happy",
+        "CREATIVE" : "Creative",
+        "GRATEFUL" : "Grateful",
+        "EXCITED" : "Excited",
+        "SAD" : "Sad",
+        "MAD" : "Mad",
+        "TIRED" : "Tired"
+      },
+
+      "TREATMENT_LABEL": "Select Treatment",
+      "TREATMENT_OPTIONS": {
+        "DEFAULT": "Select Treatment Type",
+        "NONE": "None",
+        "CHEMOTHERAPY": "Chemotherapy",
+        "HYDRATION": "Hydration",
+        "RADIATION": "Radiation",
+        "SURGERY": "Surgery",
+        "STEROIDS": "Steroids"
+      },
+
+      "UPLOAD_LABEL" : "Choose File",
+      "UPLOAD_PLACEHOLDER": "No file Chosen",
+      "UPLOAD_SUBTEXT": "PNG or JPG",
+
+      "USER" : "Whose Journal is this?",
+      "USER_OPTIONS": {
+        "DEFAULT": "Select User",
+        "CAREGIVER": "Caregiver",
+        "PATIENT": "Patient"
+      },
+
+      "LANGUAGE": "What language is this written in?",
+      "LANGUAGE_OPTIONS": {
+        "LANGUAGE_DEFAULT": "Select Language",
+        "LANGUAGE_ENGLISH": "English",
+        "LANGUAGE_SPANISH": "Spanish"
+      },
+
+      "REFLECTION": "Self Care Reflection",
+      "REFLECTION_PLACEHOLDER":"Your Description here",
+      "REFLECTION_SUBTEXT": "Max character length: 550",
+
+      "PRIVATE": "Turn off for Private Journal",
+
+      "CREATE_ENTRY" : "Create Entry"
+    }
   }
 }
