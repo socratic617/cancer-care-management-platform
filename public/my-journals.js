@@ -1,7 +1,6 @@
 var trash = document.getElementsByClassName("trash");
 
 Array.from(trash).forEach(function (element) {
-  console.log("adding delete listner too : ", element);
 
   element.addEventListener('click', function () {
 
