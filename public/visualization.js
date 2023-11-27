@@ -7,7 +7,6 @@
   of data will not be able to be used for parsing the JSON aka it will break this line of code
   'serverData' comes form my vsiualization ejs file */
 const serverJournalData = JSON.parse(serverData.replaceAll("&#34;", "\""));
-console.log(serverJournalData);
 
 //PURPOSE: to create an array of dates that represents my most recent days
 //credit: Chatgpt
@@ -37,7 +36,6 @@ function getPastXDatesAsArray(numberOfDays) {
 // Example usage: [ '11/23/2023', '11/22/2023', '11/21/2023', ...,  '11/18/2023']
 // reversing the order for data displayed in line chart for dates and data
 const pastSevenDaysLabels = getPastXDatesAsArray(7).reverse();
-console.log(pastSevenDaysLabels);
 
 //hash tables each variable below holds data for visualization such as mood, hydration,fatigue, protein 
 let resultSevenDaysMood = {}
@@ -47,23 +45,17 @@ let resultSevenDaysProtein = {}
 
 //this is to loop through my recent 7 days for mood/fluidIntake/ProteinIntake
 for(let i = 0; i < pastSevenDaysLabels.length; i++){
-  console.log("pastSevenDaysLabels[i] (inside for loop) :")
-  console.log(pastSevenDaysLabels[i])
 
   resultSevenDaysHydration[pastSevenDaysLabels[i]] = null;
-  console.log("resultSevenDaysHydration :")
-  console.log(resultSevenDaysHydration)
 
   resultSevenDaysProtein[pastSevenDaysLabels[i]] = null;
-  console.log("resultSevenDaysProtein :")
-  console.log(resultSevenDaysProtein)
+
 
   
   /*looping through the dates of past 7 days to check for existing entry for mood/protein/fluidIntake
   allows me to go through these journals from most recent entry to oldest entry 
   for that current date we are looking at from our 'pastSevenDaysLabel'*/
   for(const key in serverJournalData ){
-    console.log('I AM KEY: ', key)
 
     /*allows us to check for each date and if no match break and continue to next 
     descending date until u get a match this prevents us from wasting time and resources 
@@ -78,18 +70,7 @@ for(let i = 0; i < pastSevenDaysLabels.length; i++){
 
 
     if(serverJournalData[key].entryDate == pastSevenDaysLabels[i]){
-      console.log("-----------------------------------------------")
-      console.log("Current Label Date: ", pastSevenDaysLabels[i])
-      console.log("Current Joural entry you are looking at: ")
-      console.log( serverJournalData[key])
-      console.log('serverJournalData[key].mood :')
-      console.log(serverJournalData[key].mood)
-      console.log('serverJournalData[key].entryDate  :')
-      console.log(serverJournalData[key].entryDate)
-      console.log('serverJournalData[key].visualTotals  :')
-      console.log(serverJournalData[key].visualTotals)
-      console.log('serverJournalData[key]fatigueEntry  :')
-      console.log(serverJournalData[key].fatigueEntry)
+
 
       // if this label doesnt exist, create it 
       if(resultSevenDaysMood[serverJournalData[key].mood] == undefined ){
@@ -142,10 +123,8 @@ let sharedBackgroundColors = [
 // =============================================================================
 
 const keysArray = Object.keys(resultSevenDaysMood);
-console.log(keysArray);
 
 const valuesArray = Object.values(resultSevenDaysMood);
-console.log(valuesArray);  
 
 //CREATING DONUT PIE CHART FOR MOOD USING CHART.JS CDN 
 const data = {
@@ -190,10 +169,7 @@ keysArrayProtein = keysArrayProtein.map(function(dateString) {
   return parts[0] + '/' + parts[1];
 });
 
-console.log(keysArrayProtein);
-
 let valuesArrayProtein = Object.values(resultSevenDaysProtein);
-console.log(valuesArrayProtein); 
 
 //CREATING LINE CHART FOR PROTEIN USING CHART.JS CDN 
 const dataProtein = {
@@ -272,12 +248,6 @@ keysArrayHydration = keysArrayHydration.map(function(dateString) {
 });
 
 let valuesArrayHydration = Object.values(resultSevenDaysHydration);
-
-
-console.log('keysArrayHydration');
-console.log(keysArrayHydration);
-console.log('valuesArrayHydration');
-console.log(valuesArrayHydration);
 
 const dataHydration = {
   labels: keysArrayHydration,
