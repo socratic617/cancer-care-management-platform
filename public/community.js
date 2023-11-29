@@ -75,7 +75,7 @@ function search(e){
 
 }
 
-Array.from(seeMore).forEach(function(element) {
+Array.from(seeMore).forEach(function(element) {//click on it 
   element.addEventListener('click', expandText);
 });
 
