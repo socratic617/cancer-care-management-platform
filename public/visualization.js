@@ -1,7 +1,7 @@
 /* Source: Chatgpt  &#34; are quotes that were replaced.  
   Use replace all to add back quote and JSON.parse to make string back to an object 
   in the process of getting the data from my visualization ejs file into the javascript
-  all of the quptes were replace with '&#34;' so what i am doing is replacing it back
+  all of the quotes were replaced with '&#34;' so what i am doing is replacing it back
   to quotes
   SIDE NOTE: if the user inserts quptes in the journall entry or a new line this line 
   of data will not be able to be used for parsing the JSON aka it will break this line of code
