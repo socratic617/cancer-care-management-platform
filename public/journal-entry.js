@@ -259,11 +259,11 @@ function createSleepInputs(index){//helper functions are functions to help assis
 * */
 function createFoodInputs(index){//helper functions are functions to help assist me with code  
 
-    let foodLabel = lang == 'es' ? "" : "Food Entry";
+    let foodLabel = lang == 'es' ? "Registro de alimentos" : "Food Entry";
 
     let food = createInputTextField("food", foodLabel, index);
 
-    let proteinLabel = lang == 'es' ? "" : "Protein Intake (g)";
+    let proteinLabel = lang == 'es' ? "Ingesta de Proteínas (g)" : "Protein Intake (g)";
     let protein = createInputNumberField("protein", proteinLabel, 0, 250, index)
 
     return createInputTemplate("food-input", index, [food,protein]);
@@ -281,7 +281,16 @@ function createActivityInputs(index){//helper functions are
     // creating an array to be able to access easier options / or add options easier 
     let activityTypeOptions = ['Activity Type','Run', 'Walk', 'Bike', 'Yoga', 'Swim', 'Weight Lifting'] 
 
-    let activity = createSelectInputs("activity-type", "Activity Type",activityTypeOptions, index )
+    let activityTypeOptionsSpanish = ['Tipo de actividad', 'Correr', 'Caminar', 'Bicicleta', 'Yoga', 'Nadar', 'Levantamiento de pesas']
+
+    let activityLabel = lang == 'es' ? "Tipo de Actividad" : "Activity Type";
+
+    let options = lang == 'es' ? activityTypeOptionsSpanish : activityTypeOptions;
+
+    let activity = createSelectInputs("activity-type", activityLabel, activityTypeOptions, options , index )
+
+    
+
     let duration = createInputNumberField("duration","Duration (hrs)", 0, 24, index)
 
     return createInputTemplate("activity-input", index, [activity, duration]);
