@@ -149,12 +149,84 @@
       <div class="bg-purple-100 p-4 border-2 border-gray-200  rounded-lg dark:border-gray-700">
 
         <!-- HIGHLIGHTED POST  -->
-        <div class="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800 p-6">
-          <p class="text-2xl text-gray-400 dark:text-gray-500">
-            HIGHLIGHTED FEATURED POST:
+
+        <div class="block mb-4 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ">
+          <h5 class="text-center mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">
+            Weekly Highlighted Post!
+          </h5>
+          <p class="font-normal text-gray-700 dark:text-gray-400">
             <%= mostLikedJournal.description %>
           </p>
+          <div class="mt-4 flex" >
+
+            <div class="flex-1 ">
+              <span
+                class="bg-pink-100 text-purple-800 text-s font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">
+              
+            
+                  <% if( mostLikedJournal.user['journal-user']=='Caregiver' || mostLikedJournal.user['caregiver-patient-name']=='' ){ %>
+                    <%=mostLikedJournal.user['warrior-name'] %>
+                      <% } else{ %>
+                        <%=mostLikedJournal.user['caregiver-patient-name'] %>
+                          <% } %>
+         
+               
+              </span>
+              
+              <span
+                class="bg-purple-100 text-purple-800 text-s font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">
+                <%= mostLikedJournal.user["cancer-type"] %>
+              </span>
+            </div>
+
+
+            <!-- THIS IS WHERE I HAVE STARRED FAVORITES AND UNSTARRED FAVORITES -->
+            <div class="">
+              <span
+                class=" inline-flex items-right ">
+                <% if(mostLikedJournal.reactions[user._id] !==undefined){ %>
+                  <i class="pointer favorite fas fa-heart" style="color: #db0000;" id="<%= mostLikedJournal._id %>">
+                  </i>
+                  <% } else{ %>
+                    <%# adding an event listener to i tag for favorite %>
+                      <i class="pointer favorite fas fa-heart " style="color:#585555;" id="<%= mostLikedJournal._id %>">
+                      </i>
+                      <% } %>
+              </span>
+              <!-- turning user ids to an array using journals[i] and using .length method to get all user ids -->
+              <span
+                class="ml-2 font-bold text-gray-900 dark:text-white ">
+                <%= Object.keys(mostLikedJournal.reactions).length %>
+              </span>
+            </div>
+          </div>
+
         </div>
+
+
+
+
+
+      <!-- <a href="#"
+        class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+          src="/docs/images/blog/image-4.jpg" alt="">
+        <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions
+            2021</h5>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+         
+          </p>
+        </div>
+      </a> -->
+
+
+        <!-- <div class="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800 p-6">
+          <p class="text-2xl text-gray-400 dark:text-gray-500">
+            HIGHLIGHTED FEATURED POST:
+       
+          </p>
+        </div> -->
 
         <section class="bg-gray-50 dark:bg-gray-900 flex items-center pb-4 bg-purple-100">
           <div class="max-w-screen-xl w-full">
