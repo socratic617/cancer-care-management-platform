@@ -64,6 +64,16 @@ module.exports = {
       console.log(err);
     }
   },
+  getQuote: async (req, res) => {
+    try {
+      console.log('req.user : ')
+      console.log(req.user);
+      
+      res.json({ message: "Request successful", userData: req.user });;//
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getJournal: async (req, res) => {
     try {
       console.log('req.user : ')
@@ -82,21 +92,21 @@ module.exports = {
       console.log('journals :', journals)
     
       // run quote if they have  a journal to take user info to produce qoute
-      if(journals.length > 0 ){
-        const latestJournalEntry = journals[0]//contains my most recent journal that i want for quote
-        const GPTOutput = await openai.createChatCompletion({//feeded it into chatgpt
-          model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: 'give me a famous quote for a individual going through cancer based on the following key words:' + latestJournalEntry.description }], //content would be input form my mongoDB 
-        });
+      // if(journals.length > 0 ){
+      //   const latestJournalEntry = journals[0]//contains my most recent journal that i want for quote
+      //   const GPTOutput = await openai.createChatCompletion({//feeded it into chatgpt
+      //     model: "gpt-3.5-turbo",
+      //     messages: [{ role: "user", content: 'give me a famous quote for a individual going through cancer based on the following key words:' + latestJournalEntry.description }], //content would be input form my mongoDB 
+      //   });
 
-        //i am changing the value of qoute to the output of chatgpt
-        quote = GPTOutput.data.choices[0].message.content; 
+      //   //i am changing the value of qoute to the output of chatgpt
+      //   quote = GPTOutput.data.choices[0].message.content; 
 
-        console.log(quote);
+      //   console.log(quote);
         
-      }
+      // }
 
-      res.render("journal-entry.ejs", { user: req.user, quote: quote });//
+      res.render("journal-entry.ejs", { user: req.user });//
     } catch (err) {
       console.log(err);
     }
