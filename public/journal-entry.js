@@ -1,3 +1,26 @@
+fetch('/journals/apiQuote', {
+    method: 'get' //,
+    // headers: {
+    //     'Content-Type': 'application/json'
+    // }
+}).then(function (response) {
+    console.log(" INSIDE SUCCESS FOR ENTRY JOURNAL PG : ")
+    // let temp =  response.json()
+    // console.log(temp)
+    console.log(JSON.stringify(response))
+    console.log(response.text)
+}).then(function (data) {
+    console.log("Data received:");
+    console.log(data);
+
+    // Access the 'message' property
+    const message = data.message;
+    console.log("Message:", message);
+}).catch(function (error) {
+    // Handle any errors that occurred during the fetch
+    console.error('Error:', error);
+});
+
 /* using these two variables(labelClass, inputClass) for readability and consistency for input and label elements for the Health Biometric fields  */
 
 //adding styling for label of input
@@ -17,7 +40,6 @@ let lang = document.querySelector("#user-lang").innerText
 let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration', 'Activity', 'Medicine', 'Bowel Movements', 'Note'] 
 
 let entryTypeOptionsSpanish = ['Seleccionar Entrada', 'Sueño', 'Comida', 'Hidratación', 'Actividad', 'Medicina', 'Movimientos Intestinales', 'Nota']
-
 
 
 //calling add row function to create row 0 when page is loaded

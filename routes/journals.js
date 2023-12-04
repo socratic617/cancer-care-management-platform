@@ -9,4 +9,5 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 router.put("/updateFavorite", journalsController.updateFavorite);
 router.delete("/deleteJournal", journalsController.deleteJournal);
 router.post("/journal-entry", upload.single("file"), journalsController.postJournal);
+router.get("/apiQuote", journalsController.getQuote);
 module.exports = router;
