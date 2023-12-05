@@ -11,6 +11,24 @@ const newConfig = new Configuration({//SETTING UP OPEN AI
 });
 const openai = new OpenAIApi(newConfig);
 
+
+function extractFiveLongestWords(inputString) {
+  // Remove punctuation and split the string into an array of words
+  const words = inputString.replace(/[^\w\s]/g, '').split(/\s+/);
+
+  // Sort the words by length in descending order
+  const sortedWords = words.sort((a, b) => b.length - a.length);
+
+  // Take the first five words (the five longest)
+  const fiveLongestWords = sortedWords.slice(0, 5);
+
+  // Create a new string with the five longest words
+  const resultString = fiveLongestWords.join(' ');
+
+  return resultString;
+}
+
+
 //convert Date to mm/dd/yyyy
 function formatDate(date) {
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -66,10 +84,31 @@ module.exports = {
   },
   getQuote: async (req, res) => {
     try {
-      console.log('req.user : ')
+
+      console.log('starting API QUOTE req.user : ')
       console.log(req.user);
       
-      res.json({ message: "Request successful", userData: req.user });;//
+
+      const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" })//contains my array of journals
+    
+      // run quote if they have  a journal to take user info to produce qoute
+      let quote = "Your journal will stand as a chronicle of your growth, your hopes, your fears, your dreams, your ambitions, your sorrows, your serendipities."
+      if(journals.length > 0 ){
+        const latestJournalEntry = journals[0]//contains my most recent journal that i want for quote
+        const prompt = 'give me a single quote written by a famous person related to the following key words: cancer ' + extractFiveLongestWords(latestJournalEntry.description)
+        console.log(" BEGIN PROMPT")
+        console.log(prompt)
+        console.log(" END PROMPT")
+        const GPTOutput = await openai.createChatCompletion({//feeded it into chatgpt
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: prompt }], //content would be input form my mongoDB 
+        });
+        //i am changing the value of qoute to the output of chatgpt
+        quote = GPTOutput.data.choices[0].message.content; 
+
+        console.log(quote);
+      }
+      res.json({ message: "Request successful", userData: req.user, quote: quote  });
     } catch (err) {
       console.log(err);
     }
