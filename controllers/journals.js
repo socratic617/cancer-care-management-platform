@@ -86,7 +86,7 @@ module.exports = {
         const latestJournalEntry = journals[0]//contains my most recent journal that i want for quote
         const GPTOutput = await openai.createChatCompletion({//feeded it into chatgpt
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: 'give me a famous quote for a individual going through cancer based on the following key words:' + latestJournalEntry.description }], //content would be input form my mongoDB 
+          messages: [{ role: "user", content: 'give me a motivational quote that is no more than 200 characters long, to help someone feel better for a individual going through cancer based on their last journal entry:' + latestJournalEntry.description  }], //content would be input form my mongoDB 
         });
 
         //i am changing the value of qoute to the output of chatgpt
