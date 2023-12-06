@@ -44,7 +44,7 @@ Array.from(trash).forEach(function(element) {
 
 
 
-// Credit: ChatGPT and https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_list ; https://stackoverflow.com/questions/69288281/javascript-card-search-filter-card-overview-page
+// Credit: https://stackoverflow.com/questions/69288281/javascript-card-search-filter-card-overview-page
 document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('simple-search');
     input.addEventListener('input', search);
