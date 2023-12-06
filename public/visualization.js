@@ -1,4 +1,4 @@
-/* Source: Chatgpt  &#34; are quotes that were replaced.  
+/*   
   Use replace all to add back quote and JSON.parse to make string back to an object 
   in the process of getting the data from my visualization ejs file into the javascript
   all of the quotes were replaced with '&#34;' so what i am doing is replacing it back
@@ -9,7 +9,6 @@
 const serverJournalData = JSON.parse(serverData.replaceAll("&#34;", "\""));
 
 //PURPOSE: to create an array of dates that represents my most recent days
-//credit: Chatgpt
 function getPastXDatesAsArray(numberOfDays) {
   const today = new Date();
   const dateStrings = [];
@@ -52,7 +51,7 @@ for(let i = 0; i < pastSevenDaysLabels.length; i++){
 
 
   
-  /*looping through the dates of past 7 days to check for existing entry for mood/protein/fluidIntake
+  /*looping through the past 7 days to check for existing entry
   allows me to go through these journals from most recent entry to oldest entry 
   for that current date we are looking at from our 'pastSevenDaysLabel'*/
   for(const key in serverJournalData ){
@@ -140,7 +139,7 @@ const config = {
   type: 'doughnut',// type of visual to display
   data: data, //refers to the variable 
    options: {
-    responsive: true, //credit: ChatGPT
+    responsive: true, 
     maintainAspectRatio: false,
     plugins: {
         title: {
