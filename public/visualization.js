@@ -279,7 +279,7 @@ const configHydration = {
   type: 'bar',
   data: dataHydration,
   options: {
-    responsive: true, //credit: ChatGPT
+    responsive: true, 
     maintainAspectRatio: false,
     scales: {
       x: {
