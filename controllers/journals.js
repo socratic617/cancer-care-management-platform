@@ -48,18 +48,24 @@ module.exports = {
 
       //These two get the current date and the date from 7 days ago
       const currentDate = new Date();
+      console.log("currentDate in journals.js :")
+      console.log(currentDate)
+
       const sevenDaysAgo = new Date(currentDate);
       sevenDaysAgo.setDate(currentDate.getDate() - 7);
+      console.log("sevenDaysAgo journals.js :")
+      console.log(sevenDaysAgo)
 
       //gets me the past 7 days of journals from my MONGO DB
       const pastSevenDaysJournals = await Journal.find({
         entryDate: {//trying to find my past 7 day journals that dont have private mode
           $gte: formatDate(sevenDaysAgo),
-          $lt: formatDate(currentDate)
+          $lte: formatDate(currentDate)
         },
         privateMode: false //preventing display of highlighted post for private journals 
       });
-
+      console.log("pastsSevenDaysAgo journals.js")
+      console.log(pastSevenDaysJournals)
 
       //Goal: Get the journal with the most # of reactions.
       let mostLikedJournal = pastSevenDaysJournals[0]
@@ -71,6 +77,8 @@ module.exports = {
           mostLikedJournal = pastSevenDaysJournals[i]
         }
       }
+      console.log("mostLikedJournal in journals.js :")
+      console.log(mostLikedJournal)
 
       //sort journal entries and hide ones where private mode is on
       const journals = await Journal.find({ privateMode: false }).sort({ entryDate: "desc" }).lean();// go and find me the journals (entries that users inputted )
@@ -280,6 +288,8 @@ module.exports = {
         result,
         { upsert: true },//credit : https://stackoverflow.com/questions/7267102/how-do-i-update-upsert-a-document-in-mongoose
       );
+      let quote = null
+      try{
       //creating a new instance of an object and this object lets me to talk to open ai platform to make api calls(CRUD)
       const newConfig = new Configuration({//SETTING UP OPEN AI 
         apiKey: process.env.OPENAI_API_KEY
@@ -293,10 +303,12 @@ module.exports = {
         });
 
         //i am changing the value of qoute to the output of chatgpt
-       const quote = GPTOutput.data.choices[0].message.content;
+       quote = GPTOutput.data.choices[0].message.content;
 
-        console.log(quote);
-
+        console.log("quote in POSTJOURNAL :", quote);
+      } catch (err) { 
+        console.log(err)
+        }
       res.render("journal-entry.ejs", { user: req.user, quote: quote });
 
     } catch (err) {
