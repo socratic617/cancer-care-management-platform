@@ -1,5 +1,5 @@
 
-# Circle of Warriors
+# Circle of Warriors 
 
 This project is a Cancer Care Management Platform that allows people to share their experiences while managing their health and mental health related activites. This is especially useful for doctors to easily understand different aspects of the patient from the health, medicine intake and more.
 
@@ -77,4 +77,3 @@ Start the server
 - How to move over to a MVC model
 - More complex user authentication
 - How to make two way data binding with drop down menus for dynamic input fields in my Health Biometrics Field
-
