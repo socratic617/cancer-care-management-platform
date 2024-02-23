@@ -77,3 +77,9 @@ Start the server
 - How to move over to a MVC model
 - More complex user authentication
 - How to make two way data binding with drop down menus for dynamic input fields in my Health Biometrics Field
+
+## Photo
+
+![circle-of-warriors](https://github.com/socratic617/cancer-care-management-platform/assets/144078314/19f8dbf3-47e7-4cfb-8fd1-9900dd20b674)
+
+
