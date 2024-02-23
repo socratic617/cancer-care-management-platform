@@ -63,14 +63,14 @@ for(let i = 0; i < pastSevenDaysLabels.length; i++){
     let dateA = new Date(pastSevenDaysLabels[i])
     let dateB = new Date(serverJournalData[key].entryDate)
 
+    //*Need to fix this to be able to order entires for journals  */
     //checking to see if its not less then the dates for those 
-    if(dateB < dateA){
-      break;
-    }
-
+    // if(dateB < dateA){
+    //   console.log('breaking');
+    //   break;
+    // }
 
     if(serverJournalData[key].entryDate == pastSevenDaysLabels[i]){
-
 
       // if this label doesnt exist, create it 
       if(resultSevenDaysMood[serverJournalData[key].mood] == undefined ){
