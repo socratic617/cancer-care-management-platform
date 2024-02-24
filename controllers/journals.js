@@ -74,8 +74,6 @@ module.exports = {
       let quote = null; 
 
       const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" })//contains my array of journals
-
-      console.log('journals :', journals)
     
       // run quote if they have  a journal to take user info to produce qoute
       if(journals.length > 0 ){
