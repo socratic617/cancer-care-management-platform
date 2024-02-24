@@ -64,12 +64,10 @@ module.exports = {
   },
   getJournal: async (req, res) => {
     try {
-      console.log('req.user : ')
-      console.log(req.user);
 
-     /* ________________________________________
-      USING OPEN API FOR Quotes from journal entries form user
-      _____________________________________________________
+     /* _________________________________________________________
+         USING OPEN API FOR Quotes from journal entries form user
+        _________________________________________________________
       */
 
 
