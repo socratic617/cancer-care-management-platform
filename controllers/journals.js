@@ -25,8 +25,6 @@ module.exports = {
 
   getCommunity: async (req, res) => {//getCommunity is my method for journalsController 
     try {// is going to run the code and if error, itll exit my try and  go to my catch error
-      console.log('req.user : ')
-      console.log(req.user)
 
       //These two get the current date and the date from 7 days ago
       const currentDate = new Date();
