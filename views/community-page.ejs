@@ -150,58 +150,58 @@
 
         <!-- HIGHLIGHTED POST  -->
 
-        <div class="block mb-4 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ">
-          <h5 class="text-center mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">
-            Weekly Highlighted Post!
-          </h5>
-          <p class="font-normal text-gray-700 dark:text-gray-400">
-            <%= mostLikedJournal.description %>
-          </p>
-          <div class="mt-4 flex" >
-
-            <div class="flex-1 ">
-              <span
-                class="bg-pink-100 text-purple-800 text-s font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">
-              
-            
-                  <% if( mostLikedJournal.user['journal-user']=='Caregiver' || mostLikedJournal.user['caregiver-patient-name']=='' ){ %>
+        <% if( mostLikedJournal != undefined){ %>
+          <div
+            class="block mb-4 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ">
+            <h5 class="text-center mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">
+              Weekly Highlighted Post!
+            </h5>
+            <p class="font-normal text-gray-700 dark:text-gray-400">
+              <%= mostLikedJournal.description %>
+            </p>
+            <div class="mt-4 flex">
+          
+              <div class="flex-1 ">
+                <span class="bg-pink-100 text-purple-800 text-s font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">
+          
+                  <% if( mostLikedJournal.user['journal-user']=='Caregiver' || mostLikedJournal.user['caregiver-patient-name']==''
+                    ){ %>
                     <%=mostLikedJournal.user['warrior-name'] %>
                       <% } else{ %>
                         <%=mostLikedJournal.user['caregiver-patient-name'] %>
                           <% } %>
-         
-               
-              </span>
-              
-              <span
-                class="bg-purple-100 text-purple-800 text-s font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">
-                <%= mostLikedJournal.user["cancer-type"] %>
-              </span>
+                          
+                </span>
+          
+                <span
+                  class="bg-purple-100 text-purple-800 text-s font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">
+                  <%= mostLikedJournal.user["cancer-type"] %>
+                </span>
+              </div>
+          
+          
+              <%# THIS IS WHERE I HAVE STARRED FAVORITES AND UNSTARRED FAVORITES -->
+              <div class="" %>
+                <span class=" inline-flex items-right ">
+                  <% if(mostLikedJournal.reactions[user._id] !==undefined){ %>
+                    <i class="pointer favorite fas fa-heart" style="color: #db0000;" id="<%= mostLikedJournal._id %>">
+                    </i>
+                    <% } else{ %>
+                      <%# adding an event listener to i tag for favorite %>
+                        <i class="pointer favorite fas fa-heart " style="color:#585555;" id="<%= mostLikedJournal._id %>">
+                        </i>
+                        <% } %>
+                </span>
+                <%# turning user ids to an array using journals[i] and using .length method to get all user ids %>
+                <span class="ml-2 font-bold text-gray-900 dark:text-white ">
+                  <%= Object.keys(mostLikedJournal.reactions).length %>
+                </span>
+              </div>
             </div>
-
-
-            <!-- THIS IS WHERE I HAVE STARRED FAVORITES AND UNSTARRED FAVORITES -->
-            <div class="">
-              <span
-                class=" inline-flex items-right ">
-                <% if(mostLikedJournal.reactions[user._id] !==undefined){ %>
-                  <i class="pointer favorite fas fa-heart" style="color: #db0000;" id="<%= mostLikedJournal._id %>">
-                  </i>
-                  <% } else{ %>
-                    <%# adding an event listener to i tag for favorite %>
-                      <i class="pointer favorite fas fa-heart " style="color:#585555;" id="<%= mostLikedJournal._id %>">
-                      </i>
-                      <% } %>
-              </span>
-              <!-- turning user ids to an array using journals[i] and using .length method to get all user ids -->
-              <span
-                class="ml-2 font-bold text-gray-900 dark:text-white ">
-                <%= Object.keys(mostLikedJournal.reactions).length %>
-              </span>
-            </div>
+          
           </div>
+        <% } %>
 
-        </div>
 
 
 
