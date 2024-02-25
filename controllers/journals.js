@@ -28,6 +28,7 @@ module.exports = {
 
       //These two get the current date and the date from 7 days ago
       const currentDate = new Date();
+    
       const sevenDaysAgo = new Date(currentDate);
       sevenDaysAgo.setDate(currentDate.getDate() - 7);
 
@@ -35,11 +36,10 @@ module.exports = {
       const pastSevenDaysJournals = await Journal.find({
         entryDate: {//trying to find my past 7 day journals that dont have private mode
           $gte: formatDate(sevenDaysAgo),
-          $lt: formatDate(currentDate)
+          $lte: formatDate(currentDate)
         },
         privateMode: false //preventing display of highlighted post for private journals 
       });
-
 
       //Goal: Get the journal with the most # of reactions.
       let mostLikedJournal = pastSevenDaysJournals[0]
@@ -62,6 +62,31 @@ module.exports = {
       console.log(err);
     }
   },
+  getQuote: async (req, res) => {
+    try {
+
+      const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" })//contains my array of journals
+    
+      // run quote if they have  a journal to take user info to produce qoute
+      let quote = "Your journal will stand as a chronicle of your growth, your hopes, your fears, your dreams, your ambitions, your sorrows, your serendipities."
+      if(journals.length > 0 ){
+        const latestJournalEntry = journals[0]//contains my most recent journal that i want for quote
+        const prompt = 'give me a motivational quote that is no more than 200 characters long, to help someone feel better for a individual going through cancer based on their last journal entry:' + latestJournalEntry.description //content would be input form my mongoDB  ' + latestJournalEntry.description
+
+        const GPTOutput = await openai.createChatCompletion({//feeded it into chatgpt
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: prompt }], //content would be input form my mongoDB 
+        });
+        //i am changing the value of qoute to the output of chatgpt
+        quote = GPTOutput.data.choices[0].message.content; 
+
+        console.log(quote);
+      }
+      res.json({ message: "Request successful", userData: req.user, quote: quote  });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getJournal: async (req, res) => {
     try {
 
@@ -76,21 +101,21 @@ module.exports = {
       const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" })//contains my array of journals
     
       // run quote if they have  a journal to take user info to produce qoute
-      if(journals.length > 0 ){
-        const latestJournalEntry = journals[0]//contains my most recent journal that i want for quote
-        const GPTOutput = await openai.createChatCompletion({//feeded it into chatgpt
-          model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: 'give me a motivational quote that is no more than 200 characters long, to help someone feel better for a individual going through cancer based on their last journal entry:' + latestJournalEntry.description  }], //content would be input form my mongoDB 
-        });
+      // if(journals.length > 0 ){
+      //   const latestJournalEntry = journals[0]//contains my most recent journal that i want for quote
+      //   const GPTOutput = await openai.createChatCompletion({//feeded it into chatgpt
+      //     model: "gpt-3.5-turbo",
+      //     messages: [{ role: "user", content: 'give me a famous quote for a individual going through cancer based on the following key words:' + latestJournalEntry.description }], //content would be input form my mongoDB 
+      //   });
 
-        //i am changing the value of qoute to the output of chatgpt
-        quote = GPTOutput.data.choices[0].message.content; 
+      //   //i am changing the value of qoute to the output of chatgpt
+      //   quote = GPTOutput.data.choices[0].message.content; 
 
-        console.log(quote);
+      //   console.log(quote);
         
-      }
+      // }
 
-      res.render("journal-entry.ejs", { user: req.user, quote: quote });//
+      res.render("journal-entry.ejs", { user: req.user });//
     } catch (err) {
       console.log(err);
     }
@@ -225,6 +250,8 @@ module.exports = {
         result,
         { upsert: true },//credit : https://stackoverflow.com/questions/7267102/how-do-i-update-upsert-a-document-in-mongoose
       );
+      let quote = null
+      try{
       //creating a new instance of an object and this object lets me to talk to open ai platform to make api calls(CRUD)
       const newConfig = new Configuration({//SETTING UP OPEN AI 
         apiKey: process.env.OPENAI_API_KEY
@@ -238,10 +265,12 @@ module.exports = {
         });
 
         //i am changing the value of qoute to the output of chatgpt
-       const quote = GPTOutput.data.choices[0].message.content;
+       quote = GPTOutput.data.choices[0].message.content;
 
-        console.log(quote);
-
+        console.log("quote in POSTJOURNAL :", quote);
+      } catch (err) { 
+        console.log(err)
+        }
       res.render("journal-entry.ejs", { user: req.user, quote: quote });
 
     } catch (err) {
