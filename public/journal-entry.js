@@ -1,3 +1,15 @@
+async function loadQuote(){
+    const response = await fetch("/journals/apiQuote");
+    const quote = await response.json();
+    console.log(quote.quote);
+    document.getElementById('spinner').classList.add("hidden");
+    document.getElementById('affirmation').innerText = quote.quote
+        
+}
+// setTimeout (loadQuote, 4000)
+loadQuote()
+
+
 /* using these two variables(labelClass, inputClass) for readability and consistency for input and label elements for the Health Biometric fields  */
 
 //adding styling for label of input
@@ -19,7 +31,6 @@ let entryTypeOptions = ['Select Entry','Sleep', 'Food', 'Hydration', 'Activity',
 let entryTypeOptionsSpanish = ['Seleccionar Entrada', 'Sueño', 'Comida', 'Hidratación', 'Actividad', 'Medicina', 'Movimientos Intestinales', 'Nota']
 
 
-
 //calling add row function to create row 0 when page is loaded
 addRow()
 
@@ -28,12 +39,12 @@ document.querySelector('#add-entry').addEventListener('click', addRow)
 
 
 /* 
+* function that gets triggered as a callback when clicking button "add new row" 
 * @param 
 * @return 
 * */
-function addRow(){// function that gets triggered as a callback when clicking button "add new row" 
+function addRow(){ 
    
-
      //a unique identifier for each row to be able to add / delete row to update properly in server/backend 
     row_id++;
 
@@ -158,10 +169,11 @@ function displayDynamicInputFields(e){
 }
 
 /* 
+* helper functions are functions to help assist me with code  
 * @param 
 * @return 
 * */
-function createNoteInputs(index){//helper functions are functions to help assist me with code  
+function createNoteInputs(index){
 
     let noteLabel = lang == 'es' ? 'Entrada de Nota' : 'Note Entry';
     let note = createInputTextField("note", noteLabel, index);
@@ -257,7 +269,7 @@ function createSleepInputs(index){//helper functions are functions to help assis
 * @param 
 * @return 
 * */
-function createFoodInputs(index){//helper functions are functions to help assist me with code  
+function createFoodInputs(index){
 
     let foodLabel = lang == 'es' ? "Registro de alimentos" : "Food Entry";
 
@@ -276,7 +288,7 @@ function createFoodInputs(index){//helper functions are functions to help assist
 * @param 
 * @return 
 * */
-function createActivityInputs(index){//helper functions are 
+function createActivityInputs(index){
     
     // creating an array to be able to access easier options / or add options easier 
     let activityTypeOptions = ['Activity Type','Run', 'Walk', 'Bike', 'Yoga', 'Swim', 'Weight Lifting'] 
@@ -298,10 +310,13 @@ function createActivityInputs(index){//helper functions are
 }
 
 /* 
-* @param 
-* @return 
+* creates two divs (parent and grand parent )
+* @param id = string represents diff inputs for each field for entry type
+* @param index = number respresents each new row of info 
+* @param arrElements = objects (row)
+* @return new row 
 * */
-function createInputTemplate(id, index, arrElements){ // creates two divs (parent and grand parent )
+function createInputTemplate(id, index, arrElements){
 
     let parentDiv = document.createElement('div')
     parentDiv.className = 'grid grid-cols-3 gap-4'
@@ -413,10 +428,11 @@ function createDeleteButton(index){
 }
 
 /* 
+* @Description: helper functions are functions to help assist me with code  
 * @param 
 * @return 
 * */
-function createTimeInputs(index){//helper functions are functions to help assist me with code  
+function createTimeInputs(index){
     let timeEntryLabel = document.createElement('label')
     timeEntryLabel.className = labelClass
     timeEntryLabel.innerText = "Time"
@@ -440,10 +456,11 @@ function createTimeInputs(index){//helper functions are functions to help assist
 }
 
 /* 
+* @Description: creating a select inputs with the options 
 * @param 
 * @return 
 * */
-function createSelectInputs(name, labelText, optionsValue, options, index){// passing 4 params, //creating a select inputs with the options 
+function createSelectInputs(name, labelText, optionsValue, options, index){
 
     //creating select element
     let select = document.createElement('select')
