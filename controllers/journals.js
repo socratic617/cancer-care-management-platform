@@ -99,21 +99,6 @@ module.exports = {
       let quote = null; 
 
       const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" })//contains my array of journals
-    
-      // run quote if they have  a journal to take user info to produce qoute
-      // if(journals.length > 0 ){
-      //   const latestJournalEntry = journals[0]//contains my most recent journal that i want for quote
-      //   const GPTOutput = await openai.createChatCompletion({//feeded it into chatgpt
-      //     model: "gpt-3.5-turbo",
-      //     messages: [{ role: "user", content: 'give me a famous quote for a individual going through cancer based on the following key words:' + latestJournalEntry.description }], //content would be input form my mongoDB 
-      //   });
-
-      //   //i am changing the value of qoute to the output of chatgpt
-      //   quote = GPTOutput.data.choices[0].message.content; 
-
-      //   console.log(quote);
-        
-      // }
 
       res.render("journal-entry.ejs", { user: req.user });//
     } catch (err) {
@@ -122,15 +107,11 @@ module.exports = {
   },
   getVisualization: async (req, res) => {
     try {
-      console.log('req.user : ')
-      console.log(req.user)//safety net to know that it isnt an issue with my server it would be an issue how i requested 
 
       const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" }).lean();
-      console.log('journals :  ')
-      console.log(journals)
+     
       // res.json(journals)//data gets sent back to client side to refresh
       //TO CALL TO MY DATA BASE AND PASS IT TO RENDER 
-
       res.render("visualization.ejs", { user: req.user, journals: journals });
       // USING req. is always giving me something from client 
     } catch (err) {
@@ -139,12 +120,6 @@ module.exports = {
   },
   postJournal: async (req, res) => {
     try {
-      console.log('req.file: ')
-      console.log(req.file)
-      console.log('req.user : ')
-      console.log(req.user)
-      console.log('req.body : ')
-      console.log(req.body)
 
       //To Store Uploaded Image from entry to Cloudinary
       const imageResult = await cloudinary.uploader.upload(req.file.path);
@@ -250,28 +225,8 @@ module.exports = {
         result,
         { upsert: true },//credit : https://stackoverflow.com/questions/7267102/how-do-i-update-upsert-a-document-in-mongoose
       );
-      let quote = null
-      try{
-      //creating a new instance of an object and this object lets me to talk to open ai platform to make api calls(CRUD)
-      const newConfig = new Configuration({//SETTING UP OPEN AI 
-        apiKey: process.env.OPENAI_API_KEY
-      });
-      const openai = new OpenAIApi(newConfig);
-
-      // run quote if they have  a journal to take user info to produce qoute
-        const GPTOutput = await openai.createChatCompletion({//feeded it into chatgpt
-          model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: 'give me a famous quote based on the following key words:' + req.body.description}], //content would be input form my mongoDB 
-        });
-
-        //i am changing the value of qoute to the output of chatgpt
-       quote = GPTOutput.data.choices[0].message.content;
-
-        console.log("quote in POSTJOURNAL :", quote);
-      } catch (err) { 
-        console.log(err)
-        }
-      res.render("journal-entry.ejs", { user: req.user, quote: quote });
+     
+      res.render("journal-entry.ejs", { user: req.user});
 
     } catch (err) {
       console.log(err);
