@@ -1,11 +1,6 @@
 /*   
-  Use replace all to add back quote and JSON.parse to make string back to an object 
-  in the process of getting the data from my visualization ejs file into the javascript
-  all of the quotes were replaced with '&#34;' so what i am doing is replacing it back
-  to quotes
-  SIDE NOTE: if the user inserts quptes in the journall entry or a new line this line 
-  of data will not be able to be used for parsing the JSON aka it will break this line of code
-  'serverData' comes form my vsiualization ejs file */
+  Use replace all to add back quote and JSON.parse to make string back to an object in the process of getting the data from my visualization ejs file into the javascript all of the quotes were replaced with '&#34;' so what i am doing is replacing it back to quotes
+  SIDE NOTE: if the user inserts quotes in the journall entry or a new line this line of data will not be able to be used for parsing the JSON aka it will break this line of code 'serverData' comes form my vsiualization ejs file */
 const serverJournalData = JSON.parse(serverData.replaceAll("&#34;", "\""));
 
 //PURPOSE: to create an array of dates that represents my most recent days
@@ -39,7 +34,6 @@ const pastSevenDaysLabels = getPastXDatesAsArray(7).reverse();
 //hash tables each variable below holds data for visualization such as mood, hydration, protein 
 let resultSevenDaysMood = {}
 let resultSevenDaysHydration = {}
-// let resultSevenDaysFatigue = {}
 let resultSevenDaysProtein = {}
 
 //this is to loop through my recent 7 days for mood/fluidIntake/ProteinIntake
@@ -49,7 +43,6 @@ for(let i = 0; i < pastSevenDaysLabels.length; i++){
 
   resultSevenDaysProtein[pastSevenDaysLabels[i]] = null;
 
-
   
   /*looping through the past 7 days to check for existing entry
   allows me to go through these journals from most recent entry to oldest entry 
@@ -57,17 +50,10 @@ for(let i = 0; i < pastSevenDaysLabels.length; i++){
   for(const key in serverJournalData ){
 
     /*allows us to check for each date and if no match break and continue to next 
-    descending date until u get a match this prevents us from wasting time and resources 
+    descending date until you get a match this prevents us from wasting time and resources 
     looking at older entries from way back then when the scope is last 7 days not every day */
     let dateA = new Date(pastSevenDaysLabels[i])
     let dateB = new Date(serverJournalData[key].entryDate)
-
-    //*Need to fix this to be able to order entires for journals  */
-    //checking to see if its not less then the dates for those 
-    // if(dateB < dateA){
-    //   console.log('breaking');
-    //   break;
-    // }
 
     if(serverJournalData[key].entryDate == pastSevenDaysLabels[i]){
 
@@ -162,7 +148,7 @@ new Chart(
 
 let keysArrayProtein = Object.keys(resultSevenDaysProtein);
 
-// Remove the year from each date string and credit: chatGPT
+// Remove the year from each date string
 keysArrayProtein = keysArrayProtein.map(function(dateString) {
   let parts = dateString.split('/');
   return parts[0] + '/' + parts[1];
@@ -196,7 +182,7 @@ const configProtein = {
   type: 'line',
   data: dataProtein,
   options:{
-    responsive: true, //credit: ChatGPT
+    responsive: true, 
     maintainAspectRatio: false,
       scales: {
         x: {
