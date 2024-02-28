@@ -90,15 +90,10 @@ module.exports = {
   getJournal: async (req, res) => {
     try {
 
-     /* _________________________________________________________
-         USING OPEN API FOR Quotes from journal entries form user
-        _________________________________________________________
-      */
-
-
       let quote = null; 
 
-      const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" })//contains my array of journals
+      //contains my array of journals
+      const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" })
 
       res.render("journal-entry.ejs", { user: req.user });//
     } catch (err) {
@@ -108,12 +103,12 @@ module.exports = {
   getVisualization: async (req, res) => {
     try {
 
+      //create database call for journals
       const journals = await Journal.find({ creatorId: req.user.id }).sort({ entryDate: "desc" }).lean();
      
-      // res.json(journals)//data gets sent back to client side to refresh
-      //TO CALL TO MY DATA BASE AND PASS IT TO RENDER 
+      //render page
       res.render("visualization.ejs", { user: req.user, journals: journals });
-      // USING req. is always giving me something from client 
+
     } catch (err) {
       console.log(err);
     }
