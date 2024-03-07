@@ -47,13 +47,13 @@ This project is a Cancer Care Management Platform that allows people to share th
 Clone the project
 
 ```bash
-  git clone https://github.com/socratic617/circle-of-warriors.git
+  git clone https://github.com/socratic617/cancer-care-management-platform.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd circle-of-warriors
+  cd cancer-care-management-platform
 ```
 
 Install dependencies
